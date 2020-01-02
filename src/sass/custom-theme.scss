@@ -1,0 +1,37 @@
+$charset: "UTF-8";
+@import "variables.scss";
+
+header {
+  background: linear-gradient(200deg, $color6, $color6-gradient-end) !important;
+  h1 {
+    color: $color6-invert !important;
+  }
+  .header-title a {
+    text-decoration: none;
+    color: $color6-invert;
+    font-size: 2.5rem;
+    max-width: 90%;
+    margin: 0 auto;
+  }
+}
+
+.post-link a.read-more {
+  color: $color6-invert !important;
+  border-radius: 3px;
+  padding: 10px !important;
+  &:hover {
+    background: lighten($color6, 10%) !important;
+  }
+}
+
+.list-posts h2.title a,
+.recent-post a {
+  text-decoration: none;
+  color: $color0;
+}
+
+// le titre d'un post doit être une balise h1
+.post.full h1.title {
+  font-size: 1.5rem;
+  text-align: left;
+}

@@ -16,6 +16,7 @@ $color3: #a6671d;
 $color4: rgba($color0, 0.8);
 $color5: #d1d1d1;
 $color6: #ececec;
+$color6-invert: white;
 
 /************************************************/
 
@@ -25,3 +26,5 @@ $screen_md: 1450px;
 $screen_sm: 1000px;
 $screen_xs: 768px;
 $screen_xs2: 650px;
+
+@import "custom-variables.scss";
