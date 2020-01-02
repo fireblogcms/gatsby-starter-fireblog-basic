@@ -1,0 +1,28 @@
+$charset: "UTF-8";
+@import "variables.scss";
+
+.list-posts h2.title a {
+  color: $color0;
+  text-decoration: none;
+}
+
+.recent-post a {
+  color: $color0;
+  text-decoration: none;
+}
+
+// sur la liste des posts, le nom du blog est un
+// dans un simple div "header-title" et plus dans une balise h1
+.header-title a {
+  text-decoration: none;
+  color: $color0;
+  font-size: 2.5rem;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+// le titre d'un post doit être une balise h1
+.post.full h1.title {
+  font-size: 1.5rem;
+  text-align: left;
+}
