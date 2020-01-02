@@ -14,6 +14,7 @@ function PostTemplate({ data, location }) {
         title={post.title}
         description={post.teaser}
         slug={post.slug}
+        image={post.image ? post.image.url : null}
       />
       <div className="post full">
         <div className="post-title">

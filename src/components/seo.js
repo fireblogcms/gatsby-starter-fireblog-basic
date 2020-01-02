@@ -4,10 +4,9 @@ import Helmet from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
 
 function SEO({
-  description,
-  lang,
-  meta,
-  keywords,
+  description = null,
+  lang = null,
+  keywords = [],
   title,
   location,
   image = null
@@ -25,15 +24,17 @@ function SEO({
         blog {
           name
           description
-          image
+          image {
+            url
+          }
         }
       }
     }
   `);
 
   const blog = data.fireblog.blog;
-  if (!image) {
-    image = blog.image;
+  if (!image && blog.image && blog.image.url) {
+    image = blog.image.url;
   }
   if (!lang) {
     // if blog did not defined a contentDefaultLocale, use the one defined in gatsby-config.js.
@@ -67,10 +68,6 @@ function SEO({
       content: `summary`
     },
     {
-      name: `twitter:creator`,
-      content: data.site.siteMetadata.author
-    },
-    {
       name: `twitter:title`,
       content: title
     },
@@ -79,7 +76,6 @@ function SEO({
       content: metaDescription
     }
   ];
-
   if (image) {
     meta.push({
       property: `og:image`,
@@ -88,6 +84,12 @@ function SEO({
     meta.push({
       property: `twitter:image`,
       content: image
+    });
+  }
+  if (keywords.length > 0) {
+    meta.push({
+      name: "keywords",
+      content: keywords.join(", ")
     });
   }
 
@@ -108,30 +110,14 @@ function SEO({
           href: `${siteUrl}/amp${path}`
         }
       ]}
-      meta={meta
-        .concat(
-          keywords.length > 0
-            ? {
-                name: `keywords`,
-                content: keywords.join(`, `)
-              }
-            : []
-        )
-        .concat(meta)}
+      meta={meta}
     />
   );
 }
 
-SEO.defaultProps = {
-  lang: "",
-  meta: [],
-  keywords: []
-};
-
 SEO.propTypes = {
   description: PropTypes.string,
   lang: PropTypes.string,
-  meta: PropTypes.array,
   keywords: PropTypes.arrayOf(PropTypes.string),
   title: PropTypes.string.isRequired
 };
