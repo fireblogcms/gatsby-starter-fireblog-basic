@@ -3,7 +3,15 @@ import PropTypes from "prop-types";
 import Helmet from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
 
-function SEO({ description, lang, meta, keywords, title, location }) {
+function SEO({
+  description,
+  lang,
+  meta,
+  keywords,
+  title,
+  location,
+  image = null
+}) {
   const path = location.pathname;
   const data = useStaticQuery(graphql`
     query DefaultSEOQuery {
@@ -17,12 +25,16 @@ function SEO({ description, lang, meta, keywords, title, location }) {
         blog {
           name
           description
+          image
         }
       }
     }
   `);
 
   const blog = data.fireblog.blog;
+  if (!image) {
+    image = blog.image;
+  }
   if (!lang) {
     // if blog did not defined a contentDefaultLocale, use the one defined in gatsby-config.js.
     lang =
@@ -32,6 +44,52 @@ function SEO({ description, lang, meta, keywords, title, location }) {
   }
   const metaDescription = description || blog.description;
   const siteUrl = data.site.siteMetadata.siteUrl;
+
+  const meta = [
+    {
+      name: `description`,
+      content: metaDescription
+    },
+    {
+      property: `og:title`,
+      content: title
+    },
+    {
+      property: `og:description`,
+      content: metaDescription
+    },
+    {
+      property: `og:type`,
+      content: `website`
+    },
+    {
+      name: `twitter:card`,
+      content: `summary`
+    },
+    {
+      name: `twitter:creator`,
+      content: data.site.siteMetadata.author
+    },
+    {
+      name: `twitter:title`,
+      content: title
+    },
+    {
+      name: `twitter:description`,
+      content: metaDescription
+    }
+  ];
+
+  if (image) {
+    meta.push({
+      property: `og:image`,
+      content: image
+    });
+    meta.push({
+      property: `twitter:image`,
+      content: image
+    });
+  }
 
   return (
     <Helmet
@@ -50,40 +108,7 @@ function SEO({ description, lang, meta, keywords, title, location }) {
           href: `${siteUrl}/amp${path}`
         }
       ]}
-      meta={[
-        {
-          name: `description`,
-          content: metaDescription
-        },
-        {
-          property: `og:title`,
-          content: title
-        },
-        {
-          property: `og:description`,
-          content: metaDescription
-        },
-        {
-          property: `og:type`,
-          content: `website`
-        },
-        {
-          name: `twitter:card`,
-          content: `summary`
-        },
-        {
-          name: `twitter:creator`,
-          content: data.site.siteMetadata.author
-        },
-        {
-          name: `twitter:title`,
-          content: title
-        },
-        {
-          name: `twitter:description`,
-          content: metaDescription
-        }
-      ]
+      meta={meta
         .concat(
           keywords.length > 0
             ? {

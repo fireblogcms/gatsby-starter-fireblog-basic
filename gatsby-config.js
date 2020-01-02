@@ -1,6 +1,6 @@
 require("dotenv").config();
 
-module.exports = {
+const config = {
   siteMetadata: {
     // default language of your site, used as a html attribute
     lang: "en",
@@ -37,12 +37,6 @@ module.exports = {
       options: {
         path: `${__dirname}/content/assets`,
         name: `assets`
-      }
-    },
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        //trackingId: `ADD YOUR TRACKING ID HERE`,
       }
     },
     `gatsby-transformer-sharp`,
@@ -87,7 +81,7 @@ module.exports = {
             }
           `,
             output: "/rss.xml",
-            title: "Gatsby RSS Feed"
+            title: "Fireblog RSS Feed"
           }
         ]
       }
@@ -97,7 +91,7 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `Fireblog Starter Blog`,
-        short_name: `Fireblog Gatbsy Blog`,
+        short_name: `Fireblog Starter Blog`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,
@@ -122,3 +116,14 @@ module.exports = {
     `gatsby-plugin-react-helmet`
   ]
 };
+
+if (process.env.GOOGLE_ANALYTICS_TRACKING_ID) {
+  config.plugins.push({
+    resolve: `gatsby-plugin-google-analytics`,
+    options: {
+      trackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID
+    }
+  });
+}
+
+module.exports = config;

@@ -18,6 +18,7 @@ This starter has AMP to PWA Strategy (a.k.a. AMP as entry point into your PWA). 
 - PWA (Progessive Web App)
 - AMP support
 - Images optimization with gatsby-image when possible
+- Google Analytics
 - Social metatags for twitter, facebook, linkedin etc
 
 ## Getting started
