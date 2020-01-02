@@ -6,6 +6,7 @@ import Img from "gatsby-image";
 
 function PostTemplate({ data, location }) {
   const { blog, post } = data.fireblog;
+  const { displayAuthor } = data.site.siteMetadata;
   return (
     <Layout location={location} headerTitle={blog.name}>
       <SEO
@@ -34,10 +35,12 @@ function PostTemplate({ data, location }) {
           className="post-detail"
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
-        <div className="post-author">
-          {post.author.picture && <img src={post.author.picture} />}
-          <span className="name">{post.author.name}</span>
-        </div>
+        {displayAuthor && (
+          <div className="post-author">
+            {post.author.picture && <img src={post.author.picture} />}
+            <span className="name">{post.author.name}</span>
+          </div>
+        )}
       </div>
     </Layout>
   );
@@ -47,6 +50,11 @@ export default PostTemplate;
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
+    site {
+      siteMetadata {
+        displayAuthor
+      }
+    }
     fireblog {
       blog {
         name

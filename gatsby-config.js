@@ -2,14 +2,21 @@ require("dotenv").config();
 
 module.exports = {
   siteMetadata: {
-    postsPerPage: 2,
+    // default language of your site, used as a html attribute
     lang: "en",
+    postsPerPage: 20,
+    // absolute url of your site, e.g https://example.com. Required
+    // to build some links for AMP and PWA.
     siteUrl: process.env.SITE_URL,
+    // links to your social accounts.
+    // @see components/socials.js
     socials: {
       linkedin: "https://www.linkedin.com",
       instagram: "https://www.instagram.com",
       twitter: "https://www.twitter.com"
-    }
+    },
+    // hide or display post author.
+    displayAuthor: true
   },
   plugins: [
     `gatsby-plugin-sass`,

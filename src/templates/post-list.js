@@ -62,6 +62,7 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         postsPerPage
+        displayAuthor
       }
     }
     fireblog {
