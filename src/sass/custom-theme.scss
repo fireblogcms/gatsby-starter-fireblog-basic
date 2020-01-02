@@ -5,8 +5,10 @@ header {
   background: linear-gradient(100deg, $color6, darken($color6, 5%)) !important;
   h1 {
     color: $color6-invert !important;
+    font-weight: bold;
   }
   .header-title a {
+    font-weight: bold;
     text-decoration: none;
     color: $color6-invert;
     font-size: 2.5rem;
@@ -24,14 +26,13 @@ header {
   }
 }
 
-.list-posts h2.title a,
+.list-posts h2 a,
 .recent-post a {
   text-decoration: none;
   color: $color0;
 }
 
 // le titre d'un post doit être une balise h1
-.post.full h1.title {
-  font-size: 1.5rem;
+.post.full .post-title h1 {
   text-align: left;
 }

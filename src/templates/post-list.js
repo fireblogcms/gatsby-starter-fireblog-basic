@@ -28,7 +28,7 @@ function PostListTemplate({ data, location, pageContext }) {
                 )}
               </div>
               <div className="post-title">
-                <h2 className="title">
+                <h2>
                   <Link to={`/post/${edge.node.slug}`}>{edge.node.title}</Link>
                 </h2>
               </div>

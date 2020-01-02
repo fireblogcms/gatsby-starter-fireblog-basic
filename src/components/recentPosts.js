@@ -6,7 +6,7 @@ function RecentPosts() {
   const data = useStaticQuery(graphql`
     query {
       fireblog {
-        posts(last: 5) {
+        posts(last: 10) {
           edges {
             node {
               title

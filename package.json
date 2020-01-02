@@ -27,7 +27,8 @@
     "prismjs": "^1.15.0",
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
-    "react-helmet": "^5.2.0"
+    "react-helmet": "^5.2.0",
+    "typeface-roboto": "^0.0.75"
   },
   "keywords": [
     "fireblog",
