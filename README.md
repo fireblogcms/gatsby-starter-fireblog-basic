@@ -22,30 +22,31 @@ This starter has AMP to PWA Strategy (a.k.a. AMP as entry point into your PWA). 
 
 ## Getting started
 
-node >= 10.13 is required.
+### Requirements
 
-> I recommend using "nvm" if you need to install node : https://github.com/nvm-sh/nvm/blob/master/README.md
-> It allows you to install and use the node version of your choice easily.
+node.js >= 10.13 is required. You might be interested in using "nvm" to install node and switch easily between different node versions.
 
-Use gatsby package to create your new fireblog:
+### Installation
+
+1. Download and execute Gatsby to create our blog:
 
 ```bash
 $ npx gatsby new fireblog https://github.com/fireblogcms/gatsby-starter-fireblog-firestarter
 $ cd fireblog
 ```
 
-Now create a `.env` file and fill all the required variables from `.env.template` file.
+2. Create a `.env` file and fill all the variables from `.env.template` file.
 
 Running the dev server:
 
 ```bash
-$ yarn develop
+$ npm run develop
 ```
 
 Build and serve the production files:
 
 ```bash
-$ yarn run build && yarn run serve
+$ npm run build && npm run serve
 ```
 
 You can check articles in following URLs.
