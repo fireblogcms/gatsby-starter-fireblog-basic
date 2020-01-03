@@ -6,13 +6,13 @@ import Pagination from "../components/Pagination";
 import ImgNonStreched from "../components/ImgNonStreched";
 
 function PostListTemplate({ data, location, pageContext }) {
-  const siteTitle = data.fireblog.blog.name;
+  const title = data.fireblog.blog.name;
   const postsPerPage = data.site.siteMetadata.postsPerPage;
 
   const edges = data.fireblog.posts.edges;
   return (
-    <Layout location={location} headerTitle={siteTitle}>
-      <SEO location={location} title="all posts" />
+    <Layout location={location} headerTitle={`${title} | all posts`}>
+      <SEO location={location} title={title} />
       <div className="list-posts">
         {edges.map(edge => {
           return (

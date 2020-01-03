@@ -99,7 +99,6 @@ function SEO({
         lang
       }}
       title={title}
-      titleTemplate={`%s | ${blog.name}`}
       link={[
         {
           rel: "canonical",
