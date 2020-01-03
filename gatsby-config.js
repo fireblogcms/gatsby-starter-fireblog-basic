@@ -113,7 +113,14 @@ config.plugins = [
     }
   },
   `gatsby-plugin-offline`,
-  `gatsby-plugin-react-helmet`
+  `gatsby-plugin-react-helmet`,
+  {
+    resolve: "gatsby-plugin-load-script",
+    options: {
+      disable: !process.env.GATSBY_IFRAMELY_API_KEY, // When do you want to disable it ?
+      src: `https://cdn.iframe.ly/embed.js?api_key=${process.env.GATSBY_IFRAMELY_API_KEY}`
+    }
+  }
 ];
 
 if (process.env.GATSBY_GOOGLE_ANALYTICS_TRACKING_ID) {

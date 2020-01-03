@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ImgNonStreched from "./ImgNonStreched";
 import Layout from "./layout";
 import SEO from "./seo";
 
 function PostDetail({ post, blog, location, siteMetadata, preview = false }) {
+  useEffect(() => {
+    // display rich links preview with iframely
+    if (window.iframely && process.env.GATSBY_IFRAMELY_API_KEY) {
+      document.querySelectorAll("oembed[url]").forEach(element => {
+        window.iframely.load(element, element.attributes.url.value);
+      });
+    }
+  });
+
   const { displayAuthor } = siteMetadata;
   return (
     <Layout location={location} headerTitle={blog.name}>

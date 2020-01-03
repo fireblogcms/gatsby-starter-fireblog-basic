@@ -1,10 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { Link } from "gatsby";
 import RecentPosts from "./recentPosts";
 import Socials from "./socials";
+import { Helmet } from "react-helmet";
 
 function Layout({ children, headerTitle, location }) {
+  /*
+  useEffect(() => {
+    // display rich links preview with iframely
+    if (iframely && process.env.GATSBY_IFRAMELY_API_KEY) {
+      this.$refs.content.querySelectorAll("oembed[url]").forEach(element => {
+        iframely.load(element, element.attributes.url.value);
+      });
+    }
+  });
+  */
   let headerContent;
   if (location.pathname === "/") {
     headerContent = <h1>{headerTitle}</h1>;
