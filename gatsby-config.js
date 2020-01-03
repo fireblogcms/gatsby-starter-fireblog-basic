@@ -10,13 +10,14 @@ const config = {
     siteUrl: process.env.SITE_URL,
     // links to your social accounts.
     // @see components/socials.js
+    // Use an empty string as value to disable a specific social network
     socials: {
       linkedin: "https://www.linkedin.com",
       instagram: "https://www.instagram.com",
       twitter: "https://www.twitter.com"
     },
     // hide or display post author.
-    displayAuthor: true
+    displayAuthor: false
   },
   plugins: [
     `gatsby-plugin-sass`,

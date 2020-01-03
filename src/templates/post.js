@@ -2,7 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-import Img from "gatsby-image";
+import ImgNonStreched from "../components/ImgNonStreched";
 
 function PostTemplate({ data, location }) {
   const { blog, post } = data.fireblog;
@@ -26,7 +26,7 @@ function PostTemplate({ data, location }) {
 
         {post.image.url && (
           <div className="post-image">
-            <Img
+            <ImgNonStreched
               fluid={post.gatsbyImage.childImageSharp.fluid}
               alt={post.image.alt}
             />
@@ -71,6 +71,7 @@ export const pageQuery = graphql`
           childImageSharp {
             fluid(maxWidth: 1000) {
               ...GatsbyImageSharpFluid_withWebp
+              presentationWidth
             }
           }
         }

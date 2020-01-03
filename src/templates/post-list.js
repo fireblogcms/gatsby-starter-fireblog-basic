@@ -3,7 +3,7 @@ import { graphql, Link } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Pagination from "../components/Pagination";
-import Img from "gatsby-image";
+import ImgNonStreched from "../components/ImgNonStreched";
 
 function PostListTemplate({ data, location, pageContext }) {
   const siteTitle = data.fireblog.blog.name;
@@ -20,7 +20,7 @@ function PostListTemplate({ data, location, pageContext }) {
               <div className="post-image" style={{ minWidth: "268px" }}>
                 {edge.node.gatsbyImage && (
                   <Link to={`/post/${edge.node.slug}`}>
-                    <Img
+                    <ImgNonStreched
                       fluid={edge.node.gatsbyImage.childImageSharp.fluid}
                       alt={edge.node.image.alt}
                     />
@@ -89,6 +89,7 @@ export const pageQuery = graphql`
               childImageSharp {
                 fluid(maxWidth: 800, maxHeight: 800) {
                   ...GatsbyImageSharpFluid_withWebp
+                  presentationWidth
                 }
               }
             }
