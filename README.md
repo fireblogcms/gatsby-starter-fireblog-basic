@@ -40,9 +40,9 @@ $ cd fireblog
 
 2. Create a `.env` file and fill the variables from `.env.template` file.
 
-- SITE_URL : the absolute URL of your site. For localhost, it will be "http://localhost:8000"
-- FIREBLOG_GRAPHQL_ENDPOINT : url of your fireblog API. If not specified, a demo blog will be used so that you can try fireblog without creating an account.
-- GOOGLE_ANALYTICS_TRACKING_ID : enable google analytics stats.
+- GATSBY_SITE_URL : the absolute URL of your site. For localhost, it will be "http://localhost:8000"
+- GATSBY_FIREBLOG_GRAPHQL_ENDPOINT : url of your fireblog API. If not specified, a demo blog will be used so that you can try fireblog without creating an account.
+- GATSBY_GOOGLE_ANALYTICS_TRACKING_ID : enable google analytics stats.
 
 Running the dev server:
 

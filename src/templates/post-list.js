@@ -11,8 +11,8 @@ function PostListTemplate({ data, location, pageContext }) {
 
   const edges = data.fireblog.posts.edges;
   return (
-    <Layout location={location} headerTitle={`${title} | all posts`}>
-      <SEO location={location} title={title} />
+    <Layout location={location} headerTitle={title}>
+      <SEO location={location} title={`${title} | all posts`} />
       <div className="list-posts">
         {edges.map(edge => {
           return (

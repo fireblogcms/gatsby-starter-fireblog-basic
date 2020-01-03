@@ -11,7 +11,7 @@ config.siteMetadata = {
   postsPerPage: 20,
   // absolute url of your site, e.g https://example.com. Required
   // to build some links for AMP and PWA.
-  siteUrl: process.env.SITE_URL,
+  siteUrl: process.env.GATSBY_SITE_URL,
   // links to your social accounts.
   // @see components/socials.js
   // Use an empty string as value to disable a specific social network
@@ -35,8 +35,8 @@ config.plugins = [
       // This is field under which it's accessible
       fieldName: "fireblog",
       // Url to query from. Use default demo blog if no env variable is found.
-      url: process.env.FIREBLOG_GRAPHQL_ENDPOINT
-        ? process.env.FIREBLOG_GRAPHQL_ENDPOINT
+      url: process.env.GATSBY_FIREBLOG_GRAPHQL_ENDPOINT
+        ? process.env.GATSBY_FIREBLOG_GRAPHQL_ENDPOINT
         : "https://api.fireblogcms.com/graphql/blog/5e0cc6b2c96420000444d376"
     }
   },
@@ -106,8 +106,8 @@ config.plugins = [
       gaConfigPath: "gaConfig.json",
       dist: "public/amp",
       serviceWorker: {
-        src: `https://${process.env.SITE_URL}/sw.js`,
-        "data-iframe-src": `https://${process.env.SITE_URL}/amp-install-serviceworker.html`,
+        src: `https://${process.env.GATSBY_SITE_URL}/sw.js`,
+        "data-iframe-src": `https://${process.env.GATSBY_SITE_URL}/amp-install-serviceworker.html`,
         layout: "nodisplay"
       }
     }
@@ -116,11 +116,11 @@ config.plugins = [
   `gatsby-plugin-react-helmet`
 ];
 
-if (process.env.GOOGLE_ANALYTICS_TRACKING_ID) {
+if (process.env.GATSBY_GOOGLE_ANALYTICS_TRACKING_ID) {
   config.plugins.push({
     resolve: `gatsby-plugin-google-analytics`,
     options: {
-      trackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID
+      trackingId: process.env.GATSBY_GOOGLE_ANALYTICS_TRACKING_ID
     }
   });
 }
