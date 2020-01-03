@@ -31,7 +31,7 @@ const config = {
         // Url to query from. Use default demo blog if no env variable is found.
         url: process.env.FIREBLOG_GRAPHQL_ENDPOINT
           ? process.env.FIREBLOG_GRAPHQL_ENDPOINT
-          : "https://api.fireblogcms.com/graphql/blog/5de7a2934360f60004130881"
+          : "https://api.fireblogcms.com/graphql/blog/5e0cc6b2c96420000444d376"
       }
     },
     {
