@@ -1,5 +1,5 @@
 /**
- * This page is only here for real-time preview inside fireblog.
+ * [WIP] This page is only here for real-time preview inside fireblog.
  * The "real" gatbsy page for post is "templates/post.js"
  */
 import React, { useState, useEffect } from "react";
@@ -56,9 +56,8 @@ function PreviewPost({ location }) {
   useEffect(() => {
     fetchPost(id).then(result => {
       setData(result.data);
-      console.log("result", result);
     });
-  }, []);
+  }, [id]);
 
   return (
     <div>
