@@ -38,7 +38,7 @@ function PostTemplate({ data, location }) {
         />
         {displayAuthor && (
           <div className="post-author">
-            {post.author.picture && <img src={post.author.picture} />}
+            {post.author.picture && <img alt="" src={post.author.picture} />}
             <span className="name">{post.author.name}</span>
           </div>
         )}
@@ -78,13 +78,6 @@ export const pageQuery = graphql`
         author {
           name
           picture
-          gatsbyPicture {
-            childImageSharp {
-              fluid(maxWidth: 100) {
-                ...GatsbyImageSharpFluid_withWebp
-              }
-            }
-          }
         }
       }
     }

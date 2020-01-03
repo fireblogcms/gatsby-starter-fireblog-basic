@@ -1,12 +1,12 @@
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 
-# Firestarter: a Gatsby's blog starter for fireblog 🔥 with AMP & PWA support
+# Firestarter: a Gatsby's blog starter for Fireblog 🔥 with AMP & PWA support
 
-Fireblog is a new headless CMS dedicated to blogging, you can try it here for free : https://fireblogcms.com/
+Stop loosing readers because your blog is too slow: firestarter combine Gatbsy (A modern static site generator ideal for JAMstack architectures) and Fireblog to offer a new blog experience : a super fast and simple back-office with a super fast and modern front-end !
 
-We believe JAMstack is today one of the best way to manage a professionnal blog, so this is a Gatbsy open source starter to get you started quickly with fireblog. There is still room for improvments but we are working on it !
+Fireblog is a new headless CMS fully dedicated to blogging, you can try it here for free : https://fireblogcms.com/
 
-This started has been forked from [here](https://github.com/gatsbyjs/gatsby-starter-blog) and here [here](https://github.com/tomoyukikashiro/gatsby-starter-blog-amp-to-pwa) , thanks guys for your awesome work !
+This starter has been forked from [here](https://github.com/gatsbyjs/gatsby-starter-blog) and here [here](https://github.com/tomoyukikashiro/gatsby-starter-blog-amp-to-pwa) , thanks guys for your awesome work !
 
 ## AMP to PWA
 

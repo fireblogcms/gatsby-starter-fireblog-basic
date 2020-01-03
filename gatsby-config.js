@@ -28,8 +28,10 @@ const config = {
         typeName: "Fireblog",
         // This is field under which it's accessible
         fieldName: "fireblog",
-        // Url to query from
+        // Url to query from. Use default demo blog if no env variable is found.
         url: process.env.FIREBLOG_GRAPHQL_ENDPOINT
+          ? process.env.FIREBLOG_GRAPHQL_ENDPOINT
+          : "https://api.fireblogcms.com/graphql/blog/5de7a2934360f60004130881"
       }
     },
     {
