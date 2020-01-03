@@ -25,7 +25,9 @@ This starter has AMP to PWA Strategy (a.k.a. AMP as entry point into your PWA). 
 
 ### Requirements
 
-node.js >= 10.13 is required. You might be interested in using "nvm" to install node and switch easily between different node versions.
+node.js >= 10.13 is required. Make sure you have a compatible version running `node -v` command in your terminal.
+
+If you have to install node, you might be interested in using _nvm_ to install and switch easily between any node version.
 
 ### Installation
 
