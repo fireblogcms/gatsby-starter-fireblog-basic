@@ -182,7 +182,7 @@ section.content {
   display: grid;
   grid-column-gap: 40px;
 
-  &:nth-child(even) {
+  &:nth-child(odd) {
     grid-template-areas:
       "image title"
       "image date"
@@ -195,7 +195,7 @@ section.content {
     }
   }
 
-  &:nth-child(odd) {
+  &:nth-child(even) {
     grid-template-areas:
       "title image"
       "date image"
