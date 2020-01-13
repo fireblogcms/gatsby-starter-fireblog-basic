@@ -6,7 +6,7 @@ $dir_img: "../images/";
 $font1: "Roboto", sans-serif;
 $font2: "Roboto", sans-serif;
 
-/****************** == Variables *******************/
+/****************** == Color *******************/
 $color0: black;
 $color1: white;
 $color2: green;
@@ -15,6 +15,13 @@ $color4: rgba($color0, 0.8);
 $color5: #d1d1d1;
 $color6: #ececec;
 $color6-invert: white;
+$color7:#e3336d;
+$color8:#f69029;
+
+/****************** == Custom color *******************/
+$color-h1:$color1;
+$color-header-left:$color7;
+$color-header-right:$color8;
 
 /************************************************/
 
@@ -25,4 +32,4 @@ $screen_sm: 1000px;
 $screen_xs: 768px;
 $screen_xs2: 650px;
 
-@import "custom-variables.scss";
+

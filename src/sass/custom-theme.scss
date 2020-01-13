@@ -2,11 +2,7 @@ $charset: "UTF-8";
 @import "variables.scss";
 
 header {
-  background: linear-gradient(
-    100deg,
-    rgb(217, 49, 106),
-    darken(rgb(217, 49, 106), 5%)
-  ) !important;
+  
   h1 {
     color: white;
     font-weight: bold;
