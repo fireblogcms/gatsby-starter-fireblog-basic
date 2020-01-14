@@ -32,16 +32,16 @@ function PostListTemplate({ data, location, pageContext }) {
                   <Link to={`/post/${edge.node.slug}`}>{edge.node.title}</Link>
                 </h2>
               </div>
-              <div className="post-date">
-                {new Date(edge.node.publishedAt).toLocaleDateString()}
-              </div>
-              <div className="post-teaser">
-                <p>{edge.node.teaser}</p>
-              </div>
-              <div className="post-link">
-                <Link className="read-more" to={`/post/${edge.node.slug}`}>
-                  Read more
-                </Link>
+                <div className="post-date">
+                  {new Date(edge.node.publishedAt).toLocaleDateString()}
+                </div>
+                  <div className="post-teaser">
+                    <p>{edge.node.teaser}</p>
+                  </div>
+                  <div className="post-link">
+                    <Link className="read-more" to={`/post/${edge.node.slug}`}>
+                      Read more
+                    </Link>
               </div>
             </div>
           );

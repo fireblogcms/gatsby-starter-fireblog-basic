@@ -18,13 +18,17 @@ h6 {
   font-weight: 400;
 }
 
-h1 {
+h1,.header-title {
   color: $color-h1;
   font-size: 2.5rem;
   font-weight:700;
   max-width: 90%;
   margin: 0 auto;
   text-align: center;
+  a{
+    text-decoration: none;
+    color: $color-h1;
+  }
 }
 
 .post-title{
@@ -33,7 +37,7 @@ h1 {
   }
 }
 
-h2.title {
+h2 {
   font-size: 1.5rem;
   padding: 0;
   margin: 0;
@@ -55,12 +59,16 @@ h6 {
   font-size: 1.2rem;
 }
 
-p a {
+p{
+    font-weight: 300;
+    line-height: 22px;
+    font-size: 0.95rem;
+  a {
   color: $color0;
-}
-
-p strong {
-  font-weight: 500;
+  }
+  strong {
+    font-weight: 500;
+  }
 }
 
 img {
@@ -176,14 +184,6 @@ section.content {
 }
 
 .post {
-  .post-teaser {
-    p {
-      font-weight: 300;
-      line-height: 25px;
-      font-size: 0.95rem;
-      text-align: justify;
-    }
-  }
 
   .post-link {
     margin-bottom: 10px;
@@ -194,12 +194,12 @@ section.content {
       text-decoration: none;
       color: $color0;
       font-size: 0.9rem;
-      background: $color6;
+      background: rgba($color-header-right,0.2);
       padding: 4px 14px;
       transition: background ease 0.5s;
 
       &:hover {
-        background: rgba($color4, 0.3);
+        background: rgba($color-header-right,0.6);
       }
     }
   }
@@ -210,7 +210,7 @@ section.content {
   display: grid;
   grid-column-gap: 40px;
 
-  &:nth-child(odd) {
+  &:nth-child(even) {
     grid-template-areas:
       "image title"
       "image date"
@@ -223,7 +223,7 @@ section.content {
     }
   }
 
-  &:nth-child(even) {
+  &:nth-child(odd) {
     grid-template-areas:
       "title image"
       "date image"
@@ -244,6 +244,12 @@ section.content {
   .post-title {
     grid-area: title;
     grid-row: 1;
+    h2 {
+      a{
+        text-decoration: none;
+        color:$color0;
+      }
+    }
   }
 
   .post-date {
@@ -268,6 +274,7 @@ section.content {
     font-size: 2.5rem;
     padding: 0;
     margin: 0;
+    text-align:left;
   }
 
   .post-image {
@@ -276,7 +283,7 @@ section.content {
   }
 
   .post-detail {
-    margin-top: 40px;
+    margin-top: 20px;
     max-width:70%;
   }
 
@@ -348,6 +355,10 @@ aside {
 
           .post-title {
             font-size: 0.9rem;
+            a{
+              text-decoration: none;
+              color:$color0;
+            }
           }
         }
       }
