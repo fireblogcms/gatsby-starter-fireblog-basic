@@ -19,7 +19,7 @@ function Layout({ children, headerTitle, location }) {
     <div className="layout gasby-theme">
       <span name="top"></span>
       <header>
-      <div class="menu">Menu</div>
+      <div class="menu">Menu
       <nav class="close">
           <ul>
             <li>Item 1</li>
@@ -27,6 +27,8 @@ function Layout({ children, headerTitle, location }) {
             <li>Item 3</li>
           </ul>
         </nav>
+      </div>
+     
       {headerContent}</header>
       <section className="content">
         <main>{children}</main>

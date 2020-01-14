@@ -62,7 +62,7 @@ h6 {
 p{
     font-weight: 300;
     line-height: 22px;
-    font-size: 0.95rem;
+    font-size: 1rem;
   a {
   color: $color0;
   }
@@ -99,21 +99,28 @@ header {
   position: absolute;
   top:5%;
   right:5%;
-}
+  width:70px;
 
-nav{
-  position: absolute;
-  top:0;
-  right:0;
-  &.close{
-    display: none;
-  }
-  ul{
-    li{
-
+  nav{
+    position: absolute;
+    left: 0;
+    top: 30px;
+    &.close{
+      display: none;
+    }
+    &.open{
+      display: block;
+    }
+    ul{
+      li{
+        list-style: none;
+        margin-bottom:10px;
+      }
     }
   }
 }
+
+
 
 /*************** == Content ***************/
 section.content {
