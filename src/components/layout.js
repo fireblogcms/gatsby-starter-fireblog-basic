@@ -18,18 +18,7 @@ function Layout({ children, headerTitle, location }) {
   return (
     <div className="layout gasby-theme">
       <span name="top"></span>
-      <header>
-      <div class="menu">Menu
-      <nav class="close">
-          <ul>
-            <li>Item 1</li>
-            <li>Item 2</li>
-            <li>Item 3</li>
-          </ul>
-        </nav>
-      </div>
-     
-      {headerContent}</header>
+      <header>{headerContent}</header>
       <section className="content">
         <main>{children}</main>
         <aside>

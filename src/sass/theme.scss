@@ -18,22 +18,23 @@ h6 {
   font-weight: 400;
 }
 
-h1,.header-title {
+h1,
+.header-title {
   color: $color-h1;
   font-size: 2.5rem;
-  font-weight:700;
+  font-weight: 700;
   max-width: 90%;
   margin: 0 auto;
   text-align: center;
-  a{
+  a {
     text-decoration: none;
     color: $color-h1;
   }
 }
 
-.post-title{
-  h1{
-    color:$color0;
+.post-title {
+  h1 {
+    color: $color0;
   }
 }
 
@@ -59,13 +60,13 @@ h6 {
   font-size: 1.2rem;
 }
 
-p{
-    font-weight: 300;
-    font-size: 1rem;
-    letter-spacing: .4px;
-    line-height: 25px;
+p {
+  font-weight: 300;
+  font-size: 1rem;
+  letter-spacing: 0.4px;
+  line-height: 25px;
   a {
-  color: $color0;
+    color: $color0;
   }
   strong {
     font-weight: 500;
@@ -88,40 +89,17 @@ img {
 /*************** == Header ***************/
 header {
   min-height: 170px;
-  background: linear-gradient(to right,$color-header-left,$color-header-right);
+  background: linear-gradient(
+    to right,
+    $color-header-left,
+    $color-header-right
+  );
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 60px;
   position: relative;
 }
-
-.menu{
-  position: absolute;
-  top:5%;
-  right:5%;
-  width:70px;
-
-  nav{
-    position: absolute;
-    left: 0;
-    top: 30px;
-    &.close{
-      display: none;
-    }
-    &.open{
-      display: block;
-    }
-    ul{
-      li{
-        list-style: none;
-        margin-bottom:10px;
-      }
-    }
-  }
-}
-
-
 
 /*************** == Content ***************/
 section.content {
@@ -192,7 +170,6 @@ section.content {
 }
 
 .post {
-
   .post-link {
     margin-bottom: 10px;
     a.read-more {
@@ -202,12 +179,12 @@ section.content {
       text-decoration: none;
       color: $color0;
       font-size: 0.9rem;
-      background: rgba($color-header-right,0.2);
+      background: rgba($color-header-right, 0.2);
       padding: 4px 14px;
       transition: background ease 0.5s;
 
       &:hover {
-        background: rgba($color-header-right,0.6);
+        background: rgba($color-header-right, 0.6);
       }
     }
   }
@@ -253,9 +230,9 @@ section.content {
     grid-area: title;
     grid-row: 1;
     h2 {
-      a{
+      a {
         text-decoration: none;
-        color:$color0;
+        color: $color0;
       }
     }
   }
@@ -282,7 +259,7 @@ section.content {
     font-size: 2.5rem;
     padding: 0;
     margin: 0;
-    text-align:left;
+    text-align: left;
   }
 
   .post-image {
@@ -361,9 +338,9 @@ aside {
 
           .post-title {
             font-size: 0.9rem;
-            a{
+            a {
               text-decoration: none;
-              color:$color0;
+              color: $color0;
             }
           }
         }
@@ -445,7 +422,11 @@ footer {
   position: relative;
   background: $color1;
   .scrolltotop {
-    background: linear-gradient(to right,$color-header-left,$color-header-right);
+    background: linear-gradient(
+      to right,
+      $color-header-left,
+      $color-header-right
+    );
     position: fixed;
     display: flex;
     justify-content: center;
