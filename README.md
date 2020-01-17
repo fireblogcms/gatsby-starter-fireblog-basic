@@ -2,7 +2,7 @@
 
 # Firestarter: a Gatsby's blog starter for Fireblog 🔥 with AMP & PWA support
 
-Stop loosing readers because your blog is too slow: firestarter combine Gatbsy (A modern static site generator ideal for JAMstack architectures) and Fireblog to offer a new blog experience : a super fast and simple back-office with a super fast and modern front-end !
+Combine Gatbsy (A modern static site generator ideal for JAMstack architectures) and Fireblog to create a new blog experience : a super fast and simple back-office with a super fast and modern front-end !
 
 Fireblog is a new headless CMS fully dedicated to blogging, you can try it here for free : https://fireblogcms.com/
 
