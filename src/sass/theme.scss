@@ -18,15 +18,27 @@ h6 {
   font-weight: 400;
 }
 
-h1 {
-  color: $color0;
+h1,
+.header-title {
+  color: $color-h1;
   font-size: 2.5rem;
+  font-weight: 700;
   max-width: 90%;
   margin: 0 auto;
   text-align: center;
+  a {
+    text-decoration: none;
+    color: $color-h1;
+  }
 }
 
-h2.title {
+.post-title {
+  h1 {
+    color: $color0;
+  }
+}
+
+h2 {
   font-size: 1.5rem;
   padding: 0;
   margin: 0;
@@ -48,12 +60,17 @@ h6 {
   font-size: 1.2rem;
 }
 
-p a {
-  color: $color0;
-}
-
-p strong {
-  font-weight: 500;
+p {
+  font-weight: 300;
+  font-size: 1rem;
+  letter-spacing: 0.4px;
+  line-height: 25px;
+  a {
+    color: $color0;
+  }
+  strong {
+    font-weight: 500;
+  }
 }
 
 img {
@@ -72,11 +89,16 @@ img {
 /*************** == Header ***************/
 header {
   min-height: 170px;
-  background: $color6;
+  background: linear-gradient(
+    to right,
+    $color-header-left,
+    $color-header-right
+  );
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 60px;
+  position: relative;
 }
 
 /*************** == Content ***************/
@@ -148,15 +170,6 @@ section.content {
 }
 
 .post {
-  .post-teaser {
-    p {
-      font-weight: 300;
-      line-height: 25px;
-      font-size: 0.95rem;
-      text-align: justify;
-    }
-  }
-
   .post-link {
     margin-bottom: 10px;
     a.read-more {
@@ -166,12 +179,12 @@ section.content {
       text-decoration: none;
       color: $color0;
       font-size: 0.9rem;
-      background: $color6;
+      background: rgba($color-header-right, 0.2);
       padding: 4px 14px;
       transition: background ease 0.5s;
 
       &:hover {
-        background: rgba($color4, 0.3);
+        background: rgba($color-header-right, 0.6);
       }
     }
   }
@@ -216,6 +229,12 @@ section.content {
   .post-title {
     grid-area: title;
     grid-row: 1;
+    h2 {
+      a {
+        text-decoration: none;
+        color: $color0;
+      }
+    }
   }
 
   .post-date {
@@ -240,6 +259,7 @@ section.content {
     font-size: 2.5rem;
     padding: 0;
     margin: 0;
+    text-align: left;
   }
 
   .post-image {
@@ -247,7 +267,7 @@ section.content {
   }
 
   .post-detail {
-    margin-top: 40px;
+    margin-top: 20px;
   }
 
   .post-author {
@@ -318,6 +338,10 @@ aside {
 
           .post-title {
             font-size: 0.9rem;
+            a {
+              text-decoration: none;
+              color: $color0;
+            }
           }
         }
       }
@@ -398,13 +422,17 @@ footer {
   position: relative;
   background: $color1;
   .scrolltotop {
+    background: linear-gradient(
+      to right,
+      $color-header-left,
+      $color-header-right
+    );
     position: fixed;
     display: flex;
     justify-content: center;
     align-items: center;
     bottom: 20px;
     right: 20px;
-    border: 2px solid $color4;
     border-radius: 50%;
     width: 30px;
     height: 30px;

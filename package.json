@@ -51,6 +51,20 @@
     "amp": "find public/amp -type f | xargs amphtml-validator"
   },
   "devDependencies": {
-    "amphtml-validator": "^1.0.23"
+    "amphtml-validator": "^1.0.23",
+    "husky": ">=1",
+    "lint-staged": ">=8",
+    "prettier": "^1.19.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,css,json,md}": [
+      "prettier --write",
+      "git add"
+    ]
   }
 }
