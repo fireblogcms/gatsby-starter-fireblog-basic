@@ -20,7 +20,7 @@ h6 {
 
 h1,
 .header-title {
-  color: $color-h1;
+  color: $color-h1-header;
   font-size: 2.5rem;
   font-weight: 700;
   max-width: 90%;
@@ -28,7 +28,7 @@ h1,
   text-align: center;
   a {
     text-decoration: none;
-    color: $color-h1;
+    color: $color-h1-header;
   }
 }
 
