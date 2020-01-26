@@ -34,7 +34,7 @@ h1,
 
 .post-title {
   h1 {
-    color: $color0;
+    color: $color-h1;
   }
 }
 
@@ -66,7 +66,7 @@ p {
   letter-spacing: 0.4px;
   line-height: 25px;
   a {
-    color: $color0;
+    color: $color-link;
   }
   strong {
     font-weight: 500;
@@ -101,6 +101,31 @@ header {
   position: relative;
 }
 
+.menu {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  width: 70px;
+
+  nav {
+    position: absolute;
+    left: 0;
+    top: 30px;
+    &.close {
+      display: none;
+    }
+    &.open {
+      display: block;
+    }
+    ul {
+      li {
+        list-style: none;
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
+
 /*************** == Content ***************/
 section.content {
   display: flex;
@@ -129,18 +154,18 @@ section.content {
         justify-content: center;
         align-items: center;
         list-style: none;
-        background: $color6;
+        background: $color-bg-pagination;
         margin: 10px;
-        color: $color0;
+        color: $color-item;
 
         &.active,
         &:hover {
-          background: $color5;
+          background: $color-item-hover;
         }
 
         a {
           display: block;
-          color: $color0;
+          color: $color-link;
           text-decoration: none;
           width: 100%;
           padding: 4px 10px;
@@ -152,7 +177,7 @@ section.content {
 
 /********************** == article *************************/
 .post-date {
-  color: $color4;
+  color: $color-meta;
   margin-top: 5px;
   font-size: 0.85rem;
   position: relative;
@@ -177,9 +202,9 @@ section.content {
       font-weight: 400;
       text-transform: uppercase;
       text-decoration: none;
-      color: $color0;
+      color: $color-btn-txt;
       font-size: 0.9rem;
-      background: rgba($color-header-right, 0.2);
+      background: rgba($color-btn-bg, 0.2);
       padding: 4px 14px;
       transition: background ease 0.5s;
 
@@ -232,7 +257,7 @@ section.content {
     h2 {
       a {
         text-decoration: none;
-        color: $color0;
+        color: $color-link;
       }
     }
   }
@@ -280,7 +305,7 @@ section.content {
       height: 100px;
       border-radius: 50%;
       margin-right: 20px;
-      border: 2px solid $color4;
+      border: 2px solid $color-meta;
     }
   }
 }
@@ -305,7 +330,7 @@ aside {
         position: absolute;
         height: 4px;
         width: 60px;
-        background: $color5;
+        background: $color-border;
         bottom: -10px;
         left: 0;
       }
@@ -340,7 +365,7 @@ aside {
             font-size: 0.9rem;
             a {
               text-decoration: none;
-              color: $color0;
+              color: $color-link;
             }
           }
         }
@@ -371,12 +396,12 @@ aside {
 .post-navigation {
   display: flex;
   margin: 40px 0;
-  border-top: 2px solid $color5;
-  border-bottom: 2px solid $color5;
+  border-top: 2px solid $color-border;
+  border-bottom: 2px solid $color-border;
   padding: 20px 0;
 
   a {
-    color: $color0;
+    color: $color-link;
     text-decoration: none;
   }
   .prev-post,
@@ -420,7 +445,7 @@ aside {
 
 footer {
   position: relative;
-  background: $color1;
+  background: $color-footer-bg;
   .scrolltotop {
     background: linear-gradient(
       to right,
