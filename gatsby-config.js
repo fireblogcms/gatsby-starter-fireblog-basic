@@ -6,7 +6,7 @@ config.siteMetadata = {
   // used when users add your blog to their home screen on most mobile browsers
   manifestName: "Fireblog Gatsby starter",
   manifestShortName: "Fireblog",
-  // default language of your site, used as a html attribute
+  // default language of your site, also used as a html attribute
   lang: "en",
   postsPerPage: 20,
   // absolute url of your site, e.g https://example.com. Required
