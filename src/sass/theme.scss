@@ -20,7 +20,7 @@ h6 {
 
 h1,
 .header-title {
-  color: $color-h1-header;
+  color: $header-title-color;
   font-size: 2.5rem;
   font-weight: 700;
   max-width: 90%;
@@ -28,13 +28,13 @@ h1,
   text-align: center;
   a {
     text-decoration: none;
-    color: $color-h1-header;
+    color: $header-title-color;
   }
 }
 
 .post-title {
   h1 {
-    color: $color-h1;
+    color: $h1-color;
   }
 }
 
@@ -66,7 +66,7 @@ p {
   letter-spacing: 0.4px;
   line-height: 25px;
   a {
-    color: $color-link;
+    color: $link-color;
   }
   strong {
     font-weight: 500;
@@ -91,39 +91,14 @@ header {
   min-height: 170px;
   background: linear-gradient(
     to right,
-    $color-header-left,
-    $color-header-right
+    $header-background-left,
+    $header-background-right
   );
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 60px;
   position: relative;
-}
-
-.menu {
-  position: absolute;
-  top: 5%;
-  right: 5%;
-  width: 70px;
-
-  nav {
-    position: absolute;
-    left: 0;
-    top: 30px;
-    &.close {
-      display: none;
-    }
-    &.open {
-      display: block;
-    }
-    ul {
-      li {
-        list-style: none;
-        margin-bottom: 10px;
-      }
-    }
-  }
 }
 
 /*************** == Content ***************/
@@ -154,21 +129,24 @@ section.content {
         justify-content: center;
         align-items: center;
         list-style: none;
-        background: $color-bg-pagination;
+        background: $pagination-background;
         margin: 10px;
-        color: $color-item;
-
+        color: $pagination-color;
+        transition: background ease 0.5s;
+        border-radius: 3px;
         &.active,
         &:hover {
-          background: $color-item-hover;
+          background: $pagination-hover-background;
         }
-
+        &:hover a {
+          color: $pagination-hover-color;
+        }
         a {
           display: block;
-          color: $color-link;
+          color: $pagination-color;
           text-decoration: none;
           width: 100%;
-          padding: 4px 10px;
+          padding: 8px 14px;
         }
       }
     }
@@ -177,7 +155,7 @@ section.content {
 
 /********************** == article *************************/
 .post-date {
-  color: $color-meta;
+  color: $post-informations-color;
   margin-top: 5px;
   font-size: 0.85rem;
   position: relative;
@@ -202,14 +180,16 @@ section.content {
       font-weight: 400;
       text-transform: uppercase;
       text-decoration: none;
-      color: $color-btn-txt;
+      color: $readmore-color;
       font-size: 0.9rem;
-      background: rgba($color-btn-bg, 0.2);
-      padding: 4px 14px;
+      background: rgba($readmore-background, 1);
+      padding: 10px;
+      border-radius: 3px;
       transition: background ease 0.5s;
 
       &:hover {
-        background: rgba($color-header-right, 0.6);
+        background: rgba($readmore-hover-background, 1);
+        color: $readmore-hover-color;
       }
     }
   }
@@ -257,7 +237,7 @@ section.content {
     h2 {
       a {
         text-decoration: none;
-        color: $color-link;
+        color: $link-color;
       }
     }
   }
@@ -305,7 +285,7 @@ section.content {
       height: 100px;
       border-radius: 50%;
       margin-right: 20px;
-      border: 2px solid $color-meta;
+      border: 2px solid $post-informations-color;
     }
   }
 }
@@ -365,7 +345,7 @@ aside {
             font-size: 0.9rem;
             a {
               text-decoration: none;
-              color: $color-link;
+              color: $link-color;
             }
           }
         }
@@ -401,7 +381,7 @@ aside {
   padding: 20px 0;
 
   a {
-    color: $color-link;
+    color: $link-color;
     text-decoration: none;
   }
   .prev-post,
@@ -449,8 +429,8 @@ footer {
   .scrolltotop {
     background: linear-gradient(
       to right,
-      $color-header-left,
-      $color-header-right
+      $header-background-left,
+      $header-background-right
     );
     position: fixed;
     display: flex;
