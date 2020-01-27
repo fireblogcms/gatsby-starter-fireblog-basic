@@ -17,7 +17,7 @@ $color7: #e3336d;
 $color8: #f69029;
 
 /****************** Derived variables *******************/
-$color-primary: #e3336d;
+$primary: #e3336d;
 $h1-color: $color0;
 $header-title-color: $color1;
 $header-background-left: $color7;
@@ -26,13 +26,13 @@ $link-color: $color0;
 $post-informations-color: $color4;
 $color-border: $color5;
 $color-footer-bg: $color5;
-$readmore-background: $color-primary;
+$readmore-background: $primary;
 $readmore-color: $color1;
-$readmore-hover-background: darken($color-primary, 10);
+$readmore-hover-background: darken($primary, 10);
 $readmore-hover-color: $color1;
 $pagination-color: $color0;
 $pagination-background: $color5;
-$pagination-hover-background: $color-primary;
+$pagination-hover-background: $primary;
 $pagination-hover-color: $color1;
 
 /************************************************/
