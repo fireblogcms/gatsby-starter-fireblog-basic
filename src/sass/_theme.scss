@@ -1,0 +1,27 @@
+@import "./_variables.scss";
+
+.hero-body {
+  padding-bottom: 100px;
+}
+
+.title > a {
+  color: $black;
+}
+
+.post-list {
+  .title {
+    margin-bottom: 0;
+  }
+  .read-more {
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 10px 0;
+    font-weight: bold;
+  }
+}
+
+.recent-posts {
+  .title.is-6 {
+    margin-bottom: 0;
+  }
+}

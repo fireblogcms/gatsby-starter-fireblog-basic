@@ -4,6 +4,7 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Pagination from "../components/Pagination";
 import ImgNonStreched from "../components/ImgNonStreched";
+import ClockIcon from "../components/ClockIcon";
 
 function PostListTemplate({ data, location, pageContext }) {
   const title = data.fireblog.blog.name;
@@ -13,12 +14,12 @@ function PostListTemplate({ data, location, pageContext }) {
   return (
     <Layout location={location} headerTitle={title}>
       <SEO location={location} title={`${title} | all posts`} />
-      <div className="list-posts">
+      <div className="post-list">
         {edges.map(edge => {
           return (
             <div className="post columns" key={edge.node.slug}>
               <div className="column is-one-quarter">
-                <div className="post-image">
+                <div>
                   {edge.node.gatsbyImage && (
                     <Link to={`/post/${edge.node.slug}`}>
                       <ImgNonStreched
@@ -30,24 +31,21 @@ function PostListTemplate({ data, location, pageContext }) {
                 </div>
               </div>
               <div className="column">
-                <div className="post-title">
-                  <h2>
-                    <Link to={`/post/${edge.node.slug}`}>
-                      {edge.node.title}
-                    </Link>
-                  </h2>
-                </div>
+                <h2 className="title is-2">
+                  <Link to={`/post/${edge.node.slug}`}>{edge.node.title}</Link>
+                </h2>
                 <div className="post-date">
-                  {new Date(edge.node.publishedAt).toLocaleDateString()}
+                  <ClockIcon />
+                  <small>
+                    {new Date(edge.node.publishedAt).toLocaleDateString()}
+                  </small>
                 </div>
-                <div className="post-teaser">
+                <div className="has-text-justified">
                   <p>{edge.node.teaser}</p>
                 </div>
-                <div className="post-link">
-                  <Link className="read-more" to={`/post/${edge.node.slug}`}>
-                    Read more
-                  </Link>
-                </div>
+                <Link className="read-more" to={`/post/${edge.node.slug}`}>
+                  Continue reading
+                </Link>
               </div>
             </div>
           );
@@ -93,7 +91,7 @@ export const pageQuery = graphql`
             }
             gatsbyImage {
               childImageSharp {
-                fluid(maxWidth: 280, maxHeight: 200) {
+                fluid(maxWidth: 400, maxHeight: 350) {
                   ...GatsbyImageSharpFluid_withWebp
                   presentationWidth
                 }

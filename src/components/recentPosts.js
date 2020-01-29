@@ -31,10 +31,9 @@ function RecentPosts() {
   `);
   const posts = data.fireblog.posts;
   return (
-    <div className="recent-post">
+    <div className="recent-posts">
       <h3 class="title is-3">Articles récents</h3>
-
-      <ul className="list">
+      <ul>
         {posts.edges.map(edge => {
           return (
             <li key={edge.node.slug}>
@@ -52,15 +51,17 @@ function RecentPosts() {
                   </div>
                 </div>
                 <div className="column">
-                  <div className="infos">
+                  <div>
                     <h4 className="title is-6">
                       {" "}
                       <Link to={`/post/${edge.node.slug}`}>
                         {edge.node.title}
                       </Link>
                     </h4>
-                    <div className="post-date">
-                      {new Date(edge.node.publishedAt).toLocaleDateString()}
+                    <div>
+                      <small>
+                        {new Date(edge.node.publishedAt).toLocaleDateString()}
+                      </small>
                     </div>
                   </div>
                 </div>
