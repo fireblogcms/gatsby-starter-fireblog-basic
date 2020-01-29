@@ -3,29 +3,44 @@ import PropTypes from "prop-types";
 import { Link } from "gatsby";
 import RecentPosts from "./recentPosts";
 import Socials from "./socials";
+import Header from "./header";
 
 function Layout({ children, headerTitle, location }) {
   let headerContent;
   if (location.pathname === "/") {
-    headerContent = <h1>{headerTitle}</h1>;
+    headerContent = <h1 className="title is-1">{headerTitle}</h1>;
   } else {
     headerContent = (
       <div className="header-title">
-        <Link to="/">{headerTitle}</Link>
+        <Link className="title is-1" to="/">
+          {headerTitle}
+        </Link>
       </div>
     );
   }
   return (
     <div className="layout gasby-theme">
       <span name="top"></span>
-      <header>{headerContent}</header>
-      <section className="content">
-        <main>{children}</main>
-        <aside>
-          <RecentPosts />
-          <Socials />
-        </aside>
-      </section>
+      <Header>{headerContent}</Header>
+
+      <div className="container">
+        <div className="columns">
+          <div className="column">
+            <section className="section">
+              <main>{children}</main>
+            </section>
+          </div>
+          <div className="column is-one-quarter">
+            <aside>
+              <section className="section">
+                <RecentPosts />
+                <Socials />
+              </section>
+            </aside>
+          </div>
+        </div>
+      </div>
+
       <footer>
         <div className="scrolltotop">
           <a href="#top">

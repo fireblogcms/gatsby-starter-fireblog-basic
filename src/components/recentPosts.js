@@ -31,29 +31,38 @@ function RecentPosts() {
   `);
   const posts = data.fireblog.posts;
   return (
-    <div className="block recent-post">
-      <div className="block-title">Articles récents</div>
+    <div className="recent-post">
+      <h3 class="title is-3">Articles récents</h3>
+
       <ul className="list">
         {posts.edges.map(edge => {
           return (
             <li key={edge.node.slug}>
-              <div className="image">
-                {edge.node.gatsbyImage && (
-                  <Link to={`/post/${edge.node.slug}`}>
-                    <Img
-                      fluid={edge.node.gatsbyImage.childImageSharp.fluid}
-                      alt={edge.node.image.alt}
-                    />
-                  </Link>
-                )}
-              </div>
-              <div className="infos">
-                <div className="post-title">
-                  {" "}
-                  <Link to={`/post/${edge.node.slug}`}>{edge.node.title}</Link>
+              <div className="columns">
+                <div className="column is-one-quarter">
+                  <div className="image">
+                    {edge.node.gatsbyImage && (
+                      <Link to={`/post/${edge.node.slug}`}>
+                        <Img
+                          fluid={edge.node.gatsbyImage.childImageSharp.fluid}
+                          alt={edge.node.image.alt}
+                        />
+                      </Link>
+                    )}
+                  </div>
                 </div>
-                <div className="post-date">
-                  {new Date(edge.node.publishedAt).toLocaleDateString()}
+                <div className="column">
+                  <div className="infos">
+                    <h4 className="title is-6">
+                      {" "}
+                      <Link to={`/post/${edge.node.slug}`}>
+                        {edge.node.title}
+                      </Link>
+                    </h4>
+                    <div className="post-date">
+                      {new Date(edge.node.publishedAt).toLocaleDateString()}
+                    </div>
+                  </div>
                 </div>
               </div>
             </li>

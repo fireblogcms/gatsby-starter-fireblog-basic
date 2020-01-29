@@ -16,32 +16,38 @@ function PostListTemplate({ data, location, pageContext }) {
       <div className="list-posts">
         {edges.map(edge => {
           return (
-            <div className="post resume" key={edge.node.slug}>
-              <div className="post-image" style={{ minWidth: "268px" }}>
-                {edge.node.gatsbyImage && (
-                  <Link to={`/post/${edge.node.slug}`}>
-                    <ImgNonStreched
-                      fluid={edge.node.gatsbyImage.childImageSharp.fluid}
-                      alt={edge.node.image.alt}
-                    />
+            <div className="post columns" key={edge.node.slug}>
+              <div className="column is-one-quarter">
+                <div className="post-image">
+                  {edge.node.gatsbyImage && (
+                    <Link to={`/post/${edge.node.slug}`}>
+                      <ImgNonStreched
+                        fluid={edge.node.gatsbyImage.childImageSharp.fluid}
+                        alt={edge.node.image.alt}
+                      />
+                    </Link>
+                  )}
+                </div>
+              </div>
+              <div className="column">
+                <div className="post-title">
+                  <h2>
+                    <Link to={`/post/${edge.node.slug}`}>
+                      {edge.node.title}
+                    </Link>
+                  </h2>
+                </div>
+                <div className="post-date">
+                  {new Date(edge.node.publishedAt).toLocaleDateString()}
+                </div>
+                <div className="post-teaser">
+                  <p>{edge.node.teaser}</p>
+                </div>
+                <div className="post-link">
+                  <Link className="read-more" to={`/post/${edge.node.slug}`}>
+                    Read more
                   </Link>
-                )}
-              </div>
-              <div className="post-title">
-                <h2>
-                  <Link to={`/post/${edge.node.slug}`}>{edge.node.title}</Link>
-                </h2>
-              </div>
-              <div className="post-date">
-                {new Date(edge.node.publishedAt).toLocaleDateString()}
-              </div>
-              <div className="post-teaser">
-                <p>{edge.node.teaser}</p>
-              </div>
-              <div className="post-link">
-                <Link className="read-more" to={`/post/${edge.node.slug}`}>
-                  Read more
-                </Link>
+                </div>
               </div>
             </div>
           );
@@ -87,7 +93,7 @@ export const pageQuery = graphql`
             }
             gatsbyImage {
               childImageSharp {
-                fluid(maxWidth: 800, maxHeight: 800) {
+                fluid(maxWidth: 280, maxHeight: 200) {
                   ...GatsbyImageSharpFluid_withWebp
                   presentationWidth
                 }

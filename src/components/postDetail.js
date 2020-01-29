@@ -23,14 +23,9 @@ function PostDetail({ post, blog, location, siteMetadata, preview = false }) {
         slug={post.slug}
         image={post.image ? post.image.url : null}
       />
-      <div className="post full">
-        <div className="post-title">
-          <h1 className="title">{post.title}</h1>
-        </div>
-        <div className="post-date">
-          {new Date(post.publishedAt).toLocaleDateString()}
-        </div>
-
+      <div>
+        <h1 className="title is-1">{post.title}</h1>
+        <div>{new Date(post.publishedAt).toLocaleDateString()}</div>
         {post.image.url && !preview && (
           <div className="post-image">
             <ImgNonStreched
@@ -46,7 +41,7 @@ function PostDetail({ post, blog, location, siteMetadata, preview = false }) {
         )}
         <div
           ref={contentRef}
-          className="post-detail"
+          className="content"
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
         {displayAuthor && (
