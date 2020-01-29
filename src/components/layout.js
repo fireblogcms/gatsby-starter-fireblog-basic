@@ -41,20 +41,11 @@ function Layout({ children, headerTitle, location }) {
         </div>
       </div>
 
-      <footer>
-        <div className="scrolltotop">
-          <a href="#top">
-            <img src="/images/chevron-up.svg" alt="Scroll to top" />
-          </a>
-        </div>
-      </footer>
-      {/*      
-      <footer>
+      <footer className="footer has-text-centered">
         © {new Date().getFullYear()}, Built with{" "}
         <a href="https://fireblogcms.com">fireblog</a> &{" "}
         <a href="https://www.gatsbyjs.org">Gatsby</a>
       </footer>
-      */}
     </div>
   );
 }

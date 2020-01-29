@@ -16,10 +16,14 @@ This starter has AMP to PWA Strategy (a.k.a. AMP as entry point into your PWA). 
 
 - Pagination
 - PWA (Progessive Web App)
-- AMP support
+- AMP support (Accelerated Mobile Page, a google web component framework)
 - Images optimization with gatsby-image when possible
+- Use your own logo and colors super easily with Sass & Bulma (https://bulma.io)
+- Reponsive
 - Google Analytics
 - Social metatags for twitter, facebook, linkedin etc
+- preview oembed medias with iframely (get your key here: https://iframely.com/)
+- Top Menu
 
 ## Getting started
 

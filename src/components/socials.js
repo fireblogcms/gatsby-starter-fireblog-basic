@@ -18,11 +18,11 @@ function Socials() {
   const socials = data.site.siteMetadata.socials;
 
   return (
-    <div className="block socials">
-      <div className="block-title">Rejoins-nous</div>
-      <ul className="list">
+    <div className="socials">
+      <h3 className="title is-3">Follow Us</h3>
+      <ul className="columns">
         {socials.linkedin && (
-          <li>
+          <li className="column">
             <a
               href={socials.linkedin}
               rel="noopener noreferrer"
@@ -33,14 +33,14 @@ function Socials() {
           </li>
         )}
         {socials.twitter && (
-          <li>
+          <li className="column">
             <a href={socials.twitter} target="_blank" rel="noopener noreferrer">
               <img src="/images/twitter-square.svg" alt="" />
             </a>
           </li>
         )}
         {socials.instagram && (
-          <li>
+          <li className="column">
             <a
               href={socials.instagram}
               target="_blank"

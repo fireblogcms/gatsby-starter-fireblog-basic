@@ -32,7 +32,7 @@ function RecentPosts() {
   const posts = data.fireblog.posts;
   return (
     <div className="recent-posts">
-      <h3 class="title is-3">Articles récents</h3>
+      <h3 className="title is-3">Articles récents</h3>
       <ul>
         {posts.edges.map(edge => {
           return (

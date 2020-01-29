@@ -9,10 +9,7 @@ function Header({ children }) {
           <div className="container">
             <div className="navbar-brand">
               <Link to={"/"} className="navbar-item">
-                <img
-                  src="https://bulma.io/images/bulma-type-white.png"
-                  alt="Logo"
-                />
+                <img src="/images/logo.png" alt="Logo" />
               </Link>
               <span
                 className="navbar-burger burger"

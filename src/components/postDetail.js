@@ -23,9 +23,11 @@ function PostDetail({ post, blog, location, siteMetadata, preview = false }) {
         slug={post.slug}
         image={post.image ? post.image.url : null}
       />
-      <div>
+      <div className="post-detail">
         <h1 className="title is-1">{post.title}</h1>
-        <div>{new Date(post.publishedAt).toLocaleDateString()}</div>
+        <div className="date">
+          {new Date(post.publishedAt).toLocaleDateString()}
+        </div>
         {post.image.url && !preview && (
           <div className="post-image">
             <ImgNonStreched
