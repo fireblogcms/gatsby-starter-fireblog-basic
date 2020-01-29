@@ -18,12 +18,12 @@ This starter has AMP to PWA Strategy (a.k.a. AMP as entry point into your PWA). 
 - PWA (Progessive Web App)
 - AMP support (Accelerated Mobile Page, a google web component framework)
 - Images optimization with gatsby-image when possible
-- Use your own logo and colors super easily with Sass & Bulma (https://bulma.io)
-- Reponsive
+- Responsive
+- Use your own logo and colors super easily with Sass & Bulma (https://bulma.io). See section "Customize for your brand"
 - Google Analytics
 - Social metatags for twitter, facebook, linkedin etc
-- preview oembed medias with iframely (get your key here: https://iframely.com/)
-- Top Menu
+- Preview 1900 external medias types (youtube, twitter, pinterest etc) with iframely (get your key here: https://iframely.com/) !
+- Responsive navigation menu.
 
 ## Getting started
 
@@ -65,7 +65,7 @@ You can check articles in following URLs.
 - Non-AMP：http://localhost:8000
 - AMP：http://localhost:8000/amp/
 
-## Customize for your brand !
+## Customize for your brand
 
 - Put your own logo to `static/images/logo.png`
 - Edit `$primary` color from `src/sass/_variables.scss`. Feel free to customize any variables here !
