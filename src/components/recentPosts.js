@@ -52,7 +52,7 @@ function RecentPosts() {
                 </div>
                 <div className="column">
                   <div>
-                    <h4 className="title is-6">
+                    <h4 className="post-title title is-6">
                       {" "}
                       <Link to={`/post/${edge.node.slug}`}>
                         {edge.node.title}
