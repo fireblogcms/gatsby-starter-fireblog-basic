@@ -20,7 +20,7 @@ function Socials() {
   return (
     <div className="socials">
       <h3 className="block-title title is-4">Follow Us</h3>
-      <ul className="columns">
+      <ul className="columns is-mobile">
         {socials.linkedin && (
           <li className="column">
             <a

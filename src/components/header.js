@@ -27,6 +27,7 @@ function Header({ children }) {
                 </Link>
                 <a
                   target="_blank"
+                  rel="noopener noreferrer"
                   href="https://fireblogcms.com"
                   className="navbar-item"
                 >

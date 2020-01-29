@@ -33,7 +33,7 @@ function Layout({ children, headerTitle, location }) {
           <div className="column is-one-quarter">
             <aside>
               <section className="section">
-                <RecentPosts />
+                <RecentPosts location={location} />
                 <Socials />
               </section>
             </aside>

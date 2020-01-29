@@ -18,25 +18,25 @@ function PostListTemplate({ data, location, pageContext }) {
         {edges.map(edge => {
           return (
             <div className="post columns" key={edge.node.slug}>
-              <div className="column is-one-quarter">
-                <div>
-                  {edge.node.gatsbyImage && (
-                    <Link to={`/post/${edge.node.slug}`}>
-                      <ImgNonStreched
-                        fluid={edge.node.gatsbyImage.childImageSharp.fluid}
-                        alt={edge.node.image.alt}
-                      />
-                    </Link>
-                  )}
+              {edge.node.gatsbyImage && (
+                <div className="column is-one-quarter">
+                  <Link to={`/post/${edge.node.slug}`}>
+                    <ImgNonStreched
+                      fluid={edge.node.gatsbyImage.childImageSharp.fluid}
+                      alt={edge.node.image.alt}
+                    />
+                  </Link>
                 </div>
-              </div>
+              )}
               <div className="column">
                 <h2 className="title is-2">
                   <Link to={`/post/${edge.node.slug}`}>{edge.node.title}</Link>
                 </h2>
-                <div className="post-date">
-                  <ClockIcon />
+                <div className="date">
                   <small>
+                    <span className="date-clock">
+                      <ClockIcon />
+                    </span>
                     {new Date(edge.node.publishedAt).toLocaleDateString()}
                   </small>
                 </div>

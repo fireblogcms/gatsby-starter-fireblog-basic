@@ -7,10 +7,16 @@
 .hero {
   .hero-body {
     padding-bottom: 100px;
+    .title {
+      font-weight: 800;
+    }
   }
 }
 
 .post-list {
+  .post:nth-child(even) {
+    flex-direction: row-reverse;
+  }
   .post {
     padding-bottom: 20px;
     .title {
@@ -51,4 +57,10 @@ aside {
   oembed {
     width: 100%;
   }
+}
+
+.date-clock {
+  position: relative;
+  top: 2px;
+  padding-right: 5px;
 }

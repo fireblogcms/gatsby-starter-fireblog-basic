@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import ImgNonStreched from "./ImgNonStreched";
 import Layout from "./layout";
 import SEO from "./seo";
+import ClockIcon from "./ClockIcon";
 
 function PostDetail({ post, blog, location, siteMetadata, preview = false }) {
   const { displayAuthor } = siteMetadata;
@@ -26,6 +27,9 @@ function PostDetail({ post, blog, location, siteMetadata, preview = false }) {
       <div className="post-detail">
         <h1 className="title is-1">{post.title}</h1>
         <div className="date">
+          <span className="date-clock">
+            <ClockIcon />
+          </span>
           {new Date(post.publishedAt).toLocaleDateString()}
         </div>
         {post.image.url && !preview && (

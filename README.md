@@ -65,6 +65,12 @@ You can check articles in following URLs.
 - Non-AMP：http://localhost:8000
 - AMP：http://localhost:8000/amp/
 
+## Customize for your brand !
+
+- Put your own logo to `static/images/logo.png`
+- Edit `$primary` color from `src/sass/_variables.scss`. Feel free to customize any variables here !
+- Customize theme by editing `src/sass_theme.scss`
+
 ## 💫 Deploy
 
 We love to use Netlify at fireblogcms.com because it is super easy to use and comes with great addons to makes your JAMstack site more spicy (lambdas function, forms etc).

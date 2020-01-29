@@ -1,8 +1,10 @@
 import React from "react";
 import { useStaticQuery, graphql, Link } from "gatsby";
 import Img from "gatsby-image";
+import classNames from "classnames";
+import PropTypes from "prop-types";
 
-function RecentPosts() {
+function RecentPosts({ location }) {
   const data = useStaticQuery(graphql`
     query {
       fireblog {
@@ -30,14 +32,20 @@ function RecentPosts() {
     }
   `);
   const posts = data.fireblog.posts;
+
+  // Hide recent posts on homepage for mobile
+  const classes = classNames({
+    "recent-posts": true,
+    "is-hidden-mobile": location.pathname === "/"
+  });
   return (
-    <div className="recent-posts">
+    <div className={classes}>
       <h3 className="block-title title is-4">Articles récents</h3>
       <ul>
         {posts.edges.map(edge => {
           return (
             <li key={edge.node.slug}>
-              <div className="columns">
+              <div className="columns is-mobile">
                 <div className="column is-one-quarter">
                   <div className="image">
                     {edge.node.gatsbyImage && (
@@ -73,5 +81,9 @@ function RecentPosts() {
     </div>
   );
 }
+
+RecentPosts.propTypes = {
+  location: PropTypes.string.isRequired
+};
 
 export default RecentPosts;
