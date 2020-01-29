@@ -29,7 +29,7 @@ function PostListTemplate({ data, location, pageContext }) {
                 </div>
               )}
               <div className="column">
-                <h2 className="title is-2">
+                <h2 className="title is-3">
                   <Link to={`/post/${edge.node.slug}`}>{edge.node.title}</Link>
                 </h2>
                 <div className="date">

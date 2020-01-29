@@ -40,7 +40,7 @@ function RecentPosts({ location }) {
   });
   return (
     <div className={classes}>
-      <h3 className="block-title title is-4">Articles récents</h3>
+      <h3 className="block-title title is-5">Articles récents</h3>
       <ul>
         {posts.edges.map(edge => {
           return (
