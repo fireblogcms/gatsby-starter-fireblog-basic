@@ -26,11 +26,17 @@
 
 aside {
   .recent-posts {
-    .title.is-6 {
+    .block-title {
+      text-transform: uppercase;
+    }
+    .post-title {
       margin-bottom: 0;
     }
   }
   .socials {
+    .block-title {
+      text-transform: uppercase;
+    }
     padding-top: 30px;
   }
 }
@@ -38,6 +44,9 @@ aside {
 .post-detail {
   .date {
     margin-bottom: 30px;
+  }
+  .post-image {
+    padding-bottom: 30px;
   }
   oembed {
     width: 100%;

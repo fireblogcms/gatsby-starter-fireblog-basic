@@ -19,7 +19,7 @@ function Socials() {
 
   return (
     <div className="socials">
-      <h3 className="title is-3">Follow Us</h3>
+      <h3 className="block-title title is-4">Follow Us</h3>
       <ul className="columns">
         {socials.linkedin && (
           <li className="column">
