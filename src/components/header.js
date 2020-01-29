@@ -4,8 +4,12 @@ import classNames from "classnames";
 
 function Header({ children }) {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
-  const navBarMenuClass = classNames({
+  const navBarMenuClassNames = classNames({
     "navbar-menu": true,
+    "is-active": showMobileMenu
+  });
+  const burgerClassNames = classNames({
+    "navbar-burger burger": true,
     "is-active": showMobileMenu
   });
 
@@ -20,7 +24,7 @@ function Header({ children }) {
               </Link>
               <span
                 onClick={() => setShowMobileMenu(!showMobileMenu)}
-                className="navbar-burger burger"
+                className={burgerClassNames}
                 data-target="navbarMenuHeroA"
               >
                 <span></span>
@@ -28,7 +32,7 @@ function Header({ children }) {
                 <span></span>
               </span>
             </div>
-            <div id="navbarMenuHeroA" className={navBarMenuClass}>
+            <div id="navbarMenuHeroA" className={navBarMenuClassNames}>
               <div className="navbar-end">
                 <Link to={"/"} className="navbar-item is-active">
                   Home
