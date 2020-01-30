@@ -40,7 +40,7 @@ function PostListTemplate({ data, location, pageContext }) {
                     {new Date(edge.node.publishedAt).toLocaleDateString()}
                   </small>
                 </div>
-                <div className="post-content">
+                <div className="post-teaser">
                   <p>{edge.node.teaser}</p>
                 </div>
                 <Link className="read-more" to={`/post/${edge.node.slug}`}>
