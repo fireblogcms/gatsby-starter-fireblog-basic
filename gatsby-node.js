@@ -140,7 +140,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       rel: String
       target: String
       id: String
-      class: String
+      className: String
     }
   `;
   createTypes(typeDefs);

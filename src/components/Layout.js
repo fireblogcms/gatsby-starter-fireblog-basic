@@ -5,7 +5,6 @@ import Socials from "./Socials";
 import Header from "./Header";
 
 function Layout({ children, headerTitle, headerSubtitle, location }) {
-  console.log("h", headerSubtitle, headerTitle);
   return (
     <div className="layout">
       <Header

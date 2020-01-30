@@ -67,10 +67,8 @@ function PostDetail({ post, blog, location, siteMetadata, preview = false }) {
 }
 
 PostDetail.propTypes = {
-  headerTitle: PropTypes.string.isRequired,
-  headerSubtitle: PropTypes.string,
-  location: PropTypes.object.isRequired,
-  children: PropTypes.node.isRequired
+  blog: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired
 };
 
 export default PostDetail;

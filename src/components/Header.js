@@ -10,7 +10,7 @@ function Header({
   backgroundImageUrl = null
 }) {
   let headerContent;
-
+  let classNames;
   // on Homepage, blog title must be a h1
   if (location.pathname === "/") {
     headerContent = (
@@ -23,17 +23,17 @@ function Header({
   // on others pages, h1 will be used by post title, so
   // blog title became a link.
   else {
+    classNames = "is-small";
     headerContent = (
       <div>
-        <Link className="title is-1" to="/">
-          {title}
-        </Link>
-        {subtitle && <div className="subtitle">{subtitle}</div>}
+        <div className="title is-1">
+          <Link to="/">{title}</Link>
+        </div>
       </div>
     );
   }
   return (
-    <section className="hero is-primary is-small is-bold">
+    <section className={`hero is-primary ${classNames}`}>
       <div className="hero-head">
         <Navbar />
       </div>

@@ -1,13 +1,19 @@
 @import "./_variables.scss";
 
+// all posts title in black.
 .title > a {
   color: $black;
 }
 
+.hero,
 .hero.is-small {
   .hero-body {
+    text-align: center;
     padding-bottom: 80px;
     .title {
+      & > a {
+        color: white;
+      }
       font-weight: 800;
     }
   }

@@ -15,7 +15,7 @@ function Navbar() {
               target
               title
               rel
-              class
+              className
               id
             }
           }
