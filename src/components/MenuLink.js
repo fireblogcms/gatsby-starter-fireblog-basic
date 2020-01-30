@@ -34,7 +34,7 @@ const MenuLink = ({
     );
   }
   return (
-    <a {...other} href={to}>
+    <a {...other} href={to} rel="noopener">
       {children}
     </a>
   );
