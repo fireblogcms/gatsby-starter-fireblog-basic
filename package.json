@@ -1,11 +1,11 @@
 {
-  "name": "gatsby-starter-fireblog-firestarter",
+  "name": "gatsby-starter-fireblog-flamingo",
   "private": true,
   "description": "A Gatbsy starter for fireblog, with PWA & AMP support",
   "version": "0.1.0",
   "author": "Yann",
   "bugs": {
-    "url": "https://github.com/fireblogcms/gatsby-starter-fireblog-firestarter/issues"
+    "url": "https://github.com/fireblogcms/gatsby-starter-fireblog-flamingo/issues"
   },
   "dependencies": {
     "bulma": "^0.8.0",
