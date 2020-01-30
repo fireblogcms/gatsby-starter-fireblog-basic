@@ -5,7 +5,7 @@
   "version": "0.1.0",
   "author": "Yann",
   "bugs": {
-    "url": "https://github.com/fireblogcms/gatsby-starter-fireblog-pwa-amp/issues"
+    "url": "https://github.com/fireblogcms/gatsby-starter-fireblog-firestarter/issues"
   },
   "dependencies": {
     "bulma": "^0.8.0",
@@ -28,7 +28,6 @@
     "graphql-tag": "^2.10.1",
     "node-fetch": "^2.6.0",
     "node-sass": "^4.13.0",
-    "prismjs": "^1.15.0",
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
     "react-helmet": "^5.2.0",
