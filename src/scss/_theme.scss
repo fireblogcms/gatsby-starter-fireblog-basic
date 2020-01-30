@@ -7,14 +7,23 @@
 
 .hero,
 .hero.is-small {
+  background: linear-gradient(
+    to right,
+    $header-background-gradient-1,
+    $header-background-gradient-2
+  );
   .hero-body {
     text-align: center;
     padding-bottom: 80px;
+    .subtitle {
+      color: $white;
+    }
     .title {
       font-weight: 800;
+      color: $white;
       a {
-        font-weight: 800;
         color: $white;
+        font-weight: 800;
       }
     }
   }

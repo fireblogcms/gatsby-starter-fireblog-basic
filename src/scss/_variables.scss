@@ -1,14 +1,16 @@
 /* litteral variables */
 $black: #000;
 $white: #fff;
-$purple-heart: #563bd1;
+$flamingo: #ef473a;
 $body-line-height: 1.8;
+$header-background-gradient-1: #ff5f6d;
+$header-background-gradient-2: #ef473a;
 
 /* 
 Bulma customization 
 @see https://bulma.io/documentation/customize/variables/
 */
-$primary: $purple-heart;
+$primary: $flamingo;
 $link: $primary;
 $title-weight: 400;
 $content-heading-weight: $title-weight;
