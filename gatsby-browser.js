@@ -1,2 +1,2 @@
 import "typeface-roboto";
-import "./src/sass/main.scss";
+import "./src/scss/main.scss";

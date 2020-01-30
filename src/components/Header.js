@@ -3,7 +3,7 @@ import Navbar from "./Navbar";
 
 function Header({ children }) {
   return (
-    <section className="hero is-primary is-bold">
+    <section className="hero is-primary is-small is-bold">
       <div className="hero-head">
         <Navbar />
       </div>

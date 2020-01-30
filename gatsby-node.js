@@ -128,3 +128,20 @@ exports.createResolvers = ({
     }
   });
 };
+
+// https://www.gatsbyjs.org/docs/schema-customization/#creating-type-definitions
+// @see also "./src/components/MenuLink.js" component.
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions;
+  const typeDefs = `
+    type SiteSiteMetadataMenuLinksProps {
+      to: String!
+      title: String
+      rel: String
+      target: String
+      id: String
+      class: String
+    }
+  `;
+  createTypes(typeDefs);
+};

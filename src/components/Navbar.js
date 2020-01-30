@@ -1,8 +1,29 @@
 import React, { useState } from "react";
-import { Link } from "gatsby";
+import { useStaticQuery, Link } from "gatsby";
+import MenuLink from "./MenuLink";
 import classNames from "classnames";
 
 function Navbar() {
+  const data = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          menuLinks {
+            title
+            props {
+              to
+              target
+              title
+              rel
+              class
+              id
+            }
+          }
+        }
+      }
+    }
+  `);
+  const menuLinks = data.site.siteMetadata.menuLinks;
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const navBarMenuClassNames = classNames({
     "navbar-menu": true,
@@ -32,17 +53,20 @@ function Navbar() {
         </div>
         <div id="navbarMenuHeroA" className={navBarMenuClassNames}>
           <div className="navbar-end">
-            <Link to={"/"} className="navbar-item is-active">
-              Home
-            </Link>
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://fireblogcms.com"
-              className="navbar-item"
-            >
-              Fireblog
-            </a>
+            {menuLinks.map(link => {
+              const { to, ...other } = link.props;
+              return (
+                <MenuLink
+                  key={to}
+                  to={to}
+                  className="navbar-item"
+                  activeClassName="is-active"
+                  {...other}
+                >
+                  {link.title}
+                </MenuLink>
+              );
+            })}
           </div>
         </div>
       </div>

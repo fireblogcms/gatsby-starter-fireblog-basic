@@ -68,8 +68,9 @@ You can check articles in following URLs.
 ## Customize for your brand
 
 - Put your own logo to `static/images/logo.png`
-- Edit `$primary` color from `src/sass/_variables.scss`. Feel free to customize any variables here !
-- Customize theme by editing `src/sass_theme.scss`
+- Edit `$primary` color from `src/scss/_variables.scss`. Feel free to customize any variables here !
+- Customize css theme by editing `src/scss_theme.scss`
+- Configure top menu links, Progressive Web App name, and more by editing `./gatsby-config.js` file.
 
 ## 💫 Deploy
 
