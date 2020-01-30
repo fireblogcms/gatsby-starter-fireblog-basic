@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "gatsby";
-import RecentPosts from "./recentPosts";
-import Socials from "./socials";
-import Header from "./header";
+import RecentPosts from "./RecentPosts";
+import Socials from "./Socials";
+import Header from "./Header";
 
 function Layout({ children, headerTitle, location }) {
   let headerContent;
