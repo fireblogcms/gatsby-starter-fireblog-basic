@@ -44,14 +44,14 @@ function Navbar() {
           <span
             onClick={() => setShowMobileMenu(!showMobileMenu)}
             className={burgerClassNames}
-            data-target="navbarMenuHeroA"
+            data-target="navbarMenuHero"
           >
             <span></span>
             <span></span>
             <span></span>
           </span>
         </div>
-        <div id="navbarMenuHeroA" className={navBarMenuClassNames}>
+        <div id="navbarMenuHero" className={navBarMenuClassNames}>
           <div className="navbar-end">
             {menuLinks.map(link => {
               const { to, ...other } = link.props;

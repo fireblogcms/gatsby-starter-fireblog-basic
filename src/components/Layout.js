@@ -1,28 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link } from "gatsby";
 import RecentPosts from "./RecentPosts";
 import Socials from "./Socials";
 import Header from "./Header";
 
-function Layout({ children, headerTitle, location }) {
-  let headerContent;
-  if (location.pathname === "/") {
-    headerContent = <h1 className="title is-1">{headerTitle}</h1>;
-  } else {
-    headerContent = (
-      <div className="header-title">
-        <Link className="title is-1" to="/">
-          {headerTitle}
-        </Link>
-      </div>
-    );
-  }
+function Layout({ children, headerTitle, headerSubtitle, location }) {
+  console.log("h", headerSubtitle, headerTitle);
   return (
-    <div className="layout gasby-theme">
-      <span name="top"></span>
-      <Header>{headerContent}</Header>
-
+    <div className="layout">
+      <Header
+        title={headerTitle}
+        subtitle={headerSubtitle}
+        location={location}
+      />
       <div className="container">
         <div className="columns">
           <div className="column">
@@ -52,7 +42,9 @@ function Layout({ children, headerTitle, location }) {
 
 Layout.propTypes = {
   headerTitle: PropTypes.string.isRequired,
-  location: PropTypes.object.isRequired
+  headerSubtitle: PropTypes.string,
+  location: PropTypes.object.isRequired,
+  children: PropTypes.node.isRequired
 };
 
 export default Layout;

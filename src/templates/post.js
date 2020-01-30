@@ -27,9 +27,15 @@ export const pageQuery = graphql`
     fireblog {
       blog {
         name
+        description
+        image {
+          alt
+          url
+        }
       }
       post(slug: $slug) {
         title
+        publishedAt
         content
         image {
           url

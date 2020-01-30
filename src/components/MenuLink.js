@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "gatsby";
 
 /**
- * MenuLink is like Link from gatbsy, but handle also
+ * MenuLink is like Link from gatbsy, but handling also
  * external urls.
  */
 

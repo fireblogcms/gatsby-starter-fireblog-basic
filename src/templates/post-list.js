@@ -7,13 +7,17 @@ import ImgNonStreched from "../components/ImgNonStreched";
 import ClockIcon from "../components/ClockIcon";
 
 function PostListTemplate({ data, location, pageContext }) {
-  const title = data.fireblog.blog.name;
+  const blog = data.fireblog.blog;
   const postsPerPage = data.site.siteMetadata.postsPerPage;
 
   const edges = data.fireblog.posts.edges;
   return (
-    <Layout location={location} headerTitle={title}>
-      <SEO location={location} title={`${title} | all posts`} />
+    <Layout
+      location={location}
+      headerTitle={blog.name}
+      headerSubtitle={blog.description}
+    >
+      <SEO location={location} title={`${blog.name} | all posts`} />
       <div className="post-list">
         {edges.map(edge => {
           return (
@@ -83,6 +87,7 @@ export const pageQuery = graphql`
         edges {
           node {
             publishedAt
+            updatedAt
             teaser
             slug
             title

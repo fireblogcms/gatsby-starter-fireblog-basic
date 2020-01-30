@@ -1,17 +1,53 @@
 import React from "react";
 import Navbar from "./Navbar";
+import PropTypes from "prop-types";
+import { Link } from "gatsby";
 
-function Header({ children }) {
+function Header({
+  title,
+  location,
+  subtitle = null,
+  backgroundImageUrl = null
+}) {
+  let headerContent;
+
+  // on Homepage, blog title must be a h1
+  if (location.pathname === "/") {
+    headerContent = (
+      <div>
+        <h1 className="title is-1">{title}</h1>
+        {subtitle && <div className="subtitle">{subtitle}</div>}
+      </div>
+    );
+  }
+  // on others pages, h1 will be used by post title, so
+  // blog title became a link.
+  else {
+    headerContent = (
+      <div>
+        <Link className="title is-1" to="/">
+          {title}
+        </Link>
+        {subtitle && <div className="subtitle">{subtitle}</div>}
+      </div>
+    );
+  }
   return (
     <section className="hero is-primary is-small is-bold">
       <div className="hero-head">
         <Navbar />
       </div>
       <div className="hero-body">
-        <div className="container has-text-centered">{children}</div>
+        <div className="container">{headerContent}</div>
       </div>
     </section>
   );
 }
+
+Header.propTypes = {
+  title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string,
+  location: PropTypes.object.isRequired
+};
 
 export default Header;

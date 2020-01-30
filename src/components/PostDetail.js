@@ -3,12 +3,13 @@ import ImgNonStreched from "./ImgNonStreched";
 import Layout from "./Layout";
 import SEO from "./SEO";
 import ClockIcon from "./ClockIcon";
+import PropTypes from "prop-types";
 
 function PostDetail({ post, blog, location, siteMetadata, preview = false }) {
   const { displayAuthor } = siteMetadata;
   const contentRef = useRef();
   useEffect(() => {
-    // display rich links preview with iframely if here is a iframely key
+    // display rich links preview with iframely, if here is a iframely key
     if (window.iframely && process.env.GATSBY_IFRAMELY_API_KEY) {
       contentRef.current.querySelectorAll("oembed[url]").forEach(element => {
         window.iframely.load(element, element.attributes.url.value);
@@ -16,7 +17,11 @@ function PostDetail({ post, blog, location, siteMetadata, preview = false }) {
     }
   }, []);
   return (
-    <Layout location={location} headerTitle={blog.name}>
+    <Layout
+      location={location}
+      headerTitle={blog.name}
+      headerSubtitle={blog.description}
+    >
       <SEO
         location={location}
         title={post.title}
@@ -60,5 +65,12 @@ function PostDetail({ post, blog, location, siteMetadata, preview = false }) {
     </Layout>
   );
 }
+
+PostDetail.propTypes = {
+  headerTitle: PropTypes.string.isRequired,
+  headerSubtitle: PropTypes.string,
+  location: PropTypes.object.isRequired,
+  children: PropTypes.node.isRequired
+};
 
 export default PostDetail;
