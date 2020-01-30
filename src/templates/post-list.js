@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
 import Layout from "../components/layout";
-import SEO from "../components/seo";
+import SEO from "../components/SEO";
 import Pagination from "../components/Pagination";
 import ImgNonStreched from "../components/ImgNonStreched";
 import ClockIcon from "../components/ClockIcon";
@@ -40,7 +40,7 @@ function PostListTemplate({ data, location, pageContext }) {
                     {new Date(edge.node.publishedAt).toLocaleDateString()}
                   </small>
                 </div>
-                <div className="has-text-justified">
+                <div className="post-content">
                   <p>{edge.node.teaser}</p>
                 </div>
                 <Link className="read-more" to={`/post/${edge.node.slug}`}>

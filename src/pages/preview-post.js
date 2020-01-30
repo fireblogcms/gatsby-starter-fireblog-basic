@@ -1,6 +1,6 @@
 /**
  * [WIP] This page is only here for real-time preview inside fireblog.
- * The "real" gatbsy page for post is "templates/post.js"
+ * The "real" gatbsy page for a single post is "templates/post.js"
  */
 import React, { useState, useEffect } from "react";
 import PostDetail from "../components/postDetail";

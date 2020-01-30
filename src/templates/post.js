@@ -1,6 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
-import PostDetail from "../components/postDetail";
+import PostDetail from "../components/PostDetail";
 
 function PostTemplate({ data, location }) {
   const { blog, post } = data.fireblog;
