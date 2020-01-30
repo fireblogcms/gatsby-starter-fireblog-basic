@@ -51,6 +51,7 @@ function PostListTemplate({ data, location, pageContext }) {
           );
         })}
         <Pagination
+          location={location}
           totalResults={pageContext.paginationTotalCount}
           resultsPerPage={postsPerPage}
         />
