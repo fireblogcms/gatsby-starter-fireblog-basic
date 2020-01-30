@@ -3,15 +3,16 @@ require("dotenv").config();
 const config = {};
 
 config.siteMetadata = {
-  // used when users add your blog to their home screen on most mobile browsers
-  manifestName: "Fireblog Gatsby starter",
-  manifestShortName: "Fireblog",
-  // default language of your site, also used as a html attribute
-  lang: "en",
   postsPerPage: 20,
   // absolute url of your site, e.g https://example.com. Required
   // to build some links for AMP and PWA.
   siteUrl: process.env.GATSBY_SITE_URL,
+  // default language of your site, also used as a html attribute
+  lang: "en",
+  // used when users add your blog to their home screen on most mobile browsers
+  manifestName: "Fireblog Gatsby Starter",
+  manifestShortName: "Fireblog",
+
   // links to your social accounts.
   // @see components/socials.js
   // Use an empty string as value to disable a specific social network
