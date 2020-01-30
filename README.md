@@ -4,7 +4,7 @@
 
 Combine Gatbsy (A modern static site generator ideal for JAMstack architectures) and Fireblog to create a new blog experience : a super fast and simple back-office with a super fast and modern front-end !
 
-Fireblog is a new headless CMS fully dedicated to blogging, you can try it here for free : https://fireblogcms.com/
+Fireblog is a new headless CMS fully dedicated to blogging, you can try it here for free (one month trial) : https://app.fireblogcms.com/
 
 This starter has been forked from [here](https://github.com/gatsbyjs/gatsby-starter-blog) and here [here](https://github.com/tomoyukikashiro/gatsby-starter-blog-amp-to-pwa) , thanks guys for your awesome work !
 
