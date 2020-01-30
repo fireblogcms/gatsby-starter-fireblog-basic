@@ -111,9 +111,16 @@ config.plugins = [
       }
     },
     */
+  // The web app manifest(part of the PWA specification) enabled by this plugin
+  // allows users to add your site to their home screen
+  // on most mobile browsers — see here.
+  // The manifest provides configuration and icons to the phone.
+  // this plugin should be listed before the offline plugin so
+  // that it can cache the created manifest.webmanifest.
   {
     resolve: `gatsby-plugin-manifest`,
     options: {
+      icon: `static/images/logo.png`,
       name: config.siteMetadata.manifestName,
       short_name: config.siteMetadata.manifestShortName,
       start_url: `/`,
