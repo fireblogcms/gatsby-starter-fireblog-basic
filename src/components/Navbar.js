@@ -57,11 +57,11 @@ function Navbar() {
               const { to, ...other } = link.props;
               return (
                 <MenuLink
+                  {...other}
                   key={to}
                   to={to}
                   className="navbar-item"
                   activeClassName="is-active"
-                  {...other}
                 >
                   {link.title}
                 </MenuLink>

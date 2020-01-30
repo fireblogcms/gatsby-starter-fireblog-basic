@@ -10,12 +10,7 @@
   .hero-body {
     text-align: center;
     padding-bottom: 80px;
-    .title {
-      & > a {
-        color: white;
-      }
-      font-weight: 800;
-    }
+    font-weight: 800;
   }
 }
 

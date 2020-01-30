@@ -1,5 +1,6 @@
 /* litteral variables */
 $black: #000;
+$white: #fff;
 $purple-heart: #563bd1;
 $body-line-height: 1.8;
 
@@ -11,5 +12,7 @@ $primary: $purple-heart;
 $link: $primary;
 $title-weight: 400;
 $content-heading-weight: $title-weight;
+$navbar-item-color: $white;
+$navbar-item-active-color: $navbar-item-color;
 $navbar-item-hover-background-color: $primary;
-$navbar-burger-color: white;
+$navbar-burger-color: $white;
