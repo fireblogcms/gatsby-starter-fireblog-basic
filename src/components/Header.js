@@ -33,7 +33,7 @@ function Header({
     );
   }
   return (
-    <section className={`hero is-primary ${classNames}`}>
+    <section className={`hero is-primary is-bold ${classNames}`}>
       <div className="hero-head">
         <Navbar />
       </div>
