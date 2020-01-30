@@ -3,7 +3,7 @@
  * The "real" gatbsy page for a single post is "templates/post.js"
  */
 import React, { useState, useEffect } from "react";
-import PostDetail from "../components/postDetail";
+import PostDetail from "../components/PostDetail";
 
 const previewQuery = `
   query previewQuery($id: ID!) {
