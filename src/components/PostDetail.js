@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import ImgNonStreched from "./ImgNonStreched";
 import Layout from "./Layout";
-import SEO from "./Seo";
+import SEO from "./SEO";
 import ClockIcon from "./ClockIcon";
 
 function PostDetail({ post, blog, location, siteMetadata, preview = false }) {
