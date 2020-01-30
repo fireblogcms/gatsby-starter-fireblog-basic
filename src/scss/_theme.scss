@@ -10,7 +10,13 @@
   .hero-body {
     text-align: center;
     padding-bottom: 80px;
-    font-weight: 800;
+    .title {
+      font-weight: 800;
+      a {
+        font-weight: 800;
+        color: $white;
+      }
+    }
   }
 }
 
