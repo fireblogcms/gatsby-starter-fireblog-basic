@@ -1,20 +1,20 @@
 /* litteral variables */
 $black: #000;
 $white: #fff;
-$flamingo: #ef473a;
-$body-line-height: 1.8;
-$header-background-gradient-1: #ef473a;
-$header-background-gradient-2: #ff5f6d;
+$purple-heart: #563bd1;
+$header-background-gradient-1: $purple-heart;
+$header-background-gradient-2: lighten($purple-heart, 10);
 
 /* 
-Bulma customization 
+Bulma variables customization 
 @see https://bulma.io/documentation/customize/variables/
 */
-$primary: $flamingo;
+$primary: $purple-heart;
 $link: $primary;
 $title-weight: 400;
+$body-line-height: 1.8;
 $content-heading-weight: $title-weight;
-$navbar-background-color: $flamingo;
+$navbar-background-color: $primary;
 $navbar-item-color: $white;
 $navbar-item-hover-color: $white;
 $navbar-item-active-color: $navbar-item-color;
