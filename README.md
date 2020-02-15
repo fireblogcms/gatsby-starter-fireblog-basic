@@ -1,6 +1,6 @@
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 
-# Firestarter: a Gatsby's blog starter for Fireblog 🔥 with AMP & PWA support
+# [BETA] Firestarter: a Gatsby's blog starter for Fireblog 🔥 with PWA support
 
 Combine Gatbsy (A modern static site generator ideal for JAMstack architectures) and Fireblog to create a new blog experience : a super fast and simple back-office with a super fast and modern front-end !
 
@@ -8,15 +8,15 @@ Fireblog is a new headless CMS fully dedicated to blogging, you can try it here 
 
 This starter has been forked from [here](https://github.com/gatsbyjs/gatsby-starter-blog) and here [here](https://github.com/tomoyukikashiro/gatsby-starter-blog-amp-to-pwa) , thanks guys for your awesome work !
 
-## AMP to PWA
+## AMP to PWA (WIP)
 
 This starter has AMP to PWA Strategy (a.k.a. AMP as entry point into your PWA). Please check [original blog](https://www.ampproject.org/docs/integration/pwa-amp#amp-as-entry-point-into-your-pwa) for more detail.
 
 ## Features
 
 - Pagination
-- PWA (Progessive Web App)
-- AMP support (Accelerated Mobile Page, a google web component framework)
+- PWA (Progessive Web App), offline mode.
+- (working on it) AMP support (Accelerated Mobile Page, a google web component framework)
 - Images optimization with gatsby-image when possible
 - Responsive
 - Use your own logo and colors super easily with Sass & Bulma (https://bulma.io). See section "Customize for your brand"
@@ -38,7 +38,7 @@ If you have to install node, you might be interested in using _nvm_ to install a
 1. Download and execute Gatsby to create our blog:
 
 ```bash
-$ npx gatsby new fireblog https://github.com/fireblogcms/gatsby-starter-fireblog-firestarter
+$ npx gatsby new fireblog https://github.com/fireblogcms/gatsby-starter-fireblog
 $ cd fireblog
 ```
 
@@ -60,11 +60,6 @@ Build and serve the production files:
 $ npm run build && npm run serve
 ```
 
-You can check articles in following URLs.
-
-- Non-AMP：http://localhost:8000
-- AMP：http://localhost:8000/amp/
-
 ## Customize for your brand
 
 - Put your own logo to `static/images/logo.png`
@@ -76,4 +71,4 @@ You can check articles in following URLs.
 
 We love to use Netlify at fireblogcms.com because it is super easy to use and comes with great addons to makes your JAMstack site more spicy (lambdas function, forms etc).
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/fireblogcms/gatsby-starter-fireblog-firestarter)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/fireblogcms/gatsby-starter-fireblog)

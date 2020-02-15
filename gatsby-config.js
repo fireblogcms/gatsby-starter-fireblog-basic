@@ -129,19 +129,19 @@ config.plugins = [
       display: `minimal-ui`
     }
   },
-  {
-    resolve: "gatsby-plugin-html2amp",
-    options: {
-      files: ["index.html", "pages/**/index.html", "post/**/index.html"],
-      gaConfigPath: "gaConfig.json",
-      dist: "public/amp",
-      serviceWorker: {
-        src: `https://${process.env.GATSBY_SITE_URL}/sw.js`,
-        "data-iframe-src": `https://${process.env.GATSBY_SITE_URL}/amp-install-serviceworker.html`,
-        layout: "nodisplay"
-      }
-    }
-  },
+  //{
+  //  resolve: "gatsby-plugin-html2amp",
+  //  options: {
+  //    files: ["index.html", "pages/**/index.html", "post/**/index.html"],
+  //    gaConfigPath: "gaConfig.json",
+  //    dist: "public/amp",
+  //    serviceWorker: {
+  //      src: `https://${process.env.GATSBY_SITE_URL}/sw.js`,
+  //      "data-iframe-src": `https://${process.env.GATSBY_SITE_URL}/amp-install-serviceworker.html`,
+  //      layout: "nodisplay"
+  //    }
+  //  }
+  //},
   `gatsby-plugin-offline`,
   `gatsby-plugin-react-helmet`,
   {
