@@ -19,7 +19,7 @@ function Layout({ children, headerTitle, headerSubtitle, location }) {
               <main>{children}</main>
             </section>
           </div>
-          <div className="column is-one-quarter">
+          <div className="column is-one-third">
             <aside>
               <section className="section">
                 <RecentPosts location={location} />
