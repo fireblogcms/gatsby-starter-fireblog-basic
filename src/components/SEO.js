@@ -12,6 +12,7 @@ function SEO({
   image = null
 }) {
   const path = location.pathname;
+  const isHome = path === "/" ? true : false;
   const data = useStaticQuery(graphql`
     query DefaultSEOQuery {
       site {
@@ -56,12 +57,16 @@ function SEO({
       content: title
     },
     {
+      property: `og:url`,
+      content: location.href
+    },
+    {
       property: `og:description`,
       content: metaDescription
     },
     {
       property: `og:type`,
-      content: `website`
+      content: isHome ? `website` : `article`
     },
     {
       name: `twitter:card`,
@@ -103,11 +108,13 @@ function SEO({
         {
           rel: "canonical",
           href: `${siteUrl}${path}`
-        },
+        }
+        /*
         {
           rel: "amphtml",
           href: `${siteUrl}/amp${path}`
         }
+        */
       ]}
       meta={meta}
     />
