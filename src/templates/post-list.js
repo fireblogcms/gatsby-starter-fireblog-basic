@@ -8,7 +8,7 @@ import ClockIcon from "../components/ClockIcon";
 
 function PostListTemplate({ data, location, pageContext }) {
   const blog = data.fireblog.blog;
-  const postsPerPage = data.site.siteMetadata.postsPerPage;
+  const { postsPerPage, readMoreText } = data.site.siteMetadata;
 
   const edges = data.fireblog.posts.edges;
   return (
@@ -48,7 +48,7 @@ function PostListTemplate({ data, location, pageContext }) {
                   <p>{edge.node.teaser}</p>
                 </div>
                 <Link className="read-more" to={`/post/${edge.node.slug}`}>
-                  Continue reading
+                  {readMoreText}
                 </Link>
               </div>
             </div>
@@ -72,6 +72,7 @@ export const pageQuery = graphql`
       siteMetadata {
         postsPerPage
         displayAuthor
+        readMoreText
       }
     }
     fireblog {

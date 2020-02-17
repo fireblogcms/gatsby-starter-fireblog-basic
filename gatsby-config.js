@@ -3,13 +3,13 @@ require("dotenv").config();
 const config = {};
 
 config.siteMetadata = {
+  // default language of your site, also used as a html attribute
+  lang: "en",
   // absolute url of your site, e.g https://example.com. Required
   // to build some links for AMP and PWA.
   siteUrl: process.env.GATSBY_SITE_URL,
-
   // how many posts are display per page on post list page
   postsPerPage: 20,
-
   // links for the top menu
   menuLinks: [
     {
@@ -26,10 +26,7 @@ config.siteMetadata = {
       }
     }
   ],
-
-  // default language of your site, also used as a html attribute
-  lang: "en",
-
+  readMoreText: "Continue reading",
   // Used when users install your blog to their
   // home screen on most mobile browsers
   manifestName: "Fireblog Gatsby Starter",
