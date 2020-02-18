@@ -24,7 +24,7 @@ function PostListTemplate({ data, location, pageContext }) {
             <div className="post columns" key={edge.node.slug}>
               {edge.node.gatsbyImage && (
                 <div className="column is-one-quarter">
-                  <Link to={`/post/${edge.node.slug}`}>
+                  <Link to={`/post/${edge.node.slug}/`}>
                     <ImgNonStreched
                       fluid={edge.node.gatsbyImage.childImageSharp.fluid}
                       alt={edge.node.image.alt}
@@ -34,7 +34,7 @@ function PostListTemplate({ data, location, pageContext }) {
               )}
               <div className="column">
                 <h2 className="title is-3">
-                  <Link to={`/post/${edge.node.slug}`}>{edge.node.title}</Link>
+                  <Link to={`/post/${edge.node.slug}/`}>{edge.node.title}</Link>
                 </h2>
                 <div className="date">
                   <small>
@@ -47,7 +47,7 @@ function PostListTemplate({ data, location, pageContext }) {
                 <div className="post-teaser">
                   <p>{edge.node.teaser}</p>
                 </div>
-                <Link className="read-more" to={`/post/${edge.node.slug}`}>
+                <Link className="read-more" to={`/post/${edge.node.slug}/`}>
                   {readMoreText}
                 </Link>
               </div>

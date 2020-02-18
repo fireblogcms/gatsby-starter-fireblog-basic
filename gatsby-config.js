@@ -159,7 +159,8 @@ config.plugins = [
       // ignore: ['/ignored.css', 'prismjs/', 'docsearch.js/'], // Ignore files/folders
       // purgeOnly : ['components/', '/main.css', 'bootstrap/'], // Purge only these files/folders
     }
-  }
+  },
+  `gatsby-plugin-force-trailing-slashes`
 ];
 
 if (process.env.GATSBY_GOOGLE_ANALYTICS_TRACKING_ID) {

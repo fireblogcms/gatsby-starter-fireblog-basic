@@ -49,7 +49,7 @@ function RecentPosts({ location }) {
                 <div className="column is-one-quarter">
                   <div className="image">
                     {edge.node.gatsbyImage && (
-                      <Link to={`/post/${edge.node.slug}`}>
+                      <Link to={`/post/${edge.node.slug}/`}>
                         <Img
                           fluid={edge.node.gatsbyImage.childImageSharp.fluid}
                           alt={edge.node.image.alt}
@@ -62,7 +62,7 @@ function RecentPosts({ location }) {
                   <div>
                     <h4 className="post-title title is-6">
                       {" "}
-                      <Link to={`/post/${edge.node.slug}`}>
+                      <Link to={`/post/${edge.node.slug}/`}>
                         {edge.node.title}
                       </Link>
                     </h4>

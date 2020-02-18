@@ -54,6 +54,7 @@
   },
   "devDependencies": {
     "amphtml-validator": "^1.0.23",
+    "gatsby-plugin-force-trailing-slashes": "^1.0.4",
     "husky": ">=1",
     "lint-staged": ">=8",
     "prettier": "^1.19.1"
