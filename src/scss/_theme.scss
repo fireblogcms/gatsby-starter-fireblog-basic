@@ -63,6 +63,11 @@ aside {
     .block-title {
       text-transform: uppercase;
     }
+    li {
+      img {
+        max-width: 100px;
+      }
+    }
     padding-top: 30px;
   }
 }
