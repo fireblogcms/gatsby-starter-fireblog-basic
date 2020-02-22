@@ -90,7 +90,21 @@ config.plugins = [
       src: `https://cdn.iframe.ly/embed.js?api_key=${process.env.GATSBY_IFRAMELY_API_KEY}`
     }
   },
-  `gatsby-plugin-force-trailing-slashes`
+  `gatsby-plugin-force-trailing-slashes`,
+  // Add after these plugins if used
+  {
+    resolve: `gatsby-plugin-purgecss`,
+    options: {
+      whitelistPatternsChildren: [/^content$/],
+      printRejected: true, // Print removed selectors and processed file names
+      develop: true
+      // develop: true, // Enable while using `gatsby develop`
+      // tailwind: true, // Enable tailwindcss support
+      // whitelist: ['whitelist'], // Don't remove this selector
+      // ignore: ['/ignored.css', 'prismjs/', 'docsearch.js/'], // Ignore files/folders
+      // purgeOnly : ['components/', '/main.css', 'bootstrap/'], // Purge only these files/folders
+    }
+  }
 ];
 
 if (process.env.GATSBY_GOOGLE_ANALYTICS_TRACKING_ID) {
