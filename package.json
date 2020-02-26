@@ -2,7 +2,7 @@
   "name": "blog.origame.fr",
   "private": true,
   "description": "A Gatbsy starter for fireblog, with PWA & AMP support",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "Yann",
   "bugs": {
     "url": "https://github.com/fireblogcms/blog.origame.fr/issues"
