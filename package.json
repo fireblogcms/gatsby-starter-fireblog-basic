@@ -1,11 +1,11 @@
 {
-  "name": "blog.origame.fr",
+  "name": "gastby-starter-fireblog",
   "private": true,
   "description": "A Gatbsy starter for fireblog, with PWA & AMP support",
   "version": "1.0.2",
   "author": "Yann",
   "bugs": {
-    "url": "https://github.com/fireblogcms/blog.origame.fr/issues"
+    "url": "https://github.com/fireblogcms/gatsby-starter-fireblog"
   },
   "dependencies": {
     "bulma": "^0.8.0",
