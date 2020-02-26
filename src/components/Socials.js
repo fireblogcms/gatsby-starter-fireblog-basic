@@ -18,7 +18,9 @@ function Socials() {
     }
   `);
   const { socials, followUsText } = data.site.siteMetadata;
-  const socialsIds = Object.keys(socials);
+  const socialsIds = Object.keys(socials).filter(id =>
+    socials[id] ? true : false
+  );
   return (
     <div className="socials">
       <h3 className="block-title title is-5">{followUsText}</h3>
