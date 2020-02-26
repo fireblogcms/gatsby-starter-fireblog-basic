@@ -1,15 +1,15 @@
 /* litteral variables */
 $black: #000;
 $white: #fff;
-$purple-heart: #563bd1;
-$header-background-gradient-1: $purple-heart;
-$header-background-gradient-2: lighten($purple-heart, 10);
+$brand-color: #338aff;
+$header-background-gradient-1: $brand-color;
+$header-background-gradient-2: lighten($brand-color, 10);
 
 /* 
 Bulma variables customization 
 @see https://bulma.io/documentation/customize/variables/
 */
-$primary: $purple-heart;
+$primary: $brand-color;
 $link: $primary;
 $title-weight: 400;
 $body-line-height: 1.8;

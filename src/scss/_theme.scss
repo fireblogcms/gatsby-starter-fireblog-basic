@@ -34,18 +34,17 @@
     flex-direction: row-reverse;
   }
   .post {
-    padding-bottom: 20px;
+    padding-bottom: 30px;
     .title {
       margin-bottom: 0;
     }
     .read-more {
-      text-transform: uppercase;
-      display: inline-block;
-      padding: 10px 0;
+      color: $black;
     }
   }
   .post-teaser {
     padding-top: 15px;
+    padding-bottom: 15px;
     text-align: justify;
   }
 }
@@ -53,8 +52,19 @@
 aside {
   .recent-posts {
     .block-title {
+      position: relative;
       text-transform: uppercase;
+      &:after {
+        content: "";
+        position: absolute;
+        height: 4px;
+        width: 60px;
+        background: #d1d1d1;
+        bottom: -10px;
+        left: 0;
+      }
     }
+
     .post-title {
       margin-bottom: 0;
     }
@@ -65,7 +75,7 @@ aside {
     }
     li {
       img {
-        max-width: 100px;
+        max-width: 70px;
       }
     }
     padding-top: 30px;
@@ -88,4 +98,11 @@ aside {
   position: relative;
   top: 2px;
   padding-right: 5px;
+}
+
+.content {
+  // Bulma set img width to 100% by default, we dont want that.
+  img {
+    width: auto;
+  }
 }

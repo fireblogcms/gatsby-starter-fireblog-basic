@@ -36,6 +36,7 @@ export const pageQuery = graphql`
       post(slug: $slug) {
         title
         publishedAt
+        teaser
         content
         image {
           url

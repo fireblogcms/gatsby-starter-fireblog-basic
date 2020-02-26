@@ -10,46 +10,32 @@ function Socials() {
             linkedin
             twitter
             instagram
+            facebook
           }
+          followUsText
         }
       }
     }
   `);
-  const socials = data.site.siteMetadata.socials;
-
+  const { socials, followUsText } = data.site.siteMetadata;
+  const socialsIds = Object.keys(socials);
   return (
     <div className="socials">
-      <h3 className="block-title title is-5">Follow Us</h3>
+      <h3 className="block-title title is-5">{followUsText}</h3>
       <ul className="columns is-mobile">
-        {socials.linkedin && (
-          <li className="column">
-            <a
-              href={socials.linkedin}
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <img src="/images/linkedin.svg" alt="" />
-            </a>
-          </li>
-        )}
-        {socials.twitter && (
-          <li className="column">
-            <a href={socials.twitter} target="_blank" rel="noopener noreferrer">
-              <img src="/images/twitter-square.svg" alt="" />
-            </a>
-          </li>
-        )}
-        {socials.instagram && (
-          <li className="column">
-            <a
-              href={socials.instagram}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img src="/images/instagram.svg" alt="" />
-            </a>
-          </li>
-        )}
+        {socialsIds.map(socialId => {
+          return (
+            <li className="column" key={socialId}>
+              <a
+                href={socials[socialId]}
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <img src={`/images/icon-${socialId}.svg`} alt="" />
+              </a>
+            </li>
+          );
+        })}
       </ul>
     </div>
   );

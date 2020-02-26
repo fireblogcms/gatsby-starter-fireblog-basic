@@ -19,26 +19,30 @@ config.siteMetadata = {
       }
     },
     {
-      title: "Fireblog",
+      title: "Back to site",
+
       props: {
         to: "https://fireblogcms.com",
-        target: "_blank"
+        target: "_blank",
+        id: "back-to-site"
       }
     }
   ],
-  readMoreText: "Continue reading",
+  readMoreText: "Read more",
+  followUsText: "Follow us",
   // Used when users install your blog to their
   // home screen on most mobile browsers
-  manifestName: "Fireblog Gatsby Starter",
+  manifestName: "Fireblog",
   manifestShortName: "Fireblog",
 
   // links to your social accounts.
   // @see components/socials.js
   // Use an empty string as value to disable a specific social network
   socials: {
-    linkedin: "https://www.linkedin.com",
-    instagram: "https://www.instagram.com",
-    twitter: "https://www.twitter.com"
+    linkedin: "https://www.linkedin.com/",
+    instagram: "https://www.instagram.com/",
+    twitter: "https://twitter.com/",
+    facebook: "https://www.facebook.com/"
   },
 
   displayAuthor: false
@@ -80,7 +84,20 @@ config.plugins = [
       display: `minimal-ui`
     }
   },
-  // MUST BE AFTER MANIFEST
+  //{
+  //  resolve: "gatsby-plugin-html2amp",
+  //  options: {
+  //    files: ["index.html", "pages/**/index.html", "post/**/index.html"],
+  //    gaConfigPath: "gaConfig.json",
+  //    dist: "public/amp",
+  //    serviceWorker: {
+  //      src: `https://${process.env.GATSBY_SITE_URL}/sw.js`,
+  //      "data-iframe-src": `https://${process.env.GATSBY_SITE_URL}/amp-install-serviceworker.html`,
+  //      layout: "nodisplay"
+  //    }
+  //  }
+  //},
+  // gatsby-plugin-offline MUST BE USED AFTER MANIFEST !
   `gatsby-plugin-offline`,
   `gatsby-plugin-react-helmet`,
   {
@@ -90,19 +107,14 @@ config.plugins = [
       src: `https://cdn.iframe.ly/embed.js?api_key=${process.env.GATSBY_IFRAMELY_API_KEY}`
     }
   },
-  `gatsby-plugin-force-trailing-slashes`,
   // Add after these plugins if used
   {
     resolve: `gatsby-plugin-purgecss`,
     options: {
+      // protect .content class from Bulma
       whitelistPatternsChildren: [/^content$/],
       printRejected: true, // Print removed selectors and processed file names
-      develop: true
-      // develop: true, // Enable while using `gatsby develop`
-      // tailwind: true, // Enable tailwindcss support
-      // whitelist: ['whitelist'], // Don't remove this selector
-      // ignore: ['/ignored.css', 'prismjs/', 'docsearch.js/'], // Ignore files/folders
-      // purgeOnly : ['components/', '/main.css', 'bootstrap/'], // Purge only these files/folders
+      develop: false // Enable while using `gatsby develop`
     }
   }
 ];

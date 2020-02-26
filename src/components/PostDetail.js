@@ -16,6 +16,7 @@ function PostDetail({ post, blog, location, siteMetadata, preview = false }) {
       });
     }
   }, []);
+
   return (
     <Layout
       location={location}

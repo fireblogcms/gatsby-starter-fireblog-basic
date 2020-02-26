@@ -30,11 +30,13 @@ function Layout({ children, headerTitle, headerSubtitle, location }) {
         </div>
       </div>
 
+      {/*
       <footer className="footer has-text-centered">
         © {new Date().getFullYear()}, Built with{" "}
         <a href="https://fireblogcms.com">fireblog</a> &{" "}
         <a href="https://www.gatsbyjs.org">Gatsby</a>
       </footer>
+    */}
     </div>
   );
 }

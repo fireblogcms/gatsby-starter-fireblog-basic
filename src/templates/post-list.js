@@ -17,7 +17,7 @@ function PostListTemplate({ data, location, pageContext }) {
       headerTitle={blog.name}
       headerSubtitle={blog.description}
     >
-      <SEO location={location} title={`${blog.name} | all posts`} />
+      <SEO location={location} title={`${blog.name} | Tous les articles`} />
       <div className="post-list">
         {edges.map(edge => {
           return (
@@ -33,7 +33,7 @@ function PostListTemplate({ data, location, pageContext }) {
                 </div>
               )}
               <div className="column">
-                <h2 className="title is-3">
+                <h2 className="title is-4">
                   <Link to={`/post/${edge.node.slug}/`}>{edge.node.title}</Link>
                 </h2>
                 <div className="date">
@@ -47,7 +47,10 @@ function PostListTemplate({ data, location, pageContext }) {
                 <div className="post-teaser">
                   <p>{edge.node.teaser}</p>
                 </div>
-                <Link className="read-more" to={`/post/${edge.node.slug}/`}>
+                <Link
+                  className="read-more button is-light"
+                  to={`/post/${edge.node.slug}/`}
+                >
                   {readMoreText}
                 </Link>
               </div>
