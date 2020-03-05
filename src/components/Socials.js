@@ -11,6 +11,7 @@ function Socials() {
             twitter
             instagram
             facebook
+            youtube
           }
           followUsText
         }

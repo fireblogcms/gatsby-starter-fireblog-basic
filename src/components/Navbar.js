@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useStaticQuery, Link, graphql } from "gatsby";
+import { useStaticQuery, graphql } from "gatsby";
 import MenuLink from "./MenuLink";
 import classNames from "classnames";
 

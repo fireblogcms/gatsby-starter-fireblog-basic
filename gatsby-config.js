@@ -42,7 +42,8 @@ config.siteMetadata = {
     linkedin: "https://www.linkedin.com/",
     instagram: "https://www.instagram.com/",
     twitter: "https://twitter.com/",
-    facebook: "https://www.facebook.com/"
+    facebook: "https://www.facebook.com/",
+    youtube: "https://www.youtube.com/"
   },
 
   displayAuthor: false
