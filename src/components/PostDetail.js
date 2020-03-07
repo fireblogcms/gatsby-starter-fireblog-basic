@@ -33,9 +33,7 @@ function PostDetail({ post, blog, location, siteMetadata, preview = false }) {
       <div className="post-detail">
         <h1 className="title is-1">{post.title}</h1>
         <div className="date">
-          <span className="date-clock">
-            <ClockIcon />
-          </span>
+          <span className="date-clock">📅</span>
           {new Date(post.publishedAt).toLocaleDateString()}
         </div>
         {post.image.url && !preview && (

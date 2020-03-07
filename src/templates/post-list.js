@@ -38,9 +38,7 @@ function PostListTemplate({ data, location, pageContext }) {
                 </h2>
                 <div className="date">
                   <small>
-                    <span className="date-clock">
-                      <ClockIcon />
-                    </span>
+                    <span className="date-clock">📅</span>
                     {new Date(edge.node.publishedAt).toLocaleDateString()}
                   </small>
                 </div>
