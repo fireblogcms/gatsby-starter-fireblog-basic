@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
 import Layout from "../components/Layout";
-import SEO from "../components/SEO";
+import HTMLMetadata from "../components/HTMLMetadata";
 import Pagination from "../components/Pagination";
 import ImgNonStreched from "../components/ImgNonStreched";
 import ClockIcon from "../components/ClockIcon";
@@ -17,7 +17,7 @@ function PostListTemplate({ data, location, pageContext }) {
       headerTitle={blog.name}
       headerSubtitle={blog.description}
     >
-      <SEO location={location} title={`${blog.name} | Tous les articles`} />
+      <HTMLMetadata location={location} metadata={blog.HTMLMetadata} />
       <div className="post-list">
         {edges.map(edge => {
           return (
@@ -38,7 +38,9 @@ function PostListTemplate({ data, location, pageContext }) {
                 </h2>
                 <div className="date">
                   <small>
-                    <span className="date-clock">📅</span>
+                    <span className="date-clock">
+                      <ClockIcon />
+                    </span>
                     {new Date(edge.node.publishedAt).toLocaleDateString()}
                   </small>
                 </div>
@@ -68,7 +70,11 @@ function PostListTemplate({ data, location, pageContext }) {
 export default PostListTemplate;
 
 export const pageQuery = graphql`
-  query PostListQuery($postsPerPage: Int!, $before: Fireblog_Cursor!) {
+  query PostListQuery(
+    $postsPerPage: Int!
+    $before: Fireblog_Cursor!
+    $url: String!
+  ) {
     site {
       siteMetadata {
         postsPerPage
@@ -83,6 +89,10 @@ export const pageQuery = graphql`
         image {
           url
           alt
+        }
+        HTMLMetadata(url: $url) {
+          title
+          meta
         }
       }
       posts(last: $postsPerPage, before: $before) {

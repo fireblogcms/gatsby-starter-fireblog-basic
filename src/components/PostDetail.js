@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import ImgNonStreched from "./ImgNonStreched";
 import Layout from "./Layout";
-import SEO from "./SEO";
+import HTMLMetadata from "./HTMLMetadata";
 import ClockIcon from "./ClockIcon";
 import PropTypes from "prop-types";
 
@@ -23,17 +23,13 @@ function PostDetail({ post, blog, location, siteMetadata, preview = false }) {
       headerTitle={blog.name}
       headerSubtitle={blog.description}
     >
-      <SEO
-        location={location}
-        title={post.title}
-        description={post.teaser}
-        slug={post.slug}
-        image={post.image ? post.image.url : null}
-      />
+      <HTMLMetadata metadata={post.HTMLMetadata} location={location} />
       <div className="post-detail">
         <h1 className="title is-1">{post.title}</h1>
         <div className="date">
-          <span className="date-clock">📅</span>
+          <span className="date-clock">
+            <ClockIcon />
+          </span>
           {new Date(post.publishedAt).toLocaleDateString()}
         </div>
         {post.image.url && !preview && (

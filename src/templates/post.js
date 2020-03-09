@@ -18,7 +18,7 @@ function PostTemplate({ data, location }) {
 export default PostTemplate;
 
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
+  query BlogPostBySlug($slug: String!, $url: String!) {
     site {
       siteMetadata {
         displayAuthor
@@ -34,6 +34,10 @@ export const pageQuery = graphql`
         }
       }
       post(slug: $slug) {
+        HTMLMetadata(url: $url) {
+          title
+          meta
+        }
         title
         publishedAt
         teaser

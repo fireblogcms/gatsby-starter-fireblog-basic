@@ -41,13 +41,15 @@ exports.createPages = async ({ graphql, actions }) => {
     /**
      * Create a pagination page for this post list
      */
+    let pagePath = page === 1 ? "/" : `/pages/${page}/`;
     createPage({
-      path: page === 1 ? "/" : `/pages/${page}`,
+      path: pagePath,
       component: blogPostList,
       context: {
         paginationTotalCount: totalCount,
         postsPerPage: config.siteMetadata.postsPerPage,
-        before
+        before,
+        url: `${process.env.GATSBY_SITE_URL}${pagePath === "/" ? "" : pagePath}`
       }
     });
     hasNextPage = pageInfo.hasNextPage;
@@ -58,11 +60,13 @@ exports.createPages = async ({ graphql, actions }) => {
      * Create a page for each retrieved post.
      */
     data.fireblog.posts.edges.forEach(edge => {
+      const pagePath = `/post/${edge.node.slug}/`;
       createPage({
-        path: `/post/${edge.node.slug}/`,
+        path: pagePath,
         component: blogPost,
         context: {
-          slug: edge.node.slug
+          slug: edge.node.slug,
+          url: `${process.env.GATSBY_SITE_URL}${pagePath}`
         }
       });
     });

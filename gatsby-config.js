@@ -20,7 +20,6 @@ config.siteMetadata = {
     },
     {
       title: "Back to site",
-
       props: {
         to: "https://fireblogcms.com",
         target: "_blank",
