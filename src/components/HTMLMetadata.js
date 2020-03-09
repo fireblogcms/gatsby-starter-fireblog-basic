@@ -3,23 +3,12 @@ import PropTypes from "prop-types";
 import Helmet from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
 
-function HTMLMetadata({ metadata, location }) {
-  const path = location.pathname;
+function HTMLMetadata({ metadata }) {
   const data = useStaticQuery(graphql`
     query DefaultSEOQuery {
       site {
         siteMetadata {
-          siteUrl
           lang
-        }
-      }
-      fireblog {
-        blog {
-          name
-          description
-          image {
-            url
-          }
         }
       }
     }
