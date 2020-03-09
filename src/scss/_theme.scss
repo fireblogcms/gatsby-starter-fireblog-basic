@@ -1,8 +1,12 @@
 @import "./_variables.scss";
 
-// all posts title in black.
-.title > a {
-  color: $black;
+.title,
+.subtitle {
+  // all posts title in black.
+  & > a {
+    color: $black;
+    font-weight: bold;
+  }
 }
 
 .hero,
@@ -14,7 +18,8 @@
   );
   .hero-body {
     text-align: center;
-    padding-bottom: 80px;
+    padding: 1rem;
+    padding-bottom: 70px;
     .subtitle {
       color: $white;
       max-width: 800px;
@@ -36,7 +41,7 @@
     flex-direction: row-reverse;
   }
   .post {
-    padding-bottom: 30px;
+    padding: 15px 0;
     .title {
       margin-bottom: 0;
     }
@@ -48,6 +53,9 @@
     padding-top: 15px;
     padding-bottom: 15px;
     text-align: justify;
+    &.content {
+      margin-bottom: 0;
+    }
   }
 }
 
@@ -69,6 +77,9 @@ aside {
   .recent-posts {
     .post-title {
       margin-bottom: 0;
+      a {
+        font-weight: 600;
+      }
     }
     margin-bottom: 30px;
   }
@@ -112,13 +123,13 @@ aside {
 }
 
 .content {
+  text-align: justify;
+  font-size: 17px;
+  line-height: 1.6;
   // Bulma set img width to 100% by default, we dont want that.
   img {
     width: auto;
   }
-}
-
-.content {
   blockquote {
     position: relative;
     &:after {
