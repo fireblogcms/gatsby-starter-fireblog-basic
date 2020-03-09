@@ -17,6 +17,8 @@
     padding-bottom: 80px;
     .subtitle {
       color: $white;
+      max-width: 800px;
+      margin: auto;
     }
     .title {
       font-weight: 800;
@@ -104,5 +106,13 @@ aside {
   // Bulma set img width to 100% by default, we dont want that.
   img {
     width: auto;
+  }
+}
+
+.content {
+  blockquote {
+    background: scale-color($brand-color, $lightness: 95%);
+    border-left: solid scale-color($brand-color, $lightness: 80%) 4px;
+    border-radius: 5px;
   }
 }

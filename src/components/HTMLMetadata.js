@@ -13,7 +13,6 @@ function HTMLMetadata({ metadata }) {
       }
     }
   `);
-
   return (
     <Helmet
       htmlAttributes={{
@@ -26,8 +25,7 @@ function HTMLMetadata({ metadata }) {
 }
 
 HTMLMetadata.propTypes = {
-  metadata: PropTypes.object.isRequired,
-  location: PropTypes.object.isRequired
+  metadata: PropTypes.object.isRequired
 };
 
 export default HTMLMetadata;
