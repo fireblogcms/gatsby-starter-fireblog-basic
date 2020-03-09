@@ -6,12 +6,14 @@ function PostTemplate({ data, location }) {
   const { blog, post } = data.fireblog;
   const siteMetadata = data.site.siteMetadata;
   return (
-    <PostDetail
-      blog={blog}
-      post={post}
-      siteMetadata={siteMetadata}
-      location={location}
-    />
+    <div>
+      <PostDetail
+        blog={blog}
+        post={post}
+        siteMetadata={siteMetadata}
+        location={location}
+      />
+    </div>
   );
 }
 

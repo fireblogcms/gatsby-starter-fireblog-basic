@@ -51,36 +51,35 @@
   }
 }
 
+.block-title {
+  position: relative;
+  text-transform: uppercase;
+  &:after {
+    content: "";
+    position: absolute;
+    height: 4px;
+    width: 60px;
+    background: #d1d1d1;
+    bottom: -10px;
+    left: 0;
+  }
+}
+
 aside {
   .recent-posts {
-    .block-title {
-      position: relative;
-      text-transform: uppercase;
-      &:after {
-        content: "";
-        position: absolute;
-        height: 4px;
-        width: 60px;
-        background: #d1d1d1;
-        bottom: -10px;
-        left: 0;
-      }
-    }
-
     .post-title {
       margin-bottom: 0;
     }
+    margin-bottom: 30px;
   }
   .socials {
-    .block-title {
-      text-transform: uppercase;
-    }
     li {
+      display: inline;
+      margin-right: 10px;
       img {
-        max-width: 70px;
+        max-width: 50px;
       }
     }
-    padding-top: 30px;
   }
 }
 
@@ -93,6 +92,16 @@ aside {
   }
   oembed {
     width: 100%;
+  }
+  .socials {
+    margin-top: 50px;
+    li {
+      display: inline;
+      margin-right: 20px;
+      img {
+        max-width: 50px;
+      }
+    }
   }
 }
 

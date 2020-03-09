@@ -4,6 +4,7 @@ import Layout from "./Layout";
 import HTMLMetadata from "./HTMLMetadata";
 import ClockIcon from "./ClockIcon";
 import PropTypes from "prop-types";
+import Socials from "../components/Socials";
 
 function PostDetail({ post, blog, location, siteMetadata, preview = false }) {
   const { displayAuthor } = siteMetadata;
@@ -56,6 +57,7 @@ function PostDetail({ post, blog, location, siteMetadata, preview = false }) {
             <span className="name">{post.author.name}</span>
           </div>
         )}
+        <Socials />
       </div>
     </Layout>
   );

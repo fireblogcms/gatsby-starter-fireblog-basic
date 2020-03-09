@@ -23,7 +23,7 @@ function Layout({ children, headerTitle, headerSubtitle, location }) {
             <aside>
               <section className="section">
                 <RecentPosts location={location} />
-                <Socials />
+                {location.pathname === "/" && <Socials />}
               </section>
             </aside>
           </div>

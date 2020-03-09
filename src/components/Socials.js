@@ -25,10 +25,10 @@ function Socials() {
   return (
     <div className="socials">
       <h3 className="block-title title is-5">{followUsText}</h3>
-      <ul className="columns is-mobile">
+      <ul>
         {socialsIds.map(socialId => {
           return (
-            <li className="column" key={socialId}>
+            <li key={socialId}>
               <a
                 href={socials[socialId]}
                 rel="noopener noreferrer"
