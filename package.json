@@ -2,7 +2,7 @@
   "name": "gastby-starter-fireblog",
   "private": true,
   "description": "A Gatbsy starter for fireblog, with PWA support",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "author": "Yann",
   "bugs": {
     "url": "https://github.com/fireblogcms/gatsby-starter-fireblog"

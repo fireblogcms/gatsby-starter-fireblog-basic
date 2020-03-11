@@ -42,6 +42,9 @@ exports.createPages = async ({ graphql, actions }) => {
      * Create a pagination page for this post list
      */
     let pagePath = page === 1 ? "/" : `/pages/${page}/`;
+    let fullUrl = `${process.env.GATSBY_SITE_URL}${
+      pagePath === "/" ? "" : pagePath
+    }`;
     createPage({
       path: pagePath,
       component: blogPostList,
@@ -49,7 +52,7 @@ exports.createPages = async ({ graphql, actions }) => {
         paginationTotalCount: totalCount,
         postsPerPage: config.siteMetadata.postsPerPage,
         before,
-        url: `${process.env.GATSBY_SITE_URL}${pagePath === "/" ? "" : pagePath}`
+        url: fullUrl
       }
     });
     hasNextPage = pageInfo.hasNextPage;

@@ -3,14 +3,9 @@ import Navbar from "./Navbar";
 import PropTypes from "prop-types";
 import { Link } from "gatsby";
 
-function Header({
-  title,
-  location,
-  subtitle = null,
-  backgroundImageUrl = null
-}) {
+function Header({ title, location, subtitle = null }) {
   let headerContent;
-  let classNames;
+  let classNames = "";
   // on Homepage, blog title must be a h1
   if (location.pathname === "/") {
     headerContent = (
