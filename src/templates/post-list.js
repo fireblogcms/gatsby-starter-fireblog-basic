@@ -109,7 +109,7 @@ export const pageQuery = graphql`
             }
             gatsbyImage {
               childImageSharp {
-                fluid(maxWidth: 400, maxHeight: 350) {
+                fluid(maxWidth: 600, maxHeight: 400) {
                   ...GatsbyImageSharpFluid_withWebp
                   presentationWidth
                 }
