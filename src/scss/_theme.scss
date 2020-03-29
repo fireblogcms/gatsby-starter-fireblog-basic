@@ -147,8 +147,6 @@ aside {
   }
 }
 // Added rules to make HTML tables responsive
-@media screen and (max-width: 768px){
  .content .table{
     overflow: scroll;
-  }
-}
+ }
