@@ -20,7 +20,7 @@ function RecentPosts({ location }) {
               }
               gatsbyImage {
                 childImageSharp {
-                  fluid(maxWidth: 200, maxHeight: 200) {
+                  fluid(maxWidth: 300, maxHeight: 200) {
                     ...GatsbyImageSharpFluid_withWebp
                   }
                 }
