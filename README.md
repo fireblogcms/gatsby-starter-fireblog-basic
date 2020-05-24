@@ -1,6 +1,6 @@
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 
-# [BETA] Firestarter: a Gatsby's blog starter for Fireblog 🔥 with PWA support
+# Firestarter: a Gatsby's blog starter for Fireblog 🔥 with PWA support
 
 Combine Gatbsy (A modern static site generator ideal for JAMstack architectures) and Fireblog to create a new blog experience : a super fast and simple back-office with a super fast and modern front-end !
 
