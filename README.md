@@ -8,15 +8,10 @@ Fireblog is a new headless CMS fully dedicated to blogging, you can try it here 
 
 This starter has been forked from [here](https://github.com/gatsbyjs/gatsby-starter-blog) and here [here](https://github.com/tomoyukikashiro/gatsby-starter-blog-amp-to-pwa) , thanks guys for your awesome work !
 
-## AMP to PWA (WIP)
-
-This starter has AMP to PWA Strategy (a.k.a. AMP as entry point into your PWA). Please check [original blog](https://www.ampproject.org/docs/integration/pwa-amp#amp-as-entry-point-into-your-pwa) for more detail.
-
 ## Features
 
 - Pagination
 - PWA (Progessive Web App), offline mode.
-- (working on it) AMP support (Accelerated Mobile Page, a google web component framework)
 - Images optimization with gatsby-image when possible
 - Responsive
 - Use your own logo and colors super easily with Sass & Bulma (https://bulma.io). See section "Customize for your brand"
