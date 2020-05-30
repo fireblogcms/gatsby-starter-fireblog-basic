@@ -17,7 +17,7 @@ function PostListTemplate({ data, location, pageContext }) {
       headerTitle={blog.name}
       headerSubtitle={blog.description}
     >
-      <HTMLMetadata location={location} metadata={blog.HTMLMetadata} />
+      <HTMLMetadata title={blog.name} description={blog.description} />
       <div className="post-list">
         {edges.map(edge => {
           return (

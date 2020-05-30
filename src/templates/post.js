@@ -10,6 +10,8 @@ function PostTemplate({ data, location }) {
       <PostDetail
         blog={blog}
         post={post}
+        title={post.title}
+        description={post.teaser}
         siteMetadata={siteMetadata}
         location={location}
       />

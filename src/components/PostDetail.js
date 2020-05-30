@@ -5,7 +5,15 @@ import HTMLMetadata from "./HTMLMetadata";
 import ClockIcon from "./ClockIcon";
 import PropTypes from "prop-types";
 
-function PostDetail({ post, blog, location, siteMetadata, preview = false }) {
+function PostDetail({
+  description,
+  blog,
+  post,
+  title,
+  location,
+  siteMetadata,
+  preview = false
+}) {
   const { displayAuthor } = siteMetadata;
   const contentRef = useRef();
   useEffect(() => {
@@ -23,7 +31,11 @@ function PostDetail({ post, blog, location, siteMetadata, preview = false }) {
       headerTitle={blog.name}
       headerSubtitle={blog.description}
     >
-      <HTMLMetadata metadata={post.HTMLMetadata} location={location} />
+      <HTMLMetadata
+        title={title}
+        description={description}
+        location={location}
+      />
       <div className="post-detail">
         <h1 className="title is-1">{post.title}</h1>
         <div className="date">
