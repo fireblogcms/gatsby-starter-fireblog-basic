@@ -38,10 +38,6 @@ export const pageQuery = graphql`
         }
       }
       post(slug: $slug) {
-        HTMLMetadata(url: $url) {
-          title
-          meta
-        }
         title
         publishedAt
         teaser

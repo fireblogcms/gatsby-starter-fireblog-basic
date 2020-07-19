@@ -90,10 +90,6 @@ export const pageQuery = graphql`
           url
           alt
         }
-        HTMLMetadata(url: $url) {
-          title
-          meta
-        }
       }
       posts(last: $postsPerPage, before: $before) {
         edges {
