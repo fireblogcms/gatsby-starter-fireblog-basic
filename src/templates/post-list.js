@@ -70,11 +70,7 @@ function PostListTemplate({ data, location, pageContext }) {
 export default PostListTemplate;
 
 export const pageQuery = graphql`
-  query PostListQuery(
-    $postsPerPage: Int!
-    $before: Fireblog_Cursor!
-    $url: String!
-  ) {
+  query PostListQuery($postsPerPage: Int!, $before: Fireblog_Cursor!) {
     site {
       siteMetadata {
         postsPerPage

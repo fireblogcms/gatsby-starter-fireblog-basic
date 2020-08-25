@@ -22,7 +22,7 @@ function PostTemplate({ data, location }) {
 export default PostTemplate;
 
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!, $url: String!) {
+  query BlogPostBySlug($slug: String!) {
     site {
       siteMetadata {
         displayAuthor
