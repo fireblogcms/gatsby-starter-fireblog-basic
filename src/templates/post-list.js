@@ -3,7 +3,6 @@ import { graphql, Link } from "gatsby";
 import Layout from "../components/Layout";
 import HTMLMetadata from "../components/HTMLMetadata";
 import Pagination from "../components/Pagination";
-import ImgNonStreched from "../components/ImgNonStreched";
 import ClockIcon from "../components/ClockIcon";
 
 function PostListTemplate({ data, location, pageContext }) {
@@ -27,10 +26,7 @@ function PostListTemplate({ data, location, pageContext }) {
               {post.image && (
                 <div className="column is-one-third">
                   <Link to={`/post/${post.slug}/`}>
-                    <ImgNonStreched
-                      fluid={post.image.url}
-                      alt={post.image.alt}
-                    />
+                    <img src={post.image.url} alt={post.image.alt} />
                   </Link>
                 </div>
               )}

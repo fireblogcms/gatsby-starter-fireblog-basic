@@ -1,7 +1,6 @@
 const path = require(`path`);
 require("dotenv").config();
 const config = require("./gatsby-config");
-const { createRemoteFileNode } = require(`gatsby-source-filesystem`);
 
 /**
  * Create programmatically static pages for
@@ -11,7 +10,6 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage, createRedirect } = actions;
   const blogPost = path.resolve(`./src/templates/post.js`);
   const blogPostList = path.resolve(`./src/templates/post-list.js`);
-  console.log("config.siteMetadata", config.siteMetadata);
 
   let hasNextPage = true;
   let page = 1;

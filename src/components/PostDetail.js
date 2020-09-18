@@ -1,5 +1,4 @@
 import React from "react";
-import ImgNonStreched from "./ImgNonStreched";
 import Layout from "./Layout";
 import HTMLMetadata from "./HTMLMetadata";
 import ClockIcon from "./ClockIcon";
@@ -34,9 +33,9 @@ function PostDetail({
           </span>
           {new Date(post.publishedAt).toLocaleDateString()}
         </div>
-        {post.image.url && !preview && (
+        {post.image.url && (
           <div className="post-image">
-            <ImgNonStreched fluid={post.image.url} alt={post.image.alt} />
+            <img src={post.image.url} alt={post.image.alt} />
           </div>
         )}
         {post.image.url && preview && (
