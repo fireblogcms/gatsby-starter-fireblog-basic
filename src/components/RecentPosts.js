@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "gatsby";
-import Img from "gatsby-image";
 import classNames from "classnames";
 import PropTypes from "prop-types";
 
@@ -20,11 +19,11 @@ function RecentPosts({ location, posts }) {
               <div className="columns is-mobile">
                 <div className="column is-one-quarter">
                   <div className="image">
-                    {post.imagePostList && (
+                    {post.thumbnail && (
                       <Link to={`/post/${post.slug}/`}>
-                        <Img
-                          src={post.imagePostList.url}
-                          alt={post.imagePostList.alt}
+                        <img
+                          src={post.thumbnail.url}
+                          alt={post.thumbnail.alt}
                         />
                       </Link>
                     )}

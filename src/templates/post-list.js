@@ -4,6 +4,7 @@ import Layout from "../components/Layout";
 import HTMLMetadata from "../components/HTMLMetadata";
 import Pagination from "../components/Pagination";
 import ClockIcon from "../components/ClockIcon";
+import { recentPosts } from "../utils/graphQLFragments";
 
 function PostListTemplate({ data, location, pageContext }) {
   const blog = data.fireblog.blog;
@@ -23,13 +24,10 @@ function PostListTemplate({ data, location, pageContext }) {
         {posts.map(post => {
           return (
             <div className="post columns" key={post.slug}>
-              {post.imageThumbnail && (
+              {post.thumbnail && (
                 <div className="column is-one-third">
                   <Link to={`/post/${post.slug}/`}>
-                    <img
-                      src={post.imageThumbnail.url}
-                      alt={post.imageThumbnail.alt}
-                    />
+                    <img src={post.thumbnail.url} alt={post.thumbnail.alt} />
                   </Link>
                 </div>
               )}
@@ -75,7 +73,6 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         postsPerPage
-        displayAuthor
         readMoreText
       }
     }
@@ -94,21 +91,7 @@ export const pageQuery = graphql`
         filter: { blog: { eq: $blog } }
         sort: { publishedAt: desc }
       ) {
-        items {
-          title
-          slug
-          publishedAt
-          imagePostList: image(
-            w: 400
-            h: 220
-            fit: crop
-            crop: center
-            auto: [compress, format]
-          ) {
-            url
-            alt
-          }
-        }
+        ...recentPosts
       }
       posts(
         itemsPerPage: $postsPerPage
@@ -123,13 +106,11 @@ export const pageQuery = graphql`
           hasPreviousPage
         }
         items {
-          teaser
-          slug
           title
-          content
+          slug
+          teaser
           publishedAt
-          updatedAt
-          imageThumbnail: image(
+          thumbnail: image(
             w: 300
             h: 250
             fit: crop

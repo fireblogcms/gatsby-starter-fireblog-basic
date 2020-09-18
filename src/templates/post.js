@@ -1,6 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
 import PostDetail from "../components/PostDetail";
+import { recentPosts } from "../utils/graphQLFragments";
 
 function PostTemplate({ data, location }) {
   const { blog, post, recentPosts } = data.fireblog;
@@ -44,21 +45,7 @@ export const pageQuery = graphql`
         filter: { blog: { eq: $blog } }
         sort: { publishedAt: desc }
       ) {
-        items {
-          title
-          slug
-          publishedAt
-          imagePostList: image(
-            w: 400
-            h: 220
-            fit: crop
-            crop: center
-            auto: [compress, format]
-          ) {
-            url
-            alt
-          }
-        }
+        ...recentPosts
       }
       post(filter: { slug: { eq: $slug }, blog: { eq: $blog } }) {
         title
