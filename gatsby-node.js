@@ -54,11 +54,12 @@ exports.createPages = async ({ graphql, actions }) => {
     let fullUrl = `${process.env.GATSBY_SITE_URL}${
       pagePath === "/" ? "" : pagePath
     }`;
+
     createPage({
       path: pagePath,
       component: blogPostList,
       context: {
-        paginationTotalCount: pagination.totalItems,
+        pagination,
         postsPerPage: config.siteMetadata.postsPerPage,
         blog: process.env.GATSBY_BLOG_ID,
         page: page,

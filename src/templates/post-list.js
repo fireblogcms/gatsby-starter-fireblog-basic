@@ -67,7 +67,7 @@ function PostListTemplate({ data, location, pageContext }) {
         })}
         <Pagination
           location={location}
-          totalResults={pageContext.paginationTotalCount}
+          totalItems={parseInt(pageContext.pagination.totalItems)}
           resultsPerPage={postsPerPage}
         />
       </div>
