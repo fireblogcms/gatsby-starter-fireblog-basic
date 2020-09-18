@@ -19,7 +19,12 @@ function PostListTemplate({ data, location, pageContext }) {
       headerTitle={blog.name}
       headerSubtitle={blog.description}
     >
-      <HTMLMetadata title={blog.name} description={blog.description} />
+      <HTMLMetadata
+        location={location}
+        title={blog.name}
+        image={blog.image ? blog.image.url : null}
+        description={blog.description}
+      />
       <div className="post-list">
         {posts.map(post => {
           return (

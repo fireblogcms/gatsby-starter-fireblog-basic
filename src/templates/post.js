@@ -10,8 +10,6 @@ function PostTemplate({ data, location }) {
       <PostDetail
         blog={blog}
         post={post}
-        title={post.title}
-        description={post.teaser}
         location={location}
         recentPosts={recentPosts.items}
       />
@@ -45,18 +43,8 @@ export const pageQuery = graphql`
         publishedAt
         teaser
         content
-        image {
-          url
-          alt
-        }
         publishedAt
-        imagePostList: image(
-          w: 400
-          h: 220
-          fit: crop
-          crop: center
-          auto: [compress, format]
-        ) {
+        image(w: 900, fit: crop, crop: center, auto: [compress, format]) {
           url
           alt
         }

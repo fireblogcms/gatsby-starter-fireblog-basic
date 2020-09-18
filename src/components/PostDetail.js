@@ -4,15 +4,7 @@ import HTMLMetadata from "./HTMLMetadata";
 import ClockIcon from "./ClockIcon";
 import PropTypes from "prop-types";
 
-function PostDetail({
-  description,
-  blog,
-  post,
-  title,
-  location,
-  preview = false,
-  recentPosts
-}) {
+function PostDetail({ blog, post, location, recentPosts }) {
   return (
     <Layout
       recentPosts={recentPosts}
@@ -21,9 +13,10 @@ function PostDetail({
       headerSubtitle={blog.description}
     >
       <HTMLMetadata
-        title={title}
-        description={description}
+        title={post.title}
+        description={post.teaser}
         location={location}
+        image={post.image.url}
       />
       <div className="post-detail">
         <h1 className="title is-1">{post.title}</h1>
@@ -33,14 +26,9 @@ function PostDetail({
           </span>
           {new Date(post.publishedAt).toLocaleDateString()}
         </div>
-        {post.image.url && (
+        {post.image && (
           <div className="post-image">
-            <img src={post.image.url} alt={post.image.alt} />
-          </div>
-        )}
-        {post.image.url && preview && (
-          <div className="post-image">
-            <img src={post.image.url} alt={post.image.alt} />
+            <img loading="lazy" src={post.image.url} alt={post.image.alt} />
           </div>
         )}
         <div
