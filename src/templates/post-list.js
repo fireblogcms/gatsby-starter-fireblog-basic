@@ -7,10 +7,10 @@ import ClockIcon from "../components/ClockIcon";
 
 function PostListTemplate({ data, location, pageContext }) {
   const blog = data.fireblog.blog;
+  const posts = data.fireblog.posts.items;
+  const recentPosts = data.fireblog.recentPosts.items;
   const { postsPerPage, readMoreText } = data.site.siteMetadata;
 
-  const { items: posts } = data.fireblog.posts;
-  const recentPosts = data.fireblog.recentPosts.items;
   return (
     <Layout
       recentPosts={recentPosts}
@@ -23,12 +23,12 @@ function PostListTemplate({ data, location, pageContext }) {
         {posts.map(post => {
           return (
             <div className="post columns" key={post.slug}>
-              {post.imagePostList && (
+              {post.imageThumbnail && (
                 <div className="column is-one-third">
                   <Link to={`/post/${post.slug}/`}>
                     <img
-                      src={post.imagePostList.url}
-                      alt={post.imagePostList.alt}
+                      src={post.imageThumbnail.url}
+                      alt={post.imageThumbnail.alt}
                     />
                   </Link>
                 </div>
@@ -129,9 +129,9 @@ export const pageQuery = graphql`
           content
           publishedAt
           updatedAt
-          imagePostList: image(
-            w: 400
-            h: 220
+          imageThumbnail: image(
+            w: 300
+            h: 250
             fit: crop
             crop: center
             auto: [compress, format]
