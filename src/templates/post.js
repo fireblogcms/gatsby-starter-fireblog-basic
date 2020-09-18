@@ -14,6 +14,7 @@ function PostTemplate({ data, location }) {
         description={post.teaser}
         siteMetadata={siteMetadata}
         location={location}
+        recentPosts={recentPosts}
       />
     </div>
   );
@@ -22,14 +23,14 @@ function PostTemplate({ data, location }) {
 export default PostTemplate;
 
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
+  query BlogPostBySlug($slug: String!, $blog: ID!) {
     site {
       siteMetadata {
         displayAuthor
       }
     }
     fireblog {
-      blog {
+      blog(filter: { _id: { eq: $blog } }) {
         name
         description
         image {
@@ -37,7 +38,29 @@ export const pageQuery = graphql`
           url
         }
       }
-      post(slug: $slug) {
+      recentPosts: posts(
+        itemsPerPage: 5
+        page: 1
+        filter: { blog: { eq: $blog } }
+        sort: { publishedAt: desc }
+      ) {
+        items {
+          title
+          slug
+          publishedAt
+          imagePostList: image(
+            w: 400
+            h: 220
+            fit: crop
+            crop: center
+            auto: [compress, format]
+          ) {
+            url
+            alt
+          }
+        }
+      }
+      post(filter: { slug: { eq: $slug } }) {
         title
         publishedAt
         teaser
@@ -46,19 +69,7 @@ export const pageQuery = graphql`
           url
           alt
         }
-        gatsbyImage {
-          childImageSharp {
-            fluid(maxWidth: 1000) {
-              ...GatsbyImageSharpFluid_withWebp
-              presentationWidth
-            }
-          }
-        }
         publishedAt
-        author {
-          name
-          picture
-        }
       }
     }
   }

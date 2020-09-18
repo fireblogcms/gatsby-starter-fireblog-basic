@@ -62,6 +62,7 @@ exports.createPages = async ({ graphql, actions }) => {
       context: {
         paginationTotalCount: pagination.totalItems,
         postsPerPage: config.siteMetadata.postsPerPage,
+        blog: process.env.GATSBY_BLOG_ID,
         page: page,
         url: fullUrl
       }
@@ -78,6 +79,7 @@ exports.createPages = async ({ graphql, actions }) => {
         path: pagePath,
         component: blogPost,
         context: {
+          blog: process.env.GATSBY_BLOG_ID,
           slug: post.slug,
           url: `${process.env.GATSBY_SITE_URL}${pagePath}`
         }

@@ -4,7 +4,13 @@ import RecentPosts from "./RecentPosts";
 import Socials from "./Socials";
 import Header from "./Header";
 
-function Layout({ children, headerTitle, headerSubtitle, location }) {
+function Layout({
+  children,
+  headerTitle,
+  headerSubtitle,
+  location,
+  recentPosts
+}) {
   return (
     <div className="layout">
       <Header
@@ -22,7 +28,7 @@ function Layout({ children, headerTitle, headerSubtitle, location }) {
           <div className="column is-one-third">
             <aside>
               <section className="section">
-                <RecentPosts location={location} />
+                <RecentPosts location={location} posts={recentPosts} />
                 <Socials />
               </section>
             </aside>
@@ -45,7 +51,8 @@ Layout.propTypes = {
   headerTitle: PropTypes.string.isRequired,
   headerSubtitle: PropTypes.string,
   location: PropTypes.object.isRequired,
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
+  recentPosts: PropTypes.array.isRequired
 };
 
 export default Layout;

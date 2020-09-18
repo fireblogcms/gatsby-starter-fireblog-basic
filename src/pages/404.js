@@ -4,9 +4,8 @@ import HTMLMetadata from "../components/HTMLMetadata";
 import { Link } from "gatsby";
 
 function NotFoundPage({ data, location }) {
-  const title = data.fireblog.blog.name;
   return (
-    <Layout location={location} headerTitle={title}>
+    <Layout location={location} headerTitle="404 Not Found">
       <HTMLMetadata metadata={{ title: "404: Not Found" }} />
       <h1 className="title is-1">PAGE NOT FOUND</h1>
       <img src="https://media.giphy.com/media/KKOMG9EB7VqBq/giphy.gif" />
@@ -20,13 +19,3 @@ function NotFoundPage({ data, location }) {
 }
 
 export default NotFoundPage;
-
-export const pageQuery = graphql`
-  query {
-    fireblog {
-      blog {
-        name
-      }
-    }
-  }
-`;

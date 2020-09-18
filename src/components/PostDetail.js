@@ -15,6 +15,7 @@ function PostDetail({
 }) {
   return (
     <Layout
+      recentPosts={recentPosts}
       location={location}
       headerTitle={blog.name}
       headerSubtitle={blog.description}
@@ -56,7 +57,8 @@ function PostDetail({
 
 PostDetail.propTypes = {
   blog: PropTypes.object.isRequired,
-  location: PropTypes.object.isRequired
+  location: PropTypes.object.isRequired,
+  recentPosts: PropTypes.array.isRequired
 };
 
 export default PostDetail;

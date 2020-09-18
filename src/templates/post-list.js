@@ -10,9 +10,10 @@ function PostListTemplate({ data, location, pageContext }) {
   const blog = data.fireblog.blog;
   const { postsPerPage, readMoreText } = data.site.siteMetadata;
 
-  const { pagination, items: posts } = data.fireblog.posts;
+  const { items: posts } = data.fireblog.posts;
   return (
     <Layout
+      recentPosts={recentPosts}
       location={location}
       headerTitle={blog.name}
       headerSubtitle={blog.description}
@@ -70,7 +71,7 @@ function PostListTemplate({ data, location, pageContext }) {
 export default PostListTemplate;
 
 export const pageQuery = graphql`
-  query PostListQuery($postsPerPage: Int!, $page: Int!) {
+  query PostListQuery($postsPerPage: Int!, $page: Int!, $blog: ID!) {
     site {
       siteMetadata {
         postsPerPage
@@ -79,7 +80,7 @@ export const pageQuery = graphql`
       }
     }
     fireblog {
-      blog {
+      blog(filter: { _id: { eq: $blog } }) {
         name
         description
         image {
@@ -87,7 +88,34 @@ export const pageQuery = graphql`
           alt
         }
       }
-      posts(itemsPerPage: $postsPerPage, page: $page) {
+      recentPosts: posts(
+        itemsPerPage: 5
+        page: 1
+        filter: { blog: { eq: $blog } }
+        sort: { publishedAt: desc }
+      ) {
+        items {
+          title
+          slug
+          publishedAt
+          imagePostList: image(
+            w: 400
+            h: 220
+            fit: crop
+            crop: center
+            auto: [compress, format]
+          ) {
+            url
+            alt
+          }
+        }
+      }
+      posts(
+        itemsPerPage: $postsPerPage
+        page: $page
+        filter: { blog: { eq: $blog } }
+        sort: { publishedAt: desc }
+      ) {
         pagination {
           totalItems
           totalPages
