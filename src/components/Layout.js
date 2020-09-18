@@ -25,14 +25,16 @@ function Layout({
               <main>{children}</main>
             </section>
           </div>
-          <div className="column is-one-third">
-            <aside>
-              <section className="section">
-                <RecentPosts location={location} posts={recentPosts} />
-                <Socials />
-              </section>
-            </aside>
-          </div>
+          {recentPosts && (
+            <div className="column is-one-third">
+              <aside>
+                <section className="section">
+                  <RecentPosts location={location} posts={recentPosts} />
+                  <Socials />
+                </section>
+              </aside>
+            </div>
+          )}
         </div>
       </div>
 
