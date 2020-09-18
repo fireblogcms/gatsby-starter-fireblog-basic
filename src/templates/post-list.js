@@ -10,7 +10,7 @@ function PostListTemplate({ data, location, pageContext }) {
   const blog = data.fireblog.blog;
   const { postsPerPage, readMoreText } = data.site.siteMetadata;
 
-  const edges = data.fireblog.posts.edges;
+  const { pagination, items: posts } = data.fireblog.posts;
   return (
     <Layout
       location={location}
@@ -19,14 +19,14 @@ function PostListTemplate({ data, location, pageContext }) {
     >
       <HTMLMetadata title={blog.name} description={blog.description} />
       <div className="post-list">
-        {edges.map(edge => {
+        {posts.map(post => {
           return (
-            <div className="post columns" key={edge.node.slug}>
-              {edge.node.gatsbyImage && (
+            <div className="post columns" key={post.slug}>
+              {post.image && (
                 <div className="column is-one-third">
-                  <Link to={`/post/${edge.node.slug}/`}>
+                  <Link to={`/post/${post.slug}/`}>
                     <ImgNonStreched
-                      fluid={edge.node.gatsbyImage.childImageSharp.fluid}
+                      fluid={post.image.url}
                       alt={edge.node.image.alt}
                     />
                   </Link>
@@ -34,22 +34,22 @@ function PostListTemplate({ data, location, pageContext }) {
               )}
               <div className="column">
                 <h2 className="title is-3">
-                  <Link to={`/post/${edge.node.slug}/`}>{edge.node.title}</Link>
+                  <Link to={`/post/${post.slug}/`}>{post.title}</Link>
                 </h2>
                 <div className="date">
                   <small>
                     <span className="date-clock">
                       <ClockIcon />
                     </span>
-                    {new Date(edge.node.publishedAt).toLocaleDateString()}
+                    {new Date(post.publishedAt).toLocaleDateString()}
                   </small>
                 </div>
                 <div className="post-teaser content">
-                  <p>{edge.node.teaser}</p>
+                  <p>{post.teaser}</p>
                 </div>
                 <Link
                   className="read-more button is-light"
-                  to={`/post/${edge.node.slug}/`}
+                  to={`/post/${post.slug}/`}
                 >
                   {readMoreText}
                 </Link>
@@ -70,7 +70,7 @@ function PostListTemplate({ data, location, pageContext }) {
 export default PostListTemplate;
 
 export const pageQuery = graphql`
-  query PostListQuery($postsPerPage: Int!, $before: Fireblog_Cursor!) {
+  query PostListQuery($postsPerPage: Int!, $page: Int!) {
     site {
       siteMetadata {
         postsPerPage
@@ -87,26 +87,33 @@ export const pageQuery = graphql`
           alt
         }
       }
-      posts(last: $postsPerPage, before: $before) {
-        edges {
-          node {
-            publishedAt
-            updatedAt
-            teaser
-            slug
-            title
-            image {
-              url
-              alt
-            }
-            gatsbyImage {
-              childImageSharp {
-                fluid(maxWidth: 600, maxHeight: 400) {
-                  ...GatsbyImageSharpFluid_withWebp
-                  presentationWidth
-                }
-              }
-            }
+      posts(itemsPerPage: $postsPerPage, page: $page) {
+        pagination {
+          totalItems
+          totalPages
+          hasNextPage
+          hasPreviousPage
+        }
+        items {
+          teaser
+          slug
+          title
+          content
+          publishedAt
+          updatedAt
+          image(auto: [compress, format]) {
+            url
+            alt
+          }
+          imagePostList: image(
+            w: 400
+            h: 220
+            fit: crop
+            crop: center
+            auto: [compress, format]
+          ) {
+            url
+            alt
           }
         }
       }

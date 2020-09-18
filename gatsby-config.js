@@ -100,13 +100,6 @@ config.plugins = [
   // gatsby-plugin-offline MUST BE USED AFTER MANIFEST !
   `gatsby-plugin-offline`,
   `gatsby-plugin-react-helmet`,
-  {
-    resolve: "gatsby-plugin-load-script",
-    options: {
-      disable: !process.env.GATSBY_IFRAMELY_API_KEY, // When do you want to disable it ?
-      src: `https://cdn.iframe.ly/embed.js?api_key=${process.env.GATSBY_IFRAMELY_API_KEY}`
-    }
-  },
   // Add after these plugins if used
   {
     resolve: `gatsby-plugin-purgecss`,

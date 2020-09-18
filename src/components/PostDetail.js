@@ -11,20 +11,8 @@ function PostDetail({
   post,
   title,
   location,
-  siteMetadata,
   preview = false
 }) {
-  const { displayAuthor } = siteMetadata;
-  const contentRef = useRef();
-  useEffect(() => {
-    // display rich links preview with iframely, if here is a iframely key
-    if (window.iframely && process.env.GATSBY_IFRAMELY_API_KEY) {
-      contentRef.current.querySelectorAll("oembed[url]").forEach(element => {
-        window.iframely.load(element, element.attributes.url.value);
-      });
-    }
-  }, []);
-
   return (
     <Layout
       location={location}
@@ -58,16 +46,9 @@ function PostDetail({
           </div>
         )}
         <div
-          ref={contentRef}
           className="content"
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
-        {displayAuthor && (
-          <div className="post-author">
-            {post.author.picture && <img alt="" src={post.author.picture} />}
-            <span className="name">{post.author.name}</span>
-          </div>
-        )}
       </div>
     </Layout>
   );

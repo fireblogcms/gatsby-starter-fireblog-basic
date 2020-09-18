@@ -17,7 +17,7 @@ This starter has been forked from [here](https://github.com/gatsbyjs/gatsby-star
 - Use your own logo and colors super easily with Sass & Bulma (https://bulma.io). See section "Customize for your brand"
 - Google Analytics
 - Social metatags for twitter, facebook, linkedin etc
-- Preview 1900 external medias types (youtube, twitter, pinterest etc) with iframely (get your key here: https://iframely.com/) !
+- Preview 1900 external medias types (youtube, twitter, pinterest etc)
 - Responsive navigation menu.
 
 ## Getting started
