@@ -11,6 +11,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage, createRedirect } = actions;
   const blogPost = path.resolve(`./src/templates/post.js`);
   const blogPostList = path.resolve(`./src/templates/post-list.js`);
+  console.log("config.siteMetadata", config.siteMetadata);
 
   let hasNextPage = true;
   let page = 1;
@@ -19,7 +20,7 @@ exports.createPages = async ({ graphql, actions }) => {
       `
         {
           fireblog {
-            posts(itemsPerPage: ${config.siteMetadata.postsPerPage}, page: "${page}") {
+            posts(itemsPerPage: ${config.siteMetadata.postsPerPage}, page: ${page}, filter: { blog: { eq : "${process.env.GATSBY_BLOG_ID}" } }) {
               pagination {
                 totalItems
                 totalPages
@@ -47,7 +48,6 @@ exports.createPages = async ({ graphql, actions }) => {
         }
       `
     );
-
     const { pagination, items: posts } = data.fireblog.posts;
     /**
      * Create a pagination page for this post list
@@ -73,7 +73,7 @@ exports.createPages = async ({ graphql, actions }) => {
     /**
      * Create a page for each retrieved post.
      */
-    posts.items.forEach(post => {
+    posts.forEach(post => {
       const pagePath = `/post/${post.slug}/`;
       createPage({
         path: pagePath,

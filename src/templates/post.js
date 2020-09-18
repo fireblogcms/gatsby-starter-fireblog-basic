@@ -3,7 +3,7 @@ import { graphql } from "gatsby";
 import PostDetail from "../components/PostDetail";
 
 function PostTemplate({ data, location }) {
-  const { blog, post } = data.fireblog;
+  const { blog, post, recentPosts } = data.fireblog;
   const siteMetadata = data.site.siteMetadata;
   return (
     <div>
@@ -14,7 +14,7 @@ function PostTemplate({ data, location }) {
         description={post.teaser}
         siteMetadata={siteMetadata}
         location={location}
-        recentPosts={recentPosts}
+        recentPosts={recentPosts.items}
       />
     </div>
   );
@@ -60,7 +60,7 @@ export const pageQuery = graphql`
           }
         }
       }
-      post(filter: { slug: { eq: $slug } }) {
+      post(filter: { slug: { eq: $slug }, blog: { eq: $blog } }) {
         title
         publishedAt
         teaser

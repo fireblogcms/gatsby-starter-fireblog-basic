@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import ImgNonStreched from "./ImgNonStreched";
 import Layout from "./Layout";
 import HTMLMetadata from "./HTMLMetadata";
@@ -11,7 +11,8 @@ function PostDetail({
   post,
   title,
   location,
-  preview = false
+  preview = false,
+  recentPosts
 }) {
   return (
     <Layout
@@ -35,10 +36,7 @@ function PostDetail({
         </div>
         {post.image.url && !preview && (
           <div className="post-image">
-            <ImgNonStreched
-              fluid={post.gatsbyImage.childImageSharp.fluid}
-              alt={post.image.alt}
-            />
+            <ImgNonStreched fluid={post.image.url} alt={post.image.alt} />
           </div>
         )}
         {post.image.url && preview && (

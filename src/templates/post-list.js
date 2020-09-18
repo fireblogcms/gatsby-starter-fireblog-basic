@@ -11,6 +11,7 @@ function PostListTemplate({ data, location, pageContext }) {
   const { postsPerPage, readMoreText } = data.site.siteMetadata;
 
   const { items: posts } = data.fireblog.posts;
+  const recentPosts = data.fireblog.recentPosts.items;
   return (
     <Layout
       recentPosts={recentPosts}
@@ -28,7 +29,7 @@ function PostListTemplate({ data, location, pageContext }) {
                   <Link to={`/post/${post.slug}/`}>
                     <ImgNonStreched
                       fluid={post.image.url}
-                      alt={edge.node.image.alt}
+                      alt={post.image.alt}
                     />
                   </Link>
                 </div>
