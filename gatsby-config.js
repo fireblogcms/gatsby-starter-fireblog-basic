@@ -48,7 +48,6 @@ config.siteMetadata = {
 
 config.plugins = [
   `gatsby-plugin-sass`,
-  // Simple config, passing URL
   {
     resolve: "gatsby-source-graphql",
     options: {
@@ -58,15 +57,11 @@ config.plugins = [
       fieldName: "fireblog",
       // Url to query from. Use default demo blog if no env variable is found.
       url: process.env.GATSBY_FIREBLOG_GRAPHQL_ENDPOINT
-        ? process.env.GATSBY_FIREBLOG_GRAPHQL_ENDPOINT
-        : "https://api.fireblogcms.com/graphql/blog/5e0cc6b2c96420000444d376"
     }
   },
-  `gatsby-transformer-sharp`,
-  `gatsby-plugin-sharp`,
   // The web app manifest(part of the PWA specification) enabled by this plugin
   // allows users to add your site to their home screen
-  // on most mobile browsers — see here.
+  // on most mobile browsers.
   // The manifest provides configuration and icons to the phone.
   // this plugin should be listed before the offline plugin so
   // that it can cache the created manifest.webmanifest.
@@ -82,10 +77,9 @@ config.plugins = [
       display: `minimal-ui`
     }
   },
-  // gatsby-plugin-offline MUST BE USED AFTER MANIFEST !
+  // gatsby-plugin-offline MUST be user AFTER manifest !
   `gatsby-plugin-offline`,
   `gatsby-plugin-react-helmet`,
-  // Add after these plugins if used
   {
     resolve: `gatsby-plugin-purgecss`,
     options: {

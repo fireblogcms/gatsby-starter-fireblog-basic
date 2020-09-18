@@ -5,7 +5,6 @@ import { recentPosts } from "../utils/graphQLFragments";
 
 function PostTemplate({ data, location }) {
   const { blog, post, recentPosts } = data.fireblog;
-  const siteMetadata = data.site.siteMetadata;
   return (
     <div>
       <PostDetail
@@ -13,7 +12,6 @@ function PostTemplate({ data, location }) {
         post={post}
         title={post.title}
         description={post.teaser}
-        siteMetadata={siteMetadata}
         location={location}
         recentPosts={recentPosts.items}
       />
