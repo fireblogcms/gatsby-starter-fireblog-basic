@@ -24,12 +24,7 @@ function PostTemplate({ data, location }) {
 export default PostTemplate;
 
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!, $blog: ID!) {
-    site {
-      siteMetadata {
-        displayAuthor
-      }
-    }
+  query BlogPostBySlugPageQuery($slug: String!, $blog: ID!) {
     fireblog {
       blog(filter: { _id: { eq: $blog } }) {
         name

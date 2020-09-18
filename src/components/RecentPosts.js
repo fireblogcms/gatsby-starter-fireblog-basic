@@ -22,6 +22,7 @@ function RecentPosts({ location, posts }) {
                     {post.thumbnail && (
                       <Link to={`/post/${post.slug}/`}>
                         <img
+                          loading="lazy"
                           src={post.thumbnail.url}
                           alt={post.thumbnail.alt}
                         />

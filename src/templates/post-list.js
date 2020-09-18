@@ -27,7 +27,11 @@ function PostListTemplate({ data, location, pageContext }) {
               {post.thumbnail && (
                 <div className="column is-one-third">
                   <Link to={`/post/${post.slug}/`}>
-                    <img src={post.thumbnail.url} alt={post.thumbnail.alt} />
+                    <img
+                      loading="lazy"
+                      src={post.thumbnail.url}
+                      alt={post.thumbnail.alt}
+                    />
                   </Link>
                 </div>
               )}
@@ -69,7 +73,7 @@ function PostListTemplate({ data, location, pageContext }) {
 export default PostListTemplate;
 
 export const pageQuery = graphql`
-  query PostListQuery($postsPerPage: Int!, $page: Int!, $blog: ID!) {
+  query PostListPageQuery($postsPerPage: Int!, $page: Int!, $blog: ID!) {
     site {
       siteMetadata {
         postsPerPage
