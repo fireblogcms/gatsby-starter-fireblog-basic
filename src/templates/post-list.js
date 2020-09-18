@@ -23,10 +23,13 @@ function PostListTemplate({ data, location, pageContext }) {
         {posts.map(post => {
           return (
             <div className="post columns" key={post.slug}>
-              {post.image && (
+              {post.imagePostList && (
                 <div className="column is-one-third">
                   <Link to={`/post/${post.slug}/`}>
-                    <img src={post.image.url} alt={post.image.alt} />
+                    <img
+                      src={post.imagePostList.url}
+                      alt={post.imagePostList.alt}
+                    />
                   </Link>
                 </div>
               )}
@@ -126,10 +129,6 @@ export const pageQuery = graphql`
           content
           publishedAt
           updatedAt
-          image(auto: [compress, format]) {
-            url
-            alt
-          }
           imagePostList: image(
             w: 400
             h: 220

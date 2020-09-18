@@ -70,6 +70,16 @@ export const pageQuery = graphql`
           alt
         }
         publishedAt
+        imagePostList: image(
+          w: 400
+          h: 220
+          fit: crop
+          crop: center
+          auto: [compress, format]
+        ) {
+          url
+          alt
+        }
       }
     }
   }

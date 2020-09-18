@@ -20,9 +20,12 @@ function RecentPosts({ location, posts }) {
               <div className="columns is-mobile">
                 <div className="column is-one-quarter">
                   <div className="image">
-                    {post.image && (
+                    {post.imagePostList && (
                       <Link to={`/post/${post.slug}/`}>
-                        <Img fluid={post.image.url} alt={post.image.alt} />
+                        <Img
+                          src={post.imagePostList.url}
+                          alt={post.imagePostList.alt}
+                        />
                       </Link>
                     )}
                   </div>
