@@ -1,15 +1,15 @@
-import React from "react";
-import PropTypes from "prop-types";
-import RecentPosts from "./RecentPosts";
-import Socials from "./Socials";
-import Header from "./Header";
+import React from 'react';
+import PropTypes from 'prop-types';
+import RecentPosts from './RecentPosts';
+import Socials from './Socials';
+import Header from './Header';
 
 function Layout({
   children,
   headerTitle,
   headerSubtitle,
   location,
-  recentPosts
+  recentPosts,
 }) {
   return (
     <div className="layout">
@@ -54,7 +54,7 @@ Layout.propTypes = {
   headerSubtitle: PropTypes.string,
   location: PropTypes.object.isRequired,
   children: PropTypes.node.isRequired,
-  recentPosts: PropTypes.array.isRequired
+  recentPosts: PropTypes.array.isRequired,
 };
 
 export default Layout;

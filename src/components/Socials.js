@@ -1,5 +1,5 @@
-import React from "react";
-import { useStaticQuery, graphql } from "gatsby";
+import React from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
 
 function Socials() {
   const data = useStaticQuery(graphql`

@@ -5,10 +5,10 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from "react";
-import PropTypes from "prop-types";
-import { Helmet } from "react-helmet";
-import { useStaticQuery, graphql } from "gatsby";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Helmet } from 'react-helmet';
+import { useStaticQuery, graphql } from 'gatsby';
 
 function HTMLMetadata({ description, title, location, image = null }) {
   const data = useStaticQuery(graphql`
@@ -24,49 +24,49 @@ function HTMLMetadata({ description, title, location, image = null }) {
   const meta = [
     {
       name: `description`,
-      content: description
+      content: description,
     },
     {
       property: `og:url`,
-      content: location.href
+      content: location.href,
     },
     {
       property: `og:title`,
-      content: title
+      content: title,
     },
     {
       property: `og:description`,
-      content: description
+      content: description,
     },
     {
       property: `og:type`,
-      content: `website`
+      content: `website`,
     },
     {
       name: `twitter:card`,
-      content: `summary`
+      content: `summary`,
     },
     {
       name: `twitter:title`,
-      content: title
+      content: title,
     },
     {
       name: `twitter:description`,
-      content: description
-    }
+      content: description,
+    },
   ];
 
   if (image) {
     meta.push({
       property: `og:image`,
-      content: image
+      content: image,
     });
   }
 
   return (
     <Helmet
       htmlAttributes={{
-        lang: data.site.siteMetadata.lang
+        lang: data.site.siteMetadata.lang,
       }}
       title={title}
       titleTemplate={`%s | ${title}`}
@@ -81,7 +81,7 @@ HTMLMetadata.propTypes = {
   meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string.isRequired,
   location: PropTypes.object.isRequired,
-  image: PropTypes.string
+  image: PropTypes.string,
 };
 
 export default HTMLMetadata;

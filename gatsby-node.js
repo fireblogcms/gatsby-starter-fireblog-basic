@@ -1,6 +1,6 @@
 const path = require(`path`);
-require("dotenv").config();
-const config = require("./gatsby-config");
+require('dotenv').config();
+const config = require('./gatsby-config');
 
 /**
  * Create programmatically static pages for
@@ -50,9 +50,9 @@ exports.createPages = async ({ graphql, actions }) => {
     /**
      * Create a pagination page for this post list
      */
-    let pagePath = page === 1 ? "/" : `/pages/${page}/`;
+    let pagePath = page === 1 ? '/' : `/pages/${page}/`;
     let fullUrl = `${process.env.GATSBY_SITE_URL}${
-      pagePath === "/" ? "" : pagePath
+      pagePath === '/' ? '' : pagePath
     }`;
 
     createPage({
@@ -63,8 +63,8 @@ exports.createPages = async ({ graphql, actions }) => {
         postsPerPage: config.siteMetadata.postsPerPage,
         blog: process.env.GATSBY_BLOG_ID,
         page: page,
-        url: fullUrl
-      }
+        url: fullUrl,
+      },
     });
     hasNextPage = pagination.hasNextPage;
     page++;
@@ -80,8 +80,8 @@ exports.createPages = async ({ graphql, actions }) => {
         context: {
           blog: process.env.GATSBY_BLOG_ID,
           slug: post.slug,
-          url: `${process.env.GATSBY_SITE_URL}${pagePath}`
-        }
+          url: `${process.env.GATSBY_SITE_URL}${pagePath}`,
+        },
       });
     });
   }
@@ -90,7 +90,7 @@ exports.createPages = async ({ graphql, actions }) => {
     fromPath: `/pages/1`,
     isPermanent: false,
     redirectInBrowser: true,
-    toPath: `/`
+    toPath: `/`,
   });
 };
 

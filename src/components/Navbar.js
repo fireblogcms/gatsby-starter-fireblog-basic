@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import { useStaticQuery, graphql } from "gatsby";
-import MenuLink from "./MenuLink";
-import classNames from "classnames";
+import React, { useState } from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
+import MenuLink from './MenuLink';
+import classNames from 'classnames';
 
 function Navbar() {
   const data = useStaticQuery(graphql`
@@ -26,12 +26,12 @@ function Navbar() {
   const menuLinks = data.site.siteMetadata.menuLinks;
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const navBarMenuClassNames = classNames({
-    "navbar-menu": true,
-    "is-active": showMobileMenu
+    'navbar-menu': true,
+    'is-active': showMobileMenu,
   });
   const burgerClassNames = classNames({
-    "navbar-burger burger": true,
-    "is-active": showMobileMenu
+    'navbar-burger burger': true,
+    'is-active': showMobileMenu,
   });
 
   return (

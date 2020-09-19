@@ -1,8 +1,8 @@
-import React from "react";
-import Layout from "./Layout";
-import HTMLMetadata from "./HTMLMetadata";
-import ClockIcon from "./ClockIcon";
-import PropTypes from "prop-types";
+import React from 'react';
+import Layout from './Layout';
+import HTMLMetadata from './HTMLMetadata';
+import ClockIcon from './ClockIcon';
+import PropTypes from 'prop-types';
 
 function PostDetail({ blog, post, location, recentPosts }) {
   return (
@@ -43,7 +43,7 @@ function PostDetail({ blog, post, location, recentPosts }) {
 PostDetail.propTypes = {
   blog: PropTypes.object.isRequired,
   location: PropTypes.object.isRequired,
-  recentPosts: PropTypes.array.isRequired
+  recentPosts: PropTypes.array.isRequired,
 };
 
 export default PostDetail;

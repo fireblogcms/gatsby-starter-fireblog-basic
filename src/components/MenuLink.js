@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "gatsby";
+import React from 'react';
+import { Link } from 'gatsby';
 
 /**
  * MenuLink is like Link from gatbsy, but handling also

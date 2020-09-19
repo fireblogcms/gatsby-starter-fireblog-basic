@@ -1,13 +1,13 @@
-import React from "react";
-import Navbar from "./Navbar";
-import PropTypes from "prop-types";
-import { Link } from "gatsby";
+import React from 'react';
+import Navbar from './Navbar';
+import PropTypes from 'prop-types';
+import { Link } from 'gatsby';
 
 function Header({ title, location, subtitle = null }) {
   let headerContent;
-  let classNames = "";
+  let classNames = '';
   // on Homepage, blog title must be a h1
-  if (location.pathname === "/") {
+  if (location.pathname === '/') {
     headerContent = (
       <div>
         <h1 className="title is-1">{title}</h1>
@@ -18,7 +18,7 @@ function Header({ title, location, subtitle = null }) {
   // on others pages, h1 will be used by post title, so
   // blog title became a link.
   else {
-    classNames = "is-small";
+    classNames = 'is-small';
     headerContent = (
       <div>
         <div className="title is-1">
@@ -42,7 +42,7 @@ function Header({ title, location, subtitle = null }) {
 Header.propTypes = {
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string,
-  location: PropTypes.object.isRequired
+  location: PropTypes.object.isRequired,
 };
 
 export default Header;

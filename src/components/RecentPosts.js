@@ -1,13 +1,13 @@
-import React from "react";
-import { Link } from "gatsby";
-import classNames from "classnames";
-import PropTypes from "prop-types";
+import React from 'react';
+import { Link } from 'gatsby';
+import classNames from 'classnames';
+import PropTypes from 'prop-types';
 
 function RecentPosts({ location, posts }) {
   // Hide recent posts on homepage for mobile
   const classes = classNames({
-    "recent-posts": true,
-    "is-hidden-mobile": location.pathname === "/"
+    'recent-posts': true,
+    'is-hidden-mobile': location.pathname === '/',
   });
   return (
     <div className={classes}>
@@ -33,7 +33,7 @@ function RecentPosts({ location, posts }) {
                 <div className="column">
                   <div>
                     <h4 className="post-title title is-6">
-                      {" "}
+                      {' '}
                       <Link to={`/post/${post.slug}/`}>{post.title}</Link>
                     </h4>
                     <div>
@@ -54,7 +54,7 @@ function RecentPosts({ location, posts }) {
 
 RecentPosts.propTypes = {
   location: PropTypes.object.isRequired,
-  posts: PropTypes.array.isRequired
+  posts: PropTypes.array.isRequired,
 };
 
 export default RecentPosts;

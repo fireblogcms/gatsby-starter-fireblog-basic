@@ -1,4 +1,4 @@
-import { graphql } from "gatsby";
+import { graphql } from 'gatsby';
 
 export const recentPosts = graphql`
   fragment recentPosts on Fireblog_Posts {
