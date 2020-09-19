@@ -39,7 +39,7 @@ function HTMLMetadata({ description, meta, title, location, image }) {
         },
         {
           property: `og:image`,
-          content: title
+          content: image
         },
         {
           property: `og:title`,
@@ -69,11 +69,6 @@ function HTMLMetadata({ description, meta, title, location, image }) {
     />
   );
 }
-HTMLMetadata.defaultProps = {
-  lang: `en`,
-  meta: [],
-  description: ``
-};
 
 HTMLMetadata.propTypes = {
   description: PropTypes.string.isRequired,
