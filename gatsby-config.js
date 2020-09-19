@@ -6,7 +6,7 @@ config.siteMetadata = {
   // default language of your site, also used as a html attribute
   lang: "en",
   // absolute url of your site, e.g https://example.com. Required
-  // to build some links for AMP and PWA.
+  // to build some absolute links.
   siteUrl: process.env.GATSBY_SITE_URL,
   // how many posts are display per page on post list page
   postsPerPage: 20,
@@ -29,8 +29,8 @@ config.siteMetadata = {
   ],
   readMoreText: "Read more",
   followUsText: "Follow us",
-  // Used when users install your blog to their
-  // home screen on most mobile browsers
+  // name of the application when site
+  // is installed as an application (PWA)
   manifestName: "Fireblog",
   manifestShortName: "Fireblog",
 

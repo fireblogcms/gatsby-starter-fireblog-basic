@@ -1,19 +1,45 @@
 import React from "react";
 import { graphql } from "gatsby";
-import PostDetail from "../components/PostDetail";
+import Layout from "../components/Layout";
+import HTMLMetadata from "../components/HTMLMetadata";
+import ClockIcon from "../components/ClockIcon";
 import { recentPosts } from "../utils/graphQLFragments";
 
 function PostTemplate({ data, location }) {
   const { blog, post, recentPosts } = data.fireblog;
+  console.log("recentPosts", recentPosts);
   return (
-    <div>
-      <PostDetail
-        blog={blog}
-        post={post}
+    <Layout
+      recentPosts={recentPosts.items}
+      location={location}
+      headerTitle={blog.name}
+      headerSubtitle={blog.description}
+    >
+      <HTMLMetadata
+        title={post.title}
+        description={post.teaser}
         location={location}
-        recentPosts={recentPosts.items}
+        image={post.image.url}
       />
-    </div>
+      <div className="post-detail">
+        <h1 className="title is-1">{post.title}</h1>
+        <div className="date">
+          <span className="date-clock">
+            <ClockIcon />
+          </span>
+          {new Date(post.publishedAt).toLocaleDateString()}
+        </div>
+        {post.image && (
+          <div className="post-image">
+            <img loading="lazy" src={post.image.url} alt={post.image.alt} />
+          </div>
+        )}
+        <div
+          className="content"
+          dangerouslySetInnerHTML={{ __html: post.content }}
+        />
+      </div>
+    </Layout>
   );
 }
 
