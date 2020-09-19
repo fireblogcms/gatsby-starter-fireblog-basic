@@ -84,7 +84,7 @@ config.plugins = [
     resolve: `gatsby-plugin-purgecss`,
     options: {
       // protect .content class from Bulma
-      whitelistPatternsChildren: [/^content$/],
+      whitelistPatternsChildren: [/^content$/, /^pagination$/],
       develop: false, // Enable while using `gatsby develop`
     },
   },
