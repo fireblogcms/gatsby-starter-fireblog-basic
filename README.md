@@ -9,15 +9,12 @@ Fireblog is a new headless CMS fully dedicated to blogging, you can try it here 
 ## Features
 
 - Fast and SEO friendly
-- PWA (Progessive Web App), offline mode.
+- Offline mode.
 - Images optimization with fireblog API
 - Responsive
 - Pagination
 - Easy to customize with Sass & Bulma (https://bulma.io). See section "Customize for your brand"
 - Google Analytics
-- Social metatags for sharing your posts on twitter, facebook, linkedin etc
-- Automatic rich preview for + 1900 external media types (youtube, twitter, pinterest, typeform etc)
-- Responsive navigation menu.
 
 ## Getting started
 
@@ -29,36 +26,36 @@ If you have to install node, you might be interested in using _nvm_ to install a
 
 ### Installation
 
-#### 1. Download and execute Gatsby to create your own blog:
+**1. generate starter code**
 
 ```bash
 $ npx gatsby new fireblog https://github.com/fireblogcms/gatsby-starter-fireblog
 $ cd fireblog
 ```
 
-#### 2. Create a `.env` file and fill all required variables from `.env.template` file.
+**2. Create a `.env` file and fill all required variables from `.env.template` file.**
 
-Running the dev server:
+You can now run dev server:
 
 ```bash
 $ npm run develop
 ```
 
-Build the production files:
+Or build the production files:
 
 ```bash
 $ npm run build
 ```
 
-Serve your final static blog !
+Serve your final static locally
 
 ```bash
 $ npm run serve
 ```
 
-#### 3. 💫 Deploy
+**3. 💫 Deploy**
 
-Your final site is now ready to be served from "public" directory !
+After build, your blog is ready inside the "public" directory !
 
 To deploy static sites, we love to use Netlify at fireblogcms.com because it is super easy to use and comes with great addons to makes your JAMstack sites more spicy (lambdas function, forms etc).
 
