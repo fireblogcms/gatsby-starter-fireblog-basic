@@ -29,18 +29,14 @@ If you have to install node, you might be interested in using _nvm_ to install a
 
 ### Installation
 
-1. Download and execute Gatsby to create your own blog:
+#### 1. Download and execute Gatsby to create your own blog:
 
 ```bash
 $ npx gatsby new fireblog https://github.com/fireblogcms/gatsby-starter-fireblog
 $ cd fireblog
 ```
 
-2. Create a `.env` file and fill the variables from `.env.template` file.
-
-- GATSBY_SITE_URL : the absolute URL of your site. For localhost, it will be "http://localhost:8000"
-- GATSBY_FIREBLOG_GRAPHQL_ENDPOINT : url of your fireblog API. If not specified, a demo blog will be used so that you can try fireblog without creating an account.
-- GATSBY_GOOGLE_ANALYTICS_TRACKING_ID : enable google analytics stats.
+#### 2. Create a `.env` file and fill all required variables from `.env.template` file.
 
 Running the dev server:
 
@@ -54,7 +50,13 @@ Build the production files:
 $ npm run build
 ```
 
-**💫 Deploy**
+Serve your final static blog !
+
+```bash
+$ npm run serve
+```
+
+#### 3. 💫 Deploy
 
 Your final site is now ready to be served from "public" directory !
 
