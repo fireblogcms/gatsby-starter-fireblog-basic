@@ -3,53 +3,61 @@ import { graphql, Link } from "gatsby";
 import Layout from "../components/Layout";
 import HTMLMetadata from "../components/HTMLMetadata";
 import Pagination from "../components/Pagination";
-import ImgNonStreched from "../components/ImgNonStreched";
 import ClockIcon from "../components/ClockIcon";
+import { recentPosts } from "../utils/graphQLFragments";
 
 function PostListTemplate({ data, location, pageContext }) {
   const blog = data.fireblog.blog;
+  const posts = data.fireblog.posts.items;
+  const recentPosts = data.fireblog.recentPosts.items;
   const { postsPerPage, readMoreText } = data.site.siteMetadata;
 
-  const edges = data.fireblog.posts.edges;
   return (
     <Layout
+      recentPosts={recentPosts}
       location={location}
       headerTitle={blog.name}
       headerSubtitle={blog.description}
     >
-      <HTMLMetadata title={blog.name} description={blog.description} />
+      <HTMLMetadata
+        location={location}
+        title={blog.name}
+        image={blog.image ? blog.image.url : null}
+        description={blog.description}
+      />
       <div className="post-list">
-        {edges.map(edge => {
+        {posts.map(post => {
           return (
-            <div className="post columns" key={edge.node.slug}>
-              {edge.node.gatsbyImage && (
+            <div className="post columns" key={post.slug}>
+              {post.thumbnail && (
                 <div className="column is-one-third">
-                  <Link to={`/post/${edge.node.slug}/`}>
-                    <ImgNonStreched
-                      fluid={edge.node.gatsbyImage.childImageSharp.fluid}
-                      alt={edge.node.image.alt}
+                  <Link to={`/post/${post.slug}/`}>
+                    <img
+                      loading="lazy"
+                      src={post.thumbnail.url}
+                      alt={post.thumbnail.alt}
                     />
                   </Link>
                 </div>
               )}
               <div className="column">
                 <h2 className="title is-3">
-                  <Link to={`/post/${edge.node.slug}/`}>{edge.node.title}</Link>
+                  <Link to={`/post/${post.slug}/`}>{post.title}</Link>
                 </h2>
                 <div className="date">
                   <small>
                     <span className="date-clock">
                       <ClockIcon />
                     </span>
-                    {new Date(edge.node.publishedAt).toLocaleDateString()}
+                    {new Date(post.publishedAt).toLocaleDateString()}
                   </small>
                 </div>
                 <div className="post-teaser content">
-                  <p>{edge.node.teaser}</p>
+                  <p>{post.teaser}</p>
                 </div>
                 <Link
                   className="read-more button is-light"
-                  to={`/post/${edge.node.slug}/`}
+                  to={`/post/${post.slug}/`}
                 >
                   {readMoreText}
                 </Link>
@@ -59,7 +67,7 @@ function PostListTemplate({ data, location, pageContext }) {
         })}
         <Pagination
           location={location}
-          totalResults={pageContext.paginationTotalCount}
+          totalItems={parseInt(pageContext.pagination.totalItems)}
           resultsPerPage={postsPerPage}
         />
       </div>
@@ -70,16 +78,15 @@ function PostListTemplate({ data, location, pageContext }) {
 export default PostListTemplate;
 
 export const pageQuery = graphql`
-  query PostListQuery($postsPerPage: Int!, $before: Fireblog_Cursor!) {
+  query PostListPageQuery($postsPerPage: Int!, $page: Int!, $blog: ID!) {
     site {
       siteMetadata {
         postsPerPage
-        displayAuthor
         readMoreText
       }
     }
     fireblog {
-      blog {
+      blog(filter: { _id: { eq: $blog } }) {
         name
         description
         image {
@@ -87,26 +94,40 @@ export const pageQuery = graphql`
           alt
         }
       }
-      posts(last: $postsPerPage, before: $before) {
-        edges {
-          node {
-            publishedAt
-            updatedAt
-            teaser
-            slug
-            title
-            image {
-              url
-              alt
-            }
-            gatsbyImage {
-              childImageSharp {
-                fluid(maxWidth: 600, maxHeight: 400) {
-                  ...GatsbyImageSharpFluid_withWebp
-                  presentationWidth
-                }
-              }
-            }
+      recentPosts: posts(
+        itemsPerPage: 5
+        page: 1
+        filter: { blog: { eq: $blog } }
+        sort: { publishedAt: desc }
+      ) {
+        ...recentPosts
+      }
+      posts(
+        itemsPerPage: $postsPerPage
+        page: $page
+        filter: { blog: { eq: $blog } }
+        sort: { publishedAt: desc }
+      ) {
+        pagination {
+          totalItems
+          totalPages
+          hasNextPage
+          hasPreviousPage
+        }
+        items {
+          title
+          slug
+          teaser
+          publishedAt
+          thumbnail: image(
+            w: 300
+            h: 250
+            fit: crop
+            crop: center
+            auto: [compress, format]
+          ) {
+            url
+            alt
           }
         }
       }

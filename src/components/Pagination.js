@@ -3,8 +3,8 @@ import { Link } from "gatsby";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
-function Pagination({ totalResults, resultsPerPage, location }) {
-  const pagesNumber = Math.ceil(totalResults / resultsPerPage);
+function Pagination({ totalItems, resultsPerPage, location }) {
+  const pagesNumber = Math.ceil(totalItems / resultsPerPage);
   // Only one page, do not display pagination at all.
   if (pagesNumber < 2) {
     return null;
@@ -48,7 +48,7 @@ function getCurrentPage(location) {
 }
 
 Pagination.propTypes = {
-  totalResults: PropTypes.number.isRequired,
+  totalItems: PropTypes.number.isRequired,
   resultsPerPage: PropTypes.number.isRequired,
   location: PropTypes.object.isRequired
 };

@@ -1,19 +1,17 @@
 import React from "react";
 import { graphql } from "gatsby";
 import PostDetail from "../components/PostDetail";
+import { recentPosts } from "../utils/graphQLFragments";
 
 function PostTemplate({ data, location }) {
-  const { blog, post } = data.fireblog;
-  const siteMetadata = data.site.siteMetadata;
+  const { blog, post, recentPosts } = data.fireblog;
   return (
     <div>
       <PostDetail
         blog={blog}
         post={post}
-        title={post.title}
-        description={post.teaser}
-        siteMetadata={siteMetadata}
         location={location}
+        recentPosts={recentPosts.items}
       />
     </div>
   );
@@ -22,14 +20,9 @@ function PostTemplate({ data, location }) {
 export default PostTemplate;
 
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
-    site {
-      siteMetadata {
-        displayAuthor
-      }
-    }
+  query BlogPostBySlugPageQuery($slug: String!, $blog: ID!) {
     fireblog {
-      blog {
+      blog(filter: { _id: { eq: $blog } }) {
         name
         description
         image {
@@ -37,27 +30,23 @@ export const pageQuery = graphql`
           url
         }
       }
-      post(slug: $slug) {
+      recentPosts: posts(
+        itemsPerPage: 5
+        page: 1
+        filter: { blog: { eq: $blog } }
+        sort: { publishedAt: desc }
+      ) {
+        ...recentPosts
+      }
+      post(filter: { slug: { eq: $slug }, blog: { eq: $blog } }) {
         title
         publishedAt
         teaser
         content
-        image {
+        publishedAt
+        image(w: 900, fit: crop, crop: center, auto: [compress, format]) {
           url
           alt
-        }
-        gatsbyImage {
-          childImageSharp {
-            fluid(maxWidth: 1000) {
-              ...GatsbyImageSharpFluid_withWebp
-              presentationWidth
-            }
-          }
-        }
-        publishedAt
-        author {
-          name
-          picture
         }
       }
     }

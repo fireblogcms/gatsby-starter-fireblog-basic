@@ -1,7 +1,6 @@
 const path = require(`path`);
 require("dotenv").config();
 const config = require("./gatsby-config");
-const { createRemoteFileNode } = require(`gatsby-source-filesystem`);
 
 /**
  * Create programmatically static pages for
@@ -11,24 +10,35 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage, createRedirect } = actions;
   const blogPost = path.resolve(`./src/templates/post.js`);
   const blogPostList = path.resolve(`./src/templates/post-list.js`);
+
   let hasNextPage = true;
-  let before = "";
   let page = 1;
   while (hasNextPage) {
     const { data } = await graphql(
       `
         {
           fireblog {
-            posts(last: ${config.siteMetadata.postsPerPage}, before: "${before}"){
-              totalCount
-              pageInfo {
+            posts(itemsPerPage: ${config.siteMetadata.postsPerPage}, page: ${page}, filter: { blog: { eq : "${process.env.GATSBY_BLOG_ID}" } }) {
+              pagination {
+                totalItems
+                totalPages
                 hasNextPage
-                endCursor
+                hasPreviousPage
               }
-              edges {
-                node {
-                  slug
-                  title
+              items {
+                teaser
+                slug
+                title
+                content
+                publishedAt
+                updatedAt
+                image(auto:[compress,format]) {
+                  url
+                  alt
+                }
+                imagePostList:image(w:400, h:220, fit:crop, crop:center, auto:[compress,format]) {
+                  url
+                  alt
                 }
               }
             }
@@ -36,8 +46,7 @@ exports.createPages = async ({ graphql, actions }) => {
         }
       `
     );
-
-    const { pageInfo, totalCount } = data.fireblog.posts;
+    const { pagination, items: posts } = data.fireblog.posts;
     /**
      * Create a pagination page for this post list
      */
@@ -45,30 +54,32 @@ exports.createPages = async ({ graphql, actions }) => {
     let fullUrl = `${process.env.GATSBY_SITE_URL}${
       pagePath === "/" ? "" : pagePath
     }`;
+
     createPage({
       path: pagePath,
       component: blogPostList,
       context: {
-        paginationTotalCount: totalCount,
+        pagination,
         postsPerPage: config.siteMetadata.postsPerPage,
-        before,
+        blog: process.env.GATSBY_BLOG_ID,
+        page: page,
         url: fullUrl
       }
     });
-    hasNextPage = pageInfo.hasNextPage;
-    before = pageInfo.endCursor;
+    hasNextPage = pagination.hasNextPage;
     page++;
 
     /**
      * Create a page for each retrieved post.
      */
-    data.fireblog.posts.edges.forEach(edge => {
-      const pagePath = `/post/${edge.node.slug}/`;
+    posts.forEach(post => {
+      const pagePath = `/post/${post.slug}/`;
       createPage({
         path: pagePath,
         component: blogPost,
         context: {
-          slug: edge.node.slug,
+          blog: process.env.GATSBY_BLOG_ID,
+          slug: post.slug,
           url: `${process.env.GATSBY_SITE_URL}${pagePath}`
         }
       });
@@ -80,59 +91,6 @@ exports.createPages = async ({ graphql, actions }) => {
     isPermanent: false,
     redirectInBrowser: true,
     toPath: `/`
-  });
-};
-
-/**
- * Add a resolver to use Gatbsy image component on fireblog's images.
- * @see https://www.gatsbyjs.org/docs/schema-customization/#feeding-remote-images-into-gatsby-image
- */
-exports.createResolvers = ({
-  actions,
-  cache,
-  createNodeId,
-  createResolvers,
-  store,
-  reporter
-}) => {
-  const { createNode } = actions;
-  createResolvers({
-    Fireblog_Post: {
-      gatsbyImage: {
-        type: `File`,
-        resolve(source, args, context, info) {
-          if (!source.image.url) {
-            return null;
-          }
-          return createRemoteFileNode({
-            url: source.image.url,
-            store,
-            cache,
-            createNode,
-            createNodeId,
-            reporter
-          });
-        }
-      }
-    },
-    Fireblog_User: {
-      gatsbyPicture: {
-        type: `File`,
-        resolve(source, args, context, info) {
-          if (!source.picture) {
-            return null;
-          }
-          return createRemoteFileNode({
-            url: source.picture,
-            store,
-            cache,
-            createNode,
-            createNodeId,
-            reporter
-          });
-        }
-      }
-    }
   });
 };
 
