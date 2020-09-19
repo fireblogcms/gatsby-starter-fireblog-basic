@@ -43,14 +43,11 @@ config.siteMetadata = {
     twitter: "https://twitter.com/",
     facebook: "https://www.facebook.com/",
     youtube: "https://www.youtube.com/"
-  },
-
-  displayAuthor: false
+  }
 };
 
 config.plugins = [
   `gatsby-plugin-sass`,
-  // Simple config, passing URL
   {
     resolve: "gatsby-source-graphql",
     options: {
@@ -60,15 +57,11 @@ config.plugins = [
       fieldName: "fireblog",
       // Url to query from. Use default demo blog if no env variable is found.
       url: process.env.GATSBY_FIREBLOG_GRAPHQL_ENDPOINT
-        ? process.env.GATSBY_FIREBLOG_GRAPHQL_ENDPOINT
-        : "https://api.fireblogcms.com/graphql/blog/5e0cc6b2c96420000444d376"
     }
   },
-  `gatsby-transformer-sharp`,
-  `gatsby-plugin-sharp`,
   // The web app manifest(part of the PWA specification) enabled by this plugin
   // allows users to add your site to their home screen
-  // on most mobile browsers — see here.
+  // on most mobile browsers.
   // The manifest provides configuration and icons to the phone.
   // this plugin should be listed before the offline plugin so
   // that it can cache the created manifest.webmanifest.
@@ -84,30 +77,9 @@ config.plugins = [
       display: `minimal-ui`
     }
   },
-  //{
-  //  resolve: "gatsby-plugin-html2amp",
-  //  options: {
-  //    files: ["index.html", "pages/**/index.html", "post/**/index.html"],
-  //    gaConfigPath: "gaConfig.json",
-  //    dist: "public/amp",
-  //    serviceWorker: {
-  //      src: `https://${process.env.GATSBY_SITE_URL}/sw.js`,
-  //      "data-iframe-src": `https://${process.env.GATSBY_SITE_URL}/amp-install-serviceworker.html`,
-  //      layout: "nodisplay"
-  //    }
-  //  }
-  //},
-  // gatsby-plugin-offline MUST BE USED AFTER MANIFEST !
+  // gatsby-plugin-offline MUST be user AFTER manifest !
   `gatsby-plugin-offline`,
   `gatsby-plugin-react-helmet`,
-  {
-    resolve: "gatsby-plugin-load-script",
-    options: {
-      disable: !process.env.GATSBY_IFRAMELY_API_KEY, // When do you want to disable it ?
-      src: `https://cdn.iframe.ly/embed.js?api_key=${process.env.GATSBY_IFRAMELY_API_KEY}`
-    }
-  },
-  // Add after these plugins if used
   {
     resolve: `gatsby-plugin-purgecss`,
     options: {

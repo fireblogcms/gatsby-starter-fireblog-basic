@@ -10,7 +10,7 @@ import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
 
-function HTMLMetadata({ description, lang, meta, title }) {
+function HTMLMetadata({ description, meta, title, location, image }) {
   const data = useStaticQuery(graphql`
     query DefaultSEOQuery {
       site {
@@ -20,8 +20,6 @@ function HTMLMetadata({ description, lang, meta, title }) {
       }
     }
   `);
-
-  const metaDescription = description;
 
   return (
     <Helmet
@@ -33,7 +31,15 @@ function HTMLMetadata({ description, lang, meta, title }) {
       meta={[
         {
           name: `description`,
-          content: metaDescription
+          content: description
+        },
+        {
+          property: `og:url`,
+          content: location.href
+        },
+        {
+          property: `og:image`,
+          content: title
         },
         {
           property: `og:title`,
@@ -41,7 +47,7 @@ function HTMLMetadata({ description, lang, meta, title }) {
         },
         {
           property: `og:description`,
-          content: metaDescription
+          content: description
         },
         {
           property: `og:type`,
@@ -57,7 +63,7 @@ function HTMLMetadata({ description, lang, meta, title }) {
         },
         {
           name: `twitter:description`,
-          content: metaDescription
+          content: description
         }
       ].concat(meta)}
     />
@@ -70,10 +76,12 @@ HTMLMetadata.defaultProps = {
 };
 
 HTMLMetadata.propTypes = {
-  description: PropTypes.string,
-  lang: PropTypes.string,
+  description: PropTypes.string.isRequired,
+  lang: PropTypes.string.isRequired,
   meta: PropTypes.arrayOf(PropTypes.object),
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
+  location: PropTypes.object.isRequired,
+  image: PropTypes.string.isRequired
 };
 
 export default HTMLMetadata;
