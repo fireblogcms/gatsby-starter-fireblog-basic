@@ -10,7 +10,7 @@ import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
 
-function HTMLMetadata({ description, meta, title, location, image }) {
+function HTMLMetadata({ description, title, location, image = null }) {
   const data = useStaticQuery(graphql`
     query DefaultSEOQuery {
       site {
@@ -21,6 +21,48 @@ function HTMLMetadata({ description, meta, title, location, image }) {
     }
   `);
 
+  const meta = [
+    {
+      name: `description`,
+      content: description
+    },
+    {
+      property: `og:url`,
+      content: location.href
+    },
+    {
+      property: `og:title`,
+      content: title
+    },
+    {
+      property: `og:description`,
+      content: description
+    },
+    {
+      property: `og:type`,
+      content: `website`
+    },
+    {
+      name: `twitter:card`,
+      content: `summary`
+    },
+    {
+      name: `twitter:title`,
+      content: title
+    },
+    {
+      name: `twitter:description`,
+      content: description
+    }
+  ];
+
+  if (image) {
+    meta.push({
+      property: `og:image`,
+      content: image
+    });
+  }
+
   return (
     <Helmet
       htmlAttributes={{
@@ -28,44 +70,7 @@ function HTMLMetadata({ description, meta, title, location, image }) {
       }}
       title={title}
       titleTemplate={`%s | ${title}`}
-      meta={[
-        {
-          name: `description`,
-          content: description
-        },
-        {
-          property: `og:url`,
-          content: location.href
-        },
-        {
-          property: `og:image`,
-          content: image
-        },
-        {
-          property: `og:title`,
-          content: title
-        },
-        {
-          property: `og:description`,
-          content: description
-        },
-        {
-          property: `og:type`,
-          content: `website`
-        },
-        {
-          name: `twitter:card`,
-          content: `summary`
-        },
-        {
-          name: `twitter:title`,
-          content: title
-        },
-        {
-          name: `twitter:description`,
-          content: description
-        }
-      ].concat(meta)}
+      meta={meta}
     />
   );
 }
@@ -76,7 +81,7 @@ HTMLMetadata.propTypes = {
   meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string.isRequired,
   location: PropTypes.object.isRequired,
-  image: PropTypes.string.isRequired
+  image: PropTypes.string
 };
 
 export default HTMLMetadata;

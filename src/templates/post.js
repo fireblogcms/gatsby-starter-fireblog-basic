@@ -7,7 +7,6 @@ import { recentPosts } from "../utils/graphQLFragments";
 
 function PostTemplate({ data, location }) {
   const { blog, post, recentPosts } = data.fireblog;
-  console.log("recentPosts", recentPosts);
   return (
     <Layout
       recentPosts={recentPosts.items}

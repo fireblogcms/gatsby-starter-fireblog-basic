@@ -85,7 +85,6 @@ config.plugins = [
     options: {
       // protect .content class from Bulma
       whitelistPatternsChildren: [/^content$/],
-      printRejected: true, // Print removed selectors and processed file names
       develop: false // Enable while using `gatsby develop`
     }
   }

@@ -18,6 +18,7 @@ function PostListTemplate({ data, location, pageContext }) {
       location={location}
       headerTitle={blog.name}
       headerSubtitle={blog.description}
+      image={blog.image ? blog.image.url : null}
     >
       <HTMLMetadata
         location={location}
