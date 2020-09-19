@@ -38,11 +38,6 @@ function Navbar() {
     <nav className="navbar">
       <div className="container">
         <div className="navbar-brand">
-          {/*
-          <Link to={"/"} className="navbar-item">
-            <img src="/images/logo.png" alt="Logo" />
-          </Link>
-          */}
           <span
             onClick={() => setShowMobileMenu(!showMobileMenu)}
             className={burgerClassNames}
