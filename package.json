@@ -44,7 +44,6 @@
     "url": "git+https://github.com/fireblogcms/gatbsy-starter-fireblog"
   },
   "devDependencies": {
-    "amphtml-validator": "^1.0.23",
     "husky": ">=1",
     "lint-staged": ">=8",
     "prettier": "^1.19.1"
