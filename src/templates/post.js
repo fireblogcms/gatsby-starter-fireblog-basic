@@ -9,7 +9,7 @@ function PostTemplate({ data, location }) {
   const { blog, post, recentPosts } = data.fireblog;
   return (
     <Layout
-      recentPosts={recentPosts.items}
+      recentPosts={recentPosts}
       location={location}
       headerTitle={blog.name}
       headerSubtitle={blog.description}
