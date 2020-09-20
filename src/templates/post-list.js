@@ -7,7 +7,6 @@ import ClockIcon from '../components/ClockIcon';
 import { recentPosts } from '../utils/graphQLFragments';
 
 function PostListTemplate({ data, location, pageContext }) {
-  console.log('pageContext', pageContext);
   const postsCount = pageContext.postsCount;
   const blog = data.fireblog.blog;
   const posts = data.fireblog.posts;
@@ -82,7 +81,7 @@ function PostListTemplate({ data, location, pageContext }) {
 export default PostListTemplate;
 
 export const pageQuery = graphql`
-  query PostListPageQuery($limit: Int!, $blog: ID!) {
+  query PostListPageQuery($limit: Int!, $skip: Int!, $blog: ID!) {
     site {
       siteMetadata {
         postsPerPage
@@ -107,6 +106,7 @@ export const pageQuery = graphql`
       }
       posts(
         limit: $limit
+        skip: $skip
         filter: { blog: { eq: $blog } }
         sort: { publishedAt: desc }
       ) {

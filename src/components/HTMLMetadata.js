@@ -77,7 +77,6 @@ function HTMLMetadata({ description, title, location, image = null }) {
 
 HTMLMetadata.propTypes = {
   description: PropTypes.string.isRequired,
-  lang: PropTypes.string.isRequired,
   meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string.isRequired,
   location: PropTypes.object.isRequired,

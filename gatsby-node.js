@@ -76,6 +76,7 @@ exports.createPages = async ({ graphql, actions }) => {
       path: pagePath,
       component: blogPostList,
       context: {
+        skip: skip,
         limit: limit,
         postsCount: postsCount,
         blog: process.env.GATSBY_BLOG_ID,
