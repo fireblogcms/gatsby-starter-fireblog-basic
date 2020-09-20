@@ -14,7 +14,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const postsFilter = { blog: { eq: process.env.GATSBY_BLOG_ID } };
   const { data } = await graphql(
     `
-      query postsCount($filter: Fireblog_PostsFilter) {
+      query postsCount($filter: Fireblog_PostFilter) {
         fireblog {
           postsCount(filter: $filter)
         }
@@ -31,9 +31,14 @@ exports.createPages = async ({ graphql, actions }) => {
   while (page <= totalPages) {
     const { data } = await graphql(
       `
-        query posts($filter: Fireblog_PostsFilter, $limit: Int!, $skip: Int) {
+        query posts($filter: Fireblog_PostFilter, $limit: Int!, $skip: Int) {
           fireblog {
-            posts(limit: $limit, skip: $skip, filter: $filter) {
+            posts(
+              limit: $limit
+              skip: $skip
+              filter: $filter
+              sort: { publishedAt: desc }
+            ) {
               teaser
               slug
               title
@@ -89,7 +94,6 @@ exports.createPages = async ({ graphql, actions }) => {
     const { posts } = data.fireblog;
     posts.forEach(post => {
       const pagePath = `/post/${post.slug}/`;
-      console.log('creating post ' + post.title);
       createPage({
         path: pagePath,
         component: blogPost,
