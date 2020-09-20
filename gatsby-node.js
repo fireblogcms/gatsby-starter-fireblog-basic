@@ -58,10 +58,8 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       `,
-      { limit, skip, filter: postsFilter }
+      { limit, skip, filter: postsFilter, blog: process.env.GATSBY_BLOG_ID }
     );
-
-    skip = (page - 1) * limit;
 
     /**
      * Create a pagination page for this post list
@@ -91,6 +89,7 @@ exports.createPages = async ({ graphql, actions }) => {
     const { posts } = data.fireblog;
     posts.forEach(post => {
       const pagePath = `/post/${post.slug}/`;
+      console.log('creating post ' + post.title);
       createPage({
         path: pagePath,
         component: blogPost,
@@ -102,6 +101,7 @@ exports.createPages = async ({ graphql, actions }) => {
       });
     });
 
+    skip = page * limit;
     page++;
   }
 

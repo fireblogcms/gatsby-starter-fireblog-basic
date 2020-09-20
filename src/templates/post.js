@@ -4,7 +4,6 @@ import Layout from '../components/Layout';
 import HTMLMetadata from '../components/HTMLMetadata';
 import ClockIcon from '../components/ClockIcon';
 import { recentPosts } from '../utils/graphQLFragments';
-console.log('recentPosts', recentPosts);
 
 function PostTemplate({ data, location }) {
   const { blog, post, recentPosts } = data.fireblog;
