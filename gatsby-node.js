@@ -11,42 +11,58 @@ exports.createPages = async ({ graphql, actions }) => {
   const blogPost = path.resolve(`./src/templates/post.js`);
   const blogPostList = path.resolve(`./src/templates/post-list.js`);
 
-  let hasNextPage = true;
+  const postsFilter = { blog: { eq: process.env.GATSBY_BLOG_ID } };
+  const { data } = await graphql(
+    `
+      query postsCount($filter: Fireblog_PostsFilter) {
+        fireblog {
+          postsCount(filter: $filter)
+        }
+      }
+    `,
+    { filter: postsFilter }
+  );
+  const postsCount = data.fireblog.postsCount;
+
+  let limit = config.siteMetadata.postsPerPage;
   let page = 1;
-  while (hasNextPage) {
+  let skip = 0;
+  let totalPages = Math.ceil(postsCount / limit);
+  while (page <= totalPages) {
     const { data } = await graphql(
       `
-        {
+        query posts($filter: Fireblog_PostsFilter, $limit: Int!, $skip: Int) {
           fireblog {
-            posts(itemsPerPage: ${config.siteMetadata.postsPerPage}, page: ${page}, filter: { blog: { eq : "${process.env.GATSBY_BLOG_ID}" } }) {
-              pagination {
-                totalItems
-                totalPages
-                hasNextPage
-                hasPreviousPage
+            posts(limit: $limit, skip: $skip, filter: $filter) {
+              teaser
+              slug
+              title
+              content
+              publishedAt
+              updatedAt
+              image(auto: [compress, format]) {
+                url
+                alt
               }
-              items {
-                teaser
-                slug
-                title
-                content
-                publishedAt
-                updatedAt
-                image(auto:[compress,format]) {
-                  url
-                  alt
-                }
-                imagePostList:image(w:400, h:220, fit:crop, crop:center, auto:[compress,format]) {
-                  url
-                  alt
-                }
+              imagePostList: image(
+                w: 400
+                h: 220
+                fit: crop
+                crop: center
+                auto: [compress, format]
+              ) {
+                url
+                alt
               }
             }
           }
         }
-      `
+      `,
+      { limit, skip, filter: postsFilter }
     );
-    const { pagination, items: posts } = data.fireblog.posts;
+
+    skip = (page - 1) * limit;
+
     /**
      * Create a pagination page for this post list
      */
@@ -55,23 +71,23 @@ exports.createPages = async ({ graphql, actions }) => {
       pagePath === '/' ? '' : pagePath
     }`;
 
+    // create post listing page for current page.
     createPage({
       path: pagePath,
       component: blogPostList,
       context: {
-        pagination,
-        postsPerPage: config.siteMetadata.postsPerPage,
+        limit: limit,
+        postsCount: postsCount,
         blog: process.env.GATSBY_BLOG_ID,
         page: page,
         url: fullUrl,
       },
     });
-    hasNextPage = pagination.hasNextPage;
-    page++;
 
     /**
      * Create a page for each retrieved post.
      */
+    const { posts } = data.fireblog;
     posts.forEach(post => {
       const pagePath = `/post/${post.slug}/`;
       createPage({
@@ -84,6 +100,8 @@ exports.createPages = async ({ graphql, actions }) => {
         },
       });
     });
+
+    page++;
   }
 
   createRedirect({

@@ -4,6 +4,7 @@ import Layout from '../components/Layout';
 import HTMLMetadata from '../components/HTMLMetadata';
 import ClockIcon from '../components/ClockIcon';
 import { recentPosts } from '../utils/graphQLFragments';
+console.log('recentPosts', recentPosts);
 
 function PostTemplate({ data, location }) {
   const { blog, post, recentPosts } = data.fireblog;
@@ -56,8 +57,7 @@ export const pageQuery = graphql`
         }
       }
       recentPosts: posts(
-        itemsPerPage: 5
-        page: 1
+        limit: 5
         filter: { blog: { eq: $blog } }
         sort: { publishedAt: desc }
       ) {
