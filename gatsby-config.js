@@ -9,7 +9,7 @@ config.siteMetadata = {
   // to build some absolute links.
   siteUrl: process.env.GATSBY_SITE_URL,
   // how many posts are display per page on post list page
-  postsPerPage: 3,
+  postsPerPage: 20,
   // links for the top menu
   menuLinks: [
     {
