@@ -7,9 +7,10 @@ import ClockIcon from '../components/ClockIcon';
 import { recentPosts } from '../utils/graphQLFragments';
 
 function PostListTemplate({ data, location, pageContext }) {
+  const postsCount = pageContext.postsCount;
   const blog = data.fireblog.blog;
-  const posts = data.fireblog.posts.items;
-  const recentPosts = data.fireblog.recentPosts.items;
+  const posts = data.fireblog.posts;
+  const recentPosts = data.fireblog.recentPosts;
   const { postsPerPage, readMoreText } = data.site.siteMetadata;
 
   return (
@@ -66,9 +67,10 @@ function PostListTemplate({ data, location, pageContext }) {
             </div>
           );
         })}
+
         <Pagination
           location={location}
-          totalItems={parseInt(pageContext.pagination.totalItems)}
+          totalItems={postsCount}
           resultsPerPage={postsPerPage}
         />
       </div>
@@ -79,7 +81,7 @@ function PostListTemplate({ data, location, pageContext }) {
 export default PostListTemplate;
 
 export const pageQuery = graphql`
-  query PostListPageQuery($postsPerPage: Int!, $page: Int!, $blog: ID!) {
+  query PostListPageQuery($limit: Int!, $skip: Int!, $blog: ID!) {
     site {
       siteMetadata {
         postsPerPage
@@ -96,40 +98,31 @@ export const pageQuery = graphql`
         }
       }
       recentPosts: posts(
-        itemsPerPage: 5
-        page: 1
+        limit: 5
         filter: { blog: { eq: $blog } }
         sort: { publishedAt: desc }
       ) {
         ...recentPosts
       }
       posts(
-        itemsPerPage: $postsPerPage
-        page: $page
+        limit: $limit
+        skip: $skip
         filter: { blog: { eq: $blog } }
         sort: { publishedAt: desc }
       ) {
-        pagination {
-          totalItems
-          totalPages
-          hasNextPage
-          hasPreviousPage
-        }
-        items {
-          title
-          slug
-          teaser
-          publishedAt
-          thumbnail: image(
-            w: 300
-            h: 250
-            fit: crop
-            crop: center
-            auto: [compress, format]
-          ) {
-            url
-            alt
-          }
+        title
+        slug
+        teaser
+        publishedAt
+        thumbnail: image(
+          w: 300
+          h: 250
+          fit: crop
+          crop: center
+          auto: [compress, format]
+        ) {
+          url
+          alt
         }
       }
     }

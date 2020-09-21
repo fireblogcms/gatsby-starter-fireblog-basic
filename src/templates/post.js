@@ -9,7 +9,7 @@ function PostTemplate({ data, location }) {
   const { blog, post, recentPosts } = data.fireblog;
   return (
     <Layout
-      recentPosts={recentPosts.items}
+      recentPosts={recentPosts}
       location={location}
       headerTitle={blog.name}
       headerSubtitle={blog.description}
@@ -56,8 +56,7 @@ export const pageQuery = graphql`
         }
       }
       recentPosts: posts(
-        itemsPerPage: 5
-        page: 1
+        limit: 5
         filter: { blog: { eq: $blog } }
         sort: { publishedAt: desc }
       ) {
