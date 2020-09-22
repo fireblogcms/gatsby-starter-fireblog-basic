@@ -84,6 +84,7 @@ config.plugins = [
     resolve: `gatsby-plugin-purgecss`,
     options: {
       // protect .content class from Bulma
+      whitelist: ['iframely-api-container'],
       whitelistPatternsChildren: [/^content$/, /^pagination$/],
       develop: false, // Enable while using `gatsby develop`
     },
