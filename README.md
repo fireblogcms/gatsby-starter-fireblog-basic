@@ -11,7 +11,7 @@ Fireblog (https://fireblogcms.com) is a new headless CMS dedicated to blogging, 
 - Images optimization with Fireblog API
 - Responsive
 - Pagination
-- Easy to customize with Sass & Bulma (https://bulma.io). See section "Customize for your brand"
+- Easy to customize with Sass & Bulma (https://bulma.io). See section "Customize theme for your brand"
 - Google Analytics
 
 ## Getting started
@@ -20,7 +20,7 @@ Fireblog (https://fireblogcms.com) is a new headless CMS dedicated to blogging, 
 
 node.js >= 10.13 is required. Make sure you have a compatible version running `node -v` command in your terminal.
 
-If you have to install node, you might be interested in using `nvm` to install and switch easily between any node version.
+If you have to install `node`, you might be interested in using `nvm` to install and switch easily between any node version.
 
 ### Installation
 
@@ -37,7 +37,7 @@ Create a `.env` file copied from the `.env.template` file and set your environme
 cp .env.template .env
 ```
 
-You can now run dev server
+You can now run the dev server
 
 ```sh
 npm run develop
@@ -49,9 +49,9 @@ Or build the production files
 npm run build
 ```
 
-Serve your final static locally
+Serve your final static code locally
 
-```bash
+```sh
 npm run serve
 ```
 
