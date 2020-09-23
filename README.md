@@ -2,13 +2,13 @@
 
 Combine Gatbsy (a modern static site generator ideal for JAMstack architectures) and Fireblog CMS to create a new blog experience: a super fast and simple back-office with a super fast and modern front-end!
 
-Fireblog is a new headless CMS fully dedicated to blogging, you can try it here for free (one month trial): https://app.fireblogcms.com.
+Fireblog (https://fireblogcms.com) is a new headless CMS dedicated to blogging, with a very simple but powerful writing interface. Try it for free (one month trial): https://app.fireblogcms.com.
 
 ## Features
 
 - Fast and SEO friendly
 - Offline mode
-- Images optimization with fireblog API
+- Images optimization with Fireblog API
 - Responsive
 - Pagination
 - Easy to customize with Sass & Bulma (https://bulma.io). See section "Customize for your brand"
