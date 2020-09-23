@@ -59,7 +59,7 @@ npm run serve
 
 After the build, your blog is ready inside the `public` directory!
 
-To deploy static sites, we love to use Netlify at fireblogcms.com because it is super easy to use and comes with great addons to makes your JAMstack sites spicier (lambdas functions, forms etc).
+To deploy static sites, we love to use Netlify at fireblogcms.com because it is super easy to use and comes with great addons to make your JAMstack sites spicier (lambdas functions, forms etc).
 
 ## Customize theme for your brand
 
