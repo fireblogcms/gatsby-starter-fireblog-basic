@@ -1,6 +1,4 @@
-<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
-
-# A Gatsby's blog starter for Fireblog CMS 🔥 with PWA support
+# Gatsby blog starter for Fireblog CMS with PWA support
 
 Combine Gatbsy (a modern static site generator ideal for JAMstack architectures) and Fireblog CMS to create a new blog experience: a super fast and simple back-office with a super fast and modern front-end!
 
@@ -33,7 +31,11 @@ npx gatsby new fireblog https://github.com/fireblogcms/gatsby-starter-fireblog
 cd fireblog
 ```
 
-Create a `.env` file and fill all required variables from `.env.template` file
+Create a `.env` file copied from the `.env.template` file and set your environment variables
+
+```sh
+cp .env.template .env
+```
 
 You can now run dev server
 
