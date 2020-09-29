@@ -13,7 +13,6 @@ export const recentPosts = graphql`
       auto: [compress, format]
     ) {
       url
-      alt
     }
   }
 `;

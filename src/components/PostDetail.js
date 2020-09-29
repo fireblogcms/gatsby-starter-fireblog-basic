@@ -28,7 +28,7 @@ function PostDetail({ blog, post, location, recentPosts }) {
         </div>
         {post.image && (
           <div className="post-image">
-            <img loading="lazy" src={post.image.url} alt={post.image.alt} />
+            <img loading="lazy" src={post.image.url} />
           </div>
         )}
         <div

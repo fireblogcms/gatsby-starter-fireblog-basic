@@ -47,7 +47,6 @@ exports.createPages = async ({ graphql, actions }) => {
               updatedAt
               image(auto: [compress, format]) {
                 url
-                alt
               }
               imagePostList: image(
                 w: 400
@@ -57,7 +56,6 @@ exports.createPages = async ({ graphql, actions }) => {
                 auto: [compress, format]
               ) {
                 url
-                alt
               }
             }
           }

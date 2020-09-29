@@ -30,7 +30,7 @@ function PostTemplate({ data, location }) {
         </div>
         {post.image && (
           <div className="post-image">
-            <img loading="lazy" src={post.image.url} alt={post.image.alt} />
+            <img loading="lazy" src={post.image.url} />
           </div>
         )}
         <div
@@ -51,7 +51,6 @@ export const pageQuery = graphql`
         name
         description
         image {
-          alt
           url
         }
       }
@@ -70,7 +69,6 @@ export const pageQuery = graphql`
         publishedAt
         image(w: 900, fit: crop, crop: center, auto: [compress, format]) {
           url
-          alt
         }
       }
     }

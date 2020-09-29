@@ -34,11 +34,7 @@ function PostListTemplate({ data, location, pageContext }) {
               {post.thumbnail && (
                 <div className="column is-one-third">
                   <Link to={`/post/${post.slug}/`}>
-                    <img
-                      loading="lazy"
-                      src={post.thumbnail.url}
-                      alt={post.thumbnail.alt}
-                    />
+                    <img loading="lazy" src={post.thumbnail.url} />
                   </Link>
                 </div>
               )}
@@ -94,7 +90,6 @@ export const pageQuery = graphql`
         description
         image {
           url
-          alt
         }
       }
       recentPosts: posts(
@@ -122,7 +117,6 @@ export const pageQuery = graphql`
           auto: [compress, format]
         ) {
           url
-          alt
         }
       }
     }
