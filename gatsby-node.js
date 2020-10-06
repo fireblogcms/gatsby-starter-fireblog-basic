@@ -1,4 +1,5 @@
 const path = require(`path`);
+const report = require(`gatsby-cli/lib/reporter`);
 require('dotenv').config();
 const config = require('./gatsby-config');
 
@@ -22,6 +23,10 @@ exports.createPages = async ({ graphql, actions }) => {
     `,
     { filter: postsFilter }
   );
+  if (!data || !data.fireblog.postsCount) {
+    report.error(`Fireblog: no posts found for blog ${process.env.GATSBY_BLOG_ID} check your env file configuration !`)
+    return
+  }
   const postsCount = data.fireblog.postsCount;
 
   let limit = config.siteMetadata.postsPerPage;
