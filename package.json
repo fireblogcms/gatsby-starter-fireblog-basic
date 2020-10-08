@@ -1,5 +1,5 @@
 {
-  "name": "gastby-starter-fireblog-basic",
+  "name": "gatsby-starter-fireblog-basic",
   "private": true,
   "description": "A Gatbsy starter for fireblog",
   "version": "3.0.0",
@@ -11,26 +11,10 @@
     "serve": "gatsby serve"
   },
   "dependencies": {
-    "bulma": "^0.8.0",
-    "classnames": "^2.2.6",
     "gatsby": "^2.1.10",
-    "gatsby-cli": "^2.12.62",
-    "gatsby-plugin-feed": "^2.0.13",
-    "gatsby-plugin-google-analytics": "^2.0.14",
-    "gatsby-plugin-manifest": "^2.0.18",
-    "gatsby-plugin-offline": "^2.0.24",
-    "gatsby-plugin-purgecss": "^4.0.1",
-    "gatsby-plugin-react-helmet": "^3.0.6",
-    "gatsby-plugin-sass": "^2.1.26",
-    "gatsby-source-filesystem": "^2.0.20",
-    "gatsby-source-graphql": "2.1.29",
-    "graphql-tag": "^2.10.1",
-    "node-fetch": "^2.6.0",
-    "node-sass": "^4.13.0",
+    "gatsby-theme-fireblog-basic": "^3.0.0",
     "react": "^16.8.2",
-    "react-dom": "^16.8.2",
-    "react-helmet": "^5.2.0",
-    "typeface-roboto": "^0.0.75"
+    "react-dom": "^16.8.2"
   },
   "keywords": [
     "fireblog",
