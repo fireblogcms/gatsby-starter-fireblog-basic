@@ -34,7 +34,7 @@ function PostListTemplate({ data, location, pageContext }) {
               {post.thumbnail && (
                 <div className="column is-one-third">
                   <Link to={`/post/${post.slug}/`}>
-                    <img loading="lazy" src={post.thumbnail.url} />
+                    <img loading="lazy" src={post.thumbnail.url} alt="" />
                   </Link>
                 </div>
               )}
