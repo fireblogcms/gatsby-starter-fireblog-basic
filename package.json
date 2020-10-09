@@ -1,6 +1,5 @@
 {
   "name": "gatsby-starter-fireblog-basic",
-  "private": true,
   "description": "A Gatbsy starter for fireblog",
   "version": "3.0.0",
   "author": "Yann",
@@ -12,7 +11,7 @@
   },
   "dependencies": {
     "gatsby": "^2.1.10",
-    "gatsby-theme-fireblog-basic": "^3.0.0",
+    "gatsby-theme-fireblog-basic": "^3.0.3",
     "react": "^16.8.2",
     "react-dom": "^16.8.2"
   },
