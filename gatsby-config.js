@@ -28,6 +28,7 @@ module.exports = {
     ],
     readMoreText: 'Read more',
     followUsText: 'Follow us',
+    recentPostsText: 'Latest posts',
 
     // links to your social accounts.
     // @see components/socials.js
@@ -47,6 +48,7 @@ module.exports = {
         graphqlEndpoint: process.env.GATSBY_FIREBLOG_GRAPHQL_ENDPOINT, // required
         blogId: process.env.GATSBY_BLOG_ID, // required
         analyticsTrackingId: process.env.GATSBY_GOOGLE_ANALYTICS_TRACKING_ID, // optinonal
+        // blogPath: "/blog",
         manifestOptions: {
             icon: `static/images/logo.png`,
             // name of the application when site
