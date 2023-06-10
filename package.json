@@ -10,7 +10,7 @@
     "serve": "gatsby serve"
   },
   "dependencies": {
-    "gatsby": "^2.1.10",
+    "gatsby": "^4.25.7",
     "gatsby-theme-fireblog-basic": "^3.0.3",
     "react": "^16.8.2",
     "react-dom": "^16.8.2"
